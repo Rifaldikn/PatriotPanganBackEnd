@@ -6,10 +6,6 @@ var logger = require('morgan');
 var cors = require('cors');
 var mongoose =  require('mongoose');
 
-var Token  = require(__dirname + '/controllers/Token.controller');
-var UsersRouter = require(__dirname + '/routes/Users.route');
-var AuthRouter = require(__dirname + '/routes/Auth.route');
-
 var app = express();
 
 // view engine setup
@@ -23,6 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var Token  = require(__dirname + '/controllers/Token.controller');
+var PejabatsRouter = require(__dirname + '/routes/Pejabats.route');
+var AuthRouter = require(__dirname + '/routes/Auth.route');
+var AdminRouter = require(__dirname + '/routes/Admin.route');
 
 app.use('/auth', AuthRouter);
 // Checking token
@@ -39,7 +40,8 @@ app.use((req, res, next) => {
 		next();
 	}
 });
-app.use('/users', UsersRouter);
+app.use('/pejabat', PejabatsRouter);
+app.use('/admin', AdminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

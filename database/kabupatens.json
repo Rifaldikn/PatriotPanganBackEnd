@@ -1,0 +1,514 @@
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d1e"},"id_kab":"1103","id_prov":"11","nama":"KAB. ACEH TIMUR","id_jenis":"1","lat":4.5224111,"lng":97.6114217}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d1f"},"id_kab":"1104","id_prov":"11","nama":"KAB. ACEH TENGAH","id_jenis":"1","lat":4.448264099999999,"lng":96.83509989999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d20"},"id_kab":"1105","id_prov":"11","nama":"KAB. ACEH BARAT","id_jenis":"1","lat":4.454274499999999,"lng":96.15269850000001}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d21"},"id_kab":"1106","id_prov":"11","nama":"KAB. ACEH BESAR","id_jenis":"1","lat":5.4529168,"lng":95.4777811}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d22"},"id_kab":"1107","id_prov":"11","nama":"KAB. PIDIE","id_jenis":"1","lat":5.074265899999999,"lng":95.94097099999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d24"},"id_kab":"1109","id_prov":"11","nama":"KAB. SIMEULUE","id_jenis":"1","lat":2.6439724,"lng":96.02557379999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d23"},"id_kab":"1108","id_prov":"11","nama":"KAB. ACEH UTARA","id_jenis":"1","lat":4.9786331,"lng":97.2221421}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d1d"},"id_kab":"1102","id_prov":"11","nama":"KAB. ACEH TENGGARA","id_jenis":"1","lat":3.3088666,"lng":97.69822719999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d26"},"id_kab":"1111","id_prov":"11","nama":"KAB. BIREUEN","id_jenis":"1","lat":5.1086446,"lng":96.663812}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d27"},"id_kab":"1112","id_prov":"11","nama":"KAB. ACEH BARAT DAYA","id_jenis":"1","lat":3.7963426,"lng":97.0068393}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d28"},"id_kab":"1113","id_prov":"11","nama":"KAB. GAYO LUES","id_jenis":"1","lat":3.955165,"lng":97.35165579999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d29"},"id_kab":"1114","id_prov":"11","nama":"KAB. ACEH JAYA","id_jenis":"1","lat":4.7873684,"lng":95.6457951}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d2a"},"id_kab":"1115","id_prov":"11","nama":"KAB. NAGAN RAYA","id_jenis":"1","lat":4.1248406,"lng":96.49297969999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d2b"},"id_kab":"1116","id_prov":"11","nama":"KAB. ACEH TAMIANG","id_jenis":"1","lat":4.2328871,"lng":98.0028892}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d2d"},"id_kab":"1118","id_prov":"11","nama":"KAB. PIDIE JAYA","id_jenis":"1","lat":5.1548063,"lng":96.19513200000002}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d2e"},"id_kab":"1171","id_prov":"11","nama":"KOTA BANDA ACEH","id_jenis":"2","lat":5.5482904,"lng":95.3237559}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d2f"},"id_kab":"1172","id_prov":"11","nama":"KOTA SABANG","id_jenis":"2","lat":5.8926053,"lng":95.3237608}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d30"},"id_kab":"1173","id_prov":"11","nama":"KOTA LHOKSEUMAWE","id_jenis":"2","lat":5.1811638,"lng":97.14132219999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d31"},"id_kab":"1174","id_prov":"11","nama":"KOTA LANGSA","id_jenis":"2","lat":4.4725348,"lng":97.9756343}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d25"},"id_kab":"1110","id_prov":"11","nama":"KAB. ACEH SINGKIL","id_jenis":"1","lat":2.3589459,"lng":97.87216}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d32"},"id_kab":"1201","id_prov":"12","nama":"KAB. TAPANULI TENGAH","id_jenis":"1","lat":1.8493299,"lng":98.70407499999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d2c"},"id_kab":"1117","id_prov":"11","nama":"KAB. BENER MERIAH","id_jenis":"1","lat":4.7513606,"lng":96.95252239999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d1c"},"id_kab":"1101","id_prov":"11","nama":"KAB. ACEH SELATAN","id_jenis":"1","lat":3.3115056,"lng":97.35165579999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d33"},"id_kab":"1202","id_prov":"12","nama":"KAB. TAPANULI UTARA","id_jenis":"1","lat":2.0405246,"lng":99.1013498}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d37"},"id_kab":"1206","id_prov":"12","nama":"KAB. KARO","id_jenis":"1","lat":3.1052909,"lng":98.265058}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d36"},"id_kab":"1205","id_prov":"12","nama":"KAB. LANGKAT","id_jenis":"1","lat":3.8653916,"lng":98.3088441}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d38"},"id_kab":"1207","id_prov":"12","nama":"KAB. DELI SERDANG","id_jenis":"1","lat":3.4201802,"lng":98.70407499999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d39"},"id_kab":"1208","id_prov":"12","nama":"KAB. SIMALUNGUN","id_jenis":"1","lat":2.9781612,"lng":99.2785583}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d3a"},"id_kab":"1209","id_prov":"12","nama":"KAB. ASAHAN","id_jenis":"1","lat":2.8174722,"lng":99.634135}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d3b"},"id_kab":"1210","id_prov":"12","nama":"KAB. LABUHANBATU","id_jenis":"1","lat":2.3439863,"lng":100.1703257}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d34"},"id_kab":"1203","id_prov":"12","nama":"KAB. TAPANULI SELATAN","id_jenis":"1","lat":1.5774933,"lng":99.2785583}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d3e"},"id_kab":"1213","id_prov":"12","nama":"KAB. MANDAILING NATAL","id_jenis":"1","lat":0.7432371999999999,"lng":99.3673084}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d3d"},"id_kab":"1212","id_prov":"12","nama":"KAB. TOBA SAMOSIR","id_jenis":"1","lat":2.3502398,"lng":99.2785583}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d3f"},"id_kab":"1214","id_prov":"12","nama":"KAB. NIAS SELATAN","id_jenis":"1","lat":0.7086091,"lng":97.8286368}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d40"},"id_kab":"1215","id_prov":"12","nama":"KAB. PAKPAK BHARAT","id_jenis":"1","lat":2.5135376,"lng":98.2212979}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d41"},"id_kab":"1216","id_prov":"12","nama":"KAB. HUMBANG HASUNDUTAN","id_jenis":"1","lat":2.1988508,"lng":98.5721016}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d42"},"id_kab":"1217","id_prov":"12","nama":"KAB. SAMOSIR","id_jenis":"1","lat":2.6274431,"lng":98.7921836}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d43"},"id_kab":"1218","id_prov":"12","nama":"KAB. SERDANG BEDAGAI","id_jenis":"1","lat":3.3371694,"lng":99.05710889999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d45"},"id_kab":"1219","id_prov":"12","nama":"KAB. BATU BARA","id_jenis":"1","lat":3.1740979,"lng":99.5006143}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d46"},"id_kab":"1220","id_prov":"12","nama":"KAB. PADANG LAWAS UTARA","id_jenis":"1","lat":1.5758644,"lng":99.634135}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d35"},"id_kab":"1204","id_prov":"12","nama":"KAB. NIAS","id_jenis":"1","lat":1.0869444,"lng":97.7416703}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d3c"},"id_kab":"1211","id_prov":"12","nama":"KAB. DAIRI","id_jenis":"1","lat":2.8675801,"lng":98.265058}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d44"},"id_kab":"1175","id_prov":"11","nama":"KOTA SUBULUSSALAM","id_jenis":"2","lat":2.7121164,"lng":97.9157099}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d49"},"id_kab":"1224","id_prov":"12","nama":"KAB. NIAS UTARA","id_jenis":"1","lat":1.3166036,"lng":97.394882}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d4a"},"id_kab":"1225","id_prov":"12","nama":"KAB. NIAS BARAT","id_jenis":"1","lat":1.0116383,"lng":97.4814163}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d47"},"id_kab":"1221","id_prov":"12","nama":"KAB. PADANG LAWAS","id_jenis":"1","lat":1.1186977,"lng":99.8124935}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d48"},"id_kab":"1223","id_prov":"12","nama":"KAB. LABUHANBATU UTARA","id_jenis":"1","lat":2.3465638,"lng":99.8124935}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d4e"},"id_kab":"1274","id_prov":"12","nama":"KOTA TANJUNG BALAI","id_jenis":"2","lat":2.9662346,"lng":99.79854569999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d4f"},"id_kab":"1275","id_prov":"12","nama":"KOTA BINJAI","id_jenis":"2","lat":3.6135482,"lng":98.50252859999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d50"},"id_kab":"1276","id_prov":"12","nama":"KOTA TEBING TINGGI","id_jenis":"2","lat":3.3262879,"lng":99.1566855}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d51"},"id_kab":"1277","id_prov":"12","nama":"KOTA PADANGSIDIMPUAN","id_jenis":"2","lat":1.3721801,"lng":99.2730146}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d4d"},"id_kab":"1273","id_prov":"12","nama":"KOTA SIBOLGA","id_jenis":"2","lat":1.7368371,"lng":98.78511209999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d52"},"id_kab":"1278","id_prov":"12","nama":"KOTA GUNUNGSITOLI","id_jenis":"2","lat":1.2804692,"lng":97.61467569999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d53"},"id_kab":"1301","id_prov":"13","nama":"KAB. PESISIR SELATAN","id_jenis":"1","lat":-1.7223147,"lng":100.8903099}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d54"},"id_kab":"1302","id_prov":"13","nama":"KAB. SOLOK","id_jenis":"1","lat":-0.9643838,"lng":100.8903099}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d4b"},"id_kab":"1271","id_prov":"12","nama":"KOTA MEDAN","id_jenis":"2","lat":3.5951956,"lng":98.6722227}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d57"},"id_kab":"1305","id_prov":"13","nama":"KAB. PADANG PARIAMAN","id_jenis":"1","lat":-0.5546757,"lng":100.2151578}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d4c"},"id_kab":"1272","id_prov":"12","nama":"KOTA PEMATANG SIANTAR","id_jenis":"2","lat":2.970042,"lng":99.0681668}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d55"},"id_kab":"1303","id_prov":"13","nama":"KAB. SIJUNJUNG","id_jenis":"1","lat":-0.6647006999999999,"lng":101.0711758}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d56"},"id_kab":"1304","id_prov":"13","nama":"KAB. TANAH DATAR","id_jenis":"1","lat":-0.4797042999999999,"lng":100.5746224}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d58"},"id_kab":"1306","id_prov":"13","nama":"KAB. AGAM","id_jenis":"1","lat":-0.2209392,"lng":100.1703257}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d59"},"id_kab":"1307","id_prov":"13","nama":"KAB. LIMA PULUH KOTA","id_jenis":"1","lat":0.07341919999999999,"lng":100.5296115}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d5a"},"id_kab":"1222","id_prov":"12","nama":"KAB. LABUHANBATU SELATAN","id_jenis":"1","lat":1.8799353,"lng":100.1703257}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d5b"},"id_kab":"1308","id_prov":"13","nama":"KAB. PASAMAN","id_jenis":"1","lat":0.2209392,"lng":100.1703257}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d5c"},"id_kab":"1309","id_prov":"13","nama":"KAB. KEPULAUAN MENTAWAI","id_jenis":"1","lat":-1.426001,"lng":98.92453429999999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d5e"},"id_kab":"1312","id_prov":"13","nama":"KAB. PASAMAN BARAT","id_jenis":"1","lat":0.2213005,"lng":99.634135}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d60"},"id_kab":"1372","id_prov":"13","nama":"KOTA SOLOK","id_jenis":"2","lat":-0.7885335,"lng":100.6549823}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d5d"},"id_kab":"1310","id_prov":"13","nama":"KAB. DHARMASRAYA","id_jenis":"1","lat":-1.1120568,"lng":101.6157773}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d5f"},"id_kab":"1371","id_prov":"13","nama":"KOTA PADANG","id_jenis":"2","lat":-0.9470831999999999,"lng":100.417181}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d62"},"id_kab":"1374","id_prov":"13","nama":"KOTA PADANG PANJANG","id_jenis":"2","lat":-0.4660955,"lng":100.3984148}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d64"},"id_kab":"1376","id_prov":"13","nama":"KOTA PAYAKUMBUH","id_jenis":"2","lat":-0.2298336,"lng":100.6309169}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d63"},"id_kab":"1375","id_prov":"13","nama":"KOTA BUKITTINGGI","id_jenis":"2","lat":-0.3039178,"lng":100.383479}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d61"},"id_kab":"1373","id_prov":"13","nama":"KOTA SAWAHLUNTO","id_jenis":"2","lat":-0.6841069,"lng":100.7323332}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d65"},"id_kab":"1377","id_prov":"13","nama":"KOTA PARIAMAN","id_jenis":"2","lat":-0.6256516999999999,"lng":100.1233396}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d66"},"id_kab":"1401","id_prov":"14","nama":"KAB. KAMPAR","id_jenis":"1","lat":0.146671,"lng":101.1617356}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d6a"},"id_kab":"1405","id_prov":"14","nama":"KAB. PELALAWAN","id_jenis":"1","lat":0.1460923,"lng":102.2547919}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d6b"},"id_kab":"1406","id_prov":"14","nama":"KAB. ROKAN HULU","id_jenis":"1","lat":1.0410934,"lng":100.439656}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d6c"},"id_kab":"1407","id_prov":"14","nama":"KAB. ROKAN HILIR","id_jenis":"1","lat":1.6463978,"lng":100.8000051}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d67"},"id_kab":"1402","id_prov":"14","nama":"KAB. INDRAGIRI HULU","id_jenis":"1","lat":-0.7361181,"lng":102.2547919}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d68"},"id_kab":"1403","id_prov":"14","nama":"KAB. BENGKALIS","id_jenis":"1","lat":1.4139187,"lng":101.6157773}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d69"},"id_kab":"1404","id_prov":"14","nama":"KAB. INDRAGIRI HILIR","id_jenis":"1","lat":-0.1456733,"lng":102.989615}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d6d"},"id_kab":"1408","id_prov":"14","nama":"KAB. SIAK","id_jenis":"1","lat":0.8118812,"lng":101.7979613}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d6f"},"id_kab":"1410","id_prov":"14","nama":"KAB. KEPULAUAN MERANTI","id_jenis":"1","lat":0.9208765000000001,"lng":102.6675575}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d70"},"id_kab":"1311","id_prov":"13","nama":"KAB. SOLOK SELATAN","id_jenis":"1","lat":-1.4157329,"lng":101.2523792}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d6e"},"id_kab":"1409","id_prov":"14","nama":"KAB. KUANTAN SINGINGI","id_jenis":"1","lat":-0.4411596,"lng":101.5248055}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d74"},"id_kab":"1503","id_prov":"15","nama":"KAB. SAROLANGUN","id_jenis":"1","lat":-2.3230422,"lng":102.7135121}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d75"},"id_kab":"1504","id_prov":"15","nama":"KAB. BATANGHARI","id_jenis":"1","lat":-1.7083922,"lng":103.0817903}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d73"},"id_kab":"1501","id_prov":"15","nama":"KAB. KERINCI","id_jenis":"1","lat":-1.8720467,"lng":101.4339148}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d72"},"id_kab":"1472","id_prov":"14","nama":"KOTA DUMAI","id_jenis":"2","lat":1.6666349,"lng":101.4001855}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d71"},"id_kab":"1471","id_prov":"14","nama":"KOTA PEKANBARU","id_jenis":"2","lat":0.5070677,"lng":101.4477793}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d76"},"id_kab":"1505","id_prov":"15","nama":"KAB. MUARO JAMBI","id_jenis":"1","lat":-1.552136,"lng":103.8216261}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d77"},"id_kab":"1506","id_prov":"15","nama":"KAB. TANJUNG JABUNG BARAT","id_jenis":"1","lat":-1.105846,"lng":103.0817903}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d78"},"id_kab":"1507","id_prov":"15","nama":"KAB. TANJUNG JABUNG TIMUR","id_jenis":"1","lat":-1.1024367,"lng":103.8216261}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d79"},"id_kab":"1508","id_prov":"15","nama":"KAB. BUNGO","id_jenis":"1","lat":-1.6401338,"lng":101.8891721}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d7d"},"id_kab":"1601","id_prov":"16","nama":"KAB. OGAN KOMERING ULU","id_jenis":"1","lat":-4.0283486,"lng":104.0072348}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d7e"},"id_kab":"1602","id_prov":"16","nama":"KAB. OGAN KOMERING ILIR","id_jenis":"1","lat":-3.4559744,"lng":105.2194808}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d7b"},"id_kab":"1571","id_prov":"15","nama":"KOTA JAMBI","id_jenis":"2","lat":-1.6101229,"lng":103.6131203}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d7f"},"id_kab":"1603","id_prov":"16","nama":"KAB. MUARA ENIM","id_jenis":"1","lat":-3.7114163,"lng":104.0072348}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d7c"},"id_kab":"1572","id_prov":"15","nama":"KOTA SUNGAI PENUH","id_jenis":"2","lat":-2.0634335,"lng":101.3947481}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d81"},"id_kab":"1605","id_prov":"16","nama":"KAB. MUSI RAWAS","id_jenis":"1","lat":-3.0956537,"lng":103.0817903}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d80"},"id_kab":"1604","id_prov":"16","nama":"KAB. LAHAT","id_jenis":"1","lat":-3.8008893,"lng":103.3587288}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d82"},"id_kab":"1606","id_prov":"16","nama":"KAB. MUSI BANYUASIN","id_jenis":"1","lat":-2.5442029,"lng":103.7289167}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d7a"},"id_kab":"1509","id_prov":"15","nama":"KAB. TEBO","id_jenis":"1","lat":-1.2592999,"lng":102.3463875}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d84"},"id_kab":"1608","id_prov":"16","nama":"KAB. OGAN KOMERING ULU TIMUR","id_jenis":"1","lat":-3.8567934,"lng":104.7520939}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d87"},"id_kab":"1610","id_prov":"16","nama":"KAB. OGAN ILIR","id_jenis":"1","lat":-3.426544,"lng":104.6121475}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d88"},"id_kab":"1611","id_prov":"16","nama":"KAB. EMPAT LAWANG","id_jenis":"1","lat":-3.7286029,"lng":102.8975098}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d86"},"id_kab":"1502","id_prov":"15","nama":"KAB. MERANGIN","id_jenis":"1","lat":-2.1752789,"lng":101.9804613}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d85"},"id_kab":"1609","id_prov":"16","nama":"KAB. OGAN KOMERING ULU SELATAN","id_jenis":"1","lat":-4.6681951,"lng":104.0072348}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d8a"},"id_kab":"1671","id_prov":"16","nama":"KOTA PALEMBANG","id_jenis":"2","lat":-2.9760735,"lng":104.7754307}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d83"},"id_kab":"1607","id_prov":"16","nama":"KAB. BANYUASIN","id_jenis":"1","lat":-2.6095639,"lng":104.7520939}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d8b"},"id_kab":"1672","id_prov":"16","nama":"KOTA PAGAR ALAM","id_jenis":"2","lat":-4.0419617,"lng":103.2278845}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d8c"},"id_kab":"1673","id_prov":"16","nama":"KOTA LUBUK LINGGAU","id_jenis":"2","lat":-3.2995858,"lng":102.857236}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d89"},"id_kab":"1612","id_prov":"16","nama":"KAB. PENUKAL ABAB LEMATANG ILIR","id_jenis":"1","lat":-3.239825,"lng":104.0072348}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d8d"},"id_kab":"1674","id_prov":"16","nama":"KOTA PRABUMULIH","id_jenis":"2","lat":-3.4213707,"lng":104.2436833}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d8e"},"id_kab":"1701","id_prov":"17","nama":"KAB. BENGKULU SELATAN","id_jenis":"1","lat":-4.3248409,"lng":103.035694}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d91"},"id_kab":"1704","id_prov":"17","nama":"KAB. KAUR","id_jenis":"1","lat":-4.521597799999999,"lng":103.2663479}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d92"},"id_kab":"1705","id_prov":"17","nama":"KAB. SELUMA","id_jenis":"1","lat":-4.0499387,"lng":102.7135121}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d93"},"id_kab":"1706","id_prov":"17","nama":"KAB. MUKO MUKO","id_jenis":"1","lat":-2.6449114,"lng":101.4339148}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d94"},"id_kab":"1707","id_prov":"17","nama":"KAB. LEBONG","id_jenis":"1","lat":-3.1455094,"lng":102.2090224}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d90"},"id_kab":"1703","id_prov":"17","nama":"KAB. BENGKULU UTARA","id_jenis":"1","lat":-3.2663246,"lng":101.9804613}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d8f"},"id_kab":"1702","id_prov":"17","nama":"KAB. REJANG LEBONG","id_jenis":"1","lat":-3.4548154,"lng":102.6675575}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d95"},"id_kab":"1708","id_prov":"17","nama":"KAB. KEPAHIANG","id_jenis":"1","lat":-3.6130091,"lng":102.6675575}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d96"},"id_kab":"1709","id_prov":"17","nama":"KAB. BENGKULU TENGAH","id_jenis":"1","lat":-3.6962324,"lng":102.3922135}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d9a"},"id_kab":"1803","id_prov":"18","nama":"KAB. LAMPUNG UTARA","id_jenis":"1","lat":-4.8133905,"lng":104.7520939}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d99"},"id_kab":"1802","id_prov":"18","nama":"KAB. LAMPUNG TENGAH","id_jenis":"1","lat":-4.8008086,"lng":105.3131185}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d9b"},"id_kab":"1804","id_prov":"18","nama":"KAB. LAMPUNG BARAT","id_jenis":"1","lat":-5.1095293,"lng":104.1466046}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d98"},"id_kab":"1801","id_prov":"18","nama":"KAB. LAMPUNG SELATAN","id_jenis":"1","lat":-5.5622614,"lng":105.5474373}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d97"},"id_kab":"1771","id_prov":"17","nama":"KOTA BENGKULU","id_jenis":"2","lat":-3.792845099999999,"lng":102.2607641}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d9d"},"id_kab":"1805","id_prov":"18","nama":"KAB. TULANG BAWANG","id_jenis":"1","lat":-4.3176576,"lng":105.5005483}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d9e"},"id_kab":"1806","id_prov":"18","nama":"KAB. TANGGAMUS","id_jenis":"1","lat":-5.3027489,"lng":104.5655273}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d9c"},"id_kab":"1613","id_prov":"16","nama":"KAB. MUSI RAWAS UTARA","id_jenis":"1","lat":-2.787759,"lng":102.7135121}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8d9f"},"id_kab":"1807","id_prov":"18","nama":"KAB. LAMPUNG TIMUR","id_jenis":"1","lat":-5.1134995,"lng":105.6881788}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da3"},"id_kab":"1812","id_prov":"18","nama":"KAB. TULANG BAWANG BARAT","id_jenis":"1","lat":-4.5256967,"lng":105.0791228}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da0"},"id_kab":"1809","id_prov":"18","nama":"KAB. PESAWARAN","id_jenis":"1","lat":-5.493245,"lng":105.0791228}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da4"},"id_kab":"1813","id_prov":"18","nama":"KAB. PESISIR BARAT","id_jenis":"1","lat":-5.292819100000001,"lng":104.1233667}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da5"},"id_kab":"1871","id_prov":"18","nama":"KOTA BANDAR LAMPUNG","id_jenis":"2","lat":-5.3971396,"lng":105.2667887}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da1"},"id_kab":"1810","id_prov":"18","nama":"KAB. PRINGSEWU","id_jenis":"1","lat":-5.3331186,"lng":104.9856176}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da7"},"id_kab":"1901","id_prov":"19","nama":"KAB. BANGKA","id_jenis":"1","lat":-1.874294,"lng":105.92299}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da6"},"id_kab":"1872","id_prov":"18","nama":"KOTA METRO","id_jenis":"2","lat":-5.117839399999999,"lng":105.3072646}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da8"},"id_kab":"1902","id_prov":"19","nama":"KAB. BELITUNG","id_jenis":"1","lat":-2.7216743,"lng":107.763621}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da2"},"id_kab":"1811","id_prov":"18","nama":"KAB. MESUJI","id_jenis":"1","lat":-4.0044783,"lng":105.3131185}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dac"},"id_kab":"1903","id_prov":"19","nama":"KAB. BANGKA SELATAN","id_jenis":"1","lat":-2.7410513,"lng":106.4405872}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dad"},"id_kab":"1971","id_prov":"19","nama":"KOTA PANGKAL PINANG","id_jenis":"2","lat":-2.1316266,"lng":106.1169299}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8daa"},"id_kab":"1904","id_prov":"19","nama":"KAB. BANGKA TENGAH","id_jenis":"1","lat":-2.4007823,"lng":106.2051484}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dab"},"id_kab":"1905","id_prov":"19","nama":"KAB. BANGKA BARAT","id_jenis":"1","lat":-1.8405046,"lng":105.5005483}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dae"},"id_kab":"2101","id_prov":"21","nama":"KAB. BINTAN","id_jenis":"1","lat":1.0619173,"lng":104.5189214}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db0"},"id_kab":"2103","id_prov":"21","nama":"KAB. NATUNA","id_jenis":"1","lat":4,"lng":108.25}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8da9"},"id_kab":"1808","id_prov":"18","nama":"KAB. WAY KANAN","id_jenis":"1","lat":-4.4963689,"lng":104.5655273}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8daf"},"id_kab":"2102","id_prov":"21","nama":"KAB. KARIMUN","id_jenis":"1","lat":0.7697665,"lng":103.4049445}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db1"},"id_kab":"2104","id_prov":"21","nama":"KAB. LINGGA","id_jenis":"1","lat":-0.4726065,"lng":104.4257533}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db5"},"id_kab":"3101","id_prov":"31","nama":"KAB. ADM. KEP. SERIBU","id_jenis":"1","lat":-5.6122404,"lng":106.6169964}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db6"},"id_kab":"3171","id_prov":"31","nama":"KOTA ADM. JAKARTA PUSAT","id_jenis":"2","lat":-6.1864864,"lng":106.8340911}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db7"},"id_kab":"3172","id_prov":"31","nama":"KOTA ADM. JAKARTA UTARA","id_jenis":"2","lat":-6.1383768,"lng":106.8664656}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db3"},"id_kab":"2171","id_prov":"21","nama":"KOTA BATAM","id_jenis":"2","lat":1.1300779,"lng":104.0529207}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db2"},"id_kab":"2105","id_prov":"21","nama":"KAB. KEPULAUAN ANAMBAS","id_jenis":"1","lat":3.105545900000001,"lng":105.6537231}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db4"},"id_kab":"2172","id_prov":"21","nama":"KOTA TANJUNG PINANG","id_jenis":"2","lat":0.9185504,"lng":104.4665072}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db8"},"id_kab":"3173","id_prov":"31","nama":"KOTA ADM. JAKARTA BARAT","id_jenis":"2","lat":-6.1683295,"lng":106.7588494}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dba"},"id_kab":"3175","id_prov":"31","nama":"KOTA ADM. JAKARTA TIMUR","id_jenis":"2","lat":-6.2250138,"lng":106.9004472}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8db9"},"id_kab":"3174","id_prov":"31","nama":"KOTA ADM. JAKARTA SELATAN","id_jenis":"2","lat":-6.2614927,"lng":106.8105998}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dbb"},"id_kab":"3201","id_prov":"32","nama":"KAB. BOGOR","id_jenis":"1","lat":-6.5517758,"lng":106.6291304}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dbe"},"id_kab":"3204","id_prov":"32","nama":"KAB. BANDUNG","id_jenis":"1","lat":-7.1340702,"lng":107.6215321}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dbf"},"id_kab":"1906","id_prov":"19","nama":"KAB. BELITUNG TIMUR","id_jenis":"1","lat":-2.8678037,"lng":108.1428669}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc0"},"id_kab":"3205","id_prov":"32","nama":"KAB. GARUT","id_jenis":"1","lat":-7.501220399999999,"lng":107.763621}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dbd"},"id_kab":"3203","id_prov":"32","nama":"KAB. CIANJUR","id_jenis":"1","lat":-7.3579773,"lng":107.1957203}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc1"},"id_kab":"3206","id_prov":"32","nama":"KAB. TASIKMALAYA","id_jenis":"1","lat":-7.6513306,"lng":108.1428669}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc2"},"id_kab":"3207","id_prov":"32","nama":"KAB. CIAMIS","id_jenis":"1","lat":-7.332077300000001,"lng":108.3492543}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc3"},"id_kab":"3209","id_prov":"32","nama":"KAB. CIREBON","id_jenis":"1","lat":-6.6898876,"lng":108.4750846}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dbc"},"id_kab":"3202","id_prov":"32","nama":"KAB. SUKABUMI","id_jenis":"1","lat":-6.8649236,"lng":106.9535691}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc7"},"id_kab":"3213","id_prov":"32","nama":"KAB. SUBANG","id_jenis":"1","lat":-6.3487617,"lng":107.763621}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc5"},"id_kab":"3211","id_prov":"32","nama":"KAB. SUMEDANG","id_jenis":"1","lat":-6.832858,"lng":107.9531836}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc6"},"id_kab":"3212","id_prov":"32","nama":"KAB. INDRAMAYU","id_jenis":"1","lat":-6.33731,"lng":108.3258329}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc4"},"id_kab":"3210","id_prov":"32","nama":"KAB. MAJALENGKA","id_jenis":"1","lat":-6.7790605,"lng":108.2852049}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc8"},"id_kab":"3214","id_prov":"32","nama":"KAB. PURWAKARTA","id_jenis":"1","lat":-6.5649241,"lng":107.4321959}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dc9"},"id_kab":"3215","id_prov":"32","nama":"KAB. KARAWANG","id_jenis":"1","lat":-6.3227303,"lng":107.3375791}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dcb"},"id_kab":"3217","id_prov":"32","nama":"KAB. BANDUNG BARAT","id_jenis":"1","lat":-6.865221399999999,"lng":107.4919767}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dca"},"id_kab":"3216","id_prov":"32","nama":"KAB. BEKASI","id_jenis":"1","lat":-6.247446600000001,"lng":107.1484521}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dcc"},"id_kab":"3218","id_prov":"32","nama":"KAB. PANGANDARAN","id_jenis":"1","lat":-7.615061099999999,"lng":108.4988269}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd0"},"id_kab":"3274","id_prov":"32","nama":"KOTA CIREBON","id_jenis":"2","lat":-6.7320229,"lng":108.5523164}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd1"},"id_kab":"3275","id_prov":"32","nama":"KOTA BEKASI","id_jenis":"2","lat":-6.2382699,"lng":106.9755726}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dcd"},"id_kab":"3271","id_prov":"32","nama":"KOTA BOGOR","id_jenis":"2","lat":-6.597146899999999,"lng":106.8060388}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dce"},"id_kab":"3272","id_prov":"32","nama":"KOTA SUKABUMI","id_jenis":"2","lat":-6.9277361,"lng":106.9299579}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd2"},"id_kab":"3276","id_prov":"32","nama":"KOTA DEPOK","id_jenis":"2","lat":-6.4024844,"lng":106.7942405}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dcf"},"id_kab":"3273","id_prov":"32","nama":"KOTA BANDUNG","id_jenis":"2","lat":-6.9174639,"lng":107.6191228}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd4"},"id_kab":"3278","id_prov":"32","nama":"KOTA TASIKMALAYA","id_jenis":"2","lat":-7.350580799999999,"lng":108.2171633}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd5"},"id_kab":"3208","id_prov":"32","nama":"KAB. KUNINGAN","id_jenis":"1","lat":-7.0138053,"lng":108.5700636}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd3"},"id_kab":"3277","id_prov":"32","nama":"KOTA CIMAHI","id_jenis":"2","lat":-6.8840816,"lng":107.5413039}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd6"},"id_kab":"3279","id_prov":"32","nama":"KOTA BANJAR","id_jenis":"2","lat":-7.3706874,"lng":108.5342487}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd7"},"id_kab":"3301","id_prov":"33","nama":"KAB. CILACAP","id_jenis":"1","lat":-7.617809599999998,"lng":108.902683}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dda"},"id_kab":"3305","id_prov":"33","nama":"KAB. KEBUMEN","id_jenis":"1","lat":-7.6680559,"lng":109.6524575}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ddb"},"id_kab":"3306","id_prov":"33","nama":"KAB. PURWOREJO","id_jenis":"1","lat":-7.6964509,"lng":109.9989416}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ddc"},"id_kab":"3307","id_prov":"33","nama":"KAB. WONOSOBO","id_jenis":"1","lat":-7.363209399999999,"lng":109.9001796}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dde"},"id_kab":"3309","id_prov":"33","nama":"KAB. BOYOLALI","id_jenis":"1","lat":-7.431777299999999,"lng":110.6883536}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd8"},"id_kab":"3302","id_prov":"33","nama":"KAB. BANYUMAS","id_jenis":"1","lat":-7.4832133,"lng":109.140438}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ddd"},"id_kab":"3308","id_prov":"33","nama":"KAB. MAGELANG","id_jenis":"1","lat":-7.430523699999999,"lng":110.2832217}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ddf"},"id_kab":"3310","id_prov":"33","nama":"KAB. KLATEN","id_jenis":"1","lat":-7.657893,"lng":110.6645683}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dd9"},"id_kab":"3304","id_prov":"33","nama":"KAB. BANJARNEGARA","id_jenis":"1","lat":-7.379436800000001,"lng":109.6163185}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de2"},"id_kab":"3313","id_prov":"33","nama":"KAB. KARANGANYAR","id_jenis":"1","lat":-7.6387228,"lng":111.0460407}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de3"},"id_kab":"3314","id_prov":"33","nama":"KAB. SRAGEN","id_jenis":"1","lat":-7.430269999999999,"lng":111.0091855}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de1"},"id_kab":"3312","id_prov":"33","nama":"KAB. WONOGIRI","id_jenis":"1","lat":-7.8846484,"lng":111.0460407}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de0"},"id_kab":"3311","id_prov":"33","nama":"KAB. SUKOHARJO","id_jenis":"1","lat":-7.648350600000001,"lng":110.8552919}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de4"},"id_kab":"3315","id_prov":"33","nama":"KAB. GROBOGAN","id_jenis":"1","lat":-7.1541672,"lng":110.9506636}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de5"},"id_kab":"3303","id_prov":"33","nama":"KAB. PURBALINGGA","id_jenis":"1","lat":-7.3058578,"lng":109.4259114}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de6"},"id_kab":"3317","id_prov":"33","nama":"KAB. REMBANG","id_jenis":"1","lat":-6.8082115,"lng":111.4275888}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de7"},"id_kab":"3318","id_prov":"33","nama":"KAB. PATI","id_jenis":"1","lat":-6.7449635,"lng":111.0460407}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8deb"},"id_kab":"3322","id_prov":"33","nama":"KAB. SEMARANG","id_jenis":"1","lat":-7.176478500000001,"lng":110.4738762}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dec"},"id_kab":"3323","id_prov":"33","nama":"KAB. TEMANGGUNG","id_jenis":"1","lat":-7.2748721,"lng":110.0891894}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de9"},"id_kab":"3320","id_prov":"33","nama":"KAB. JEPARA","id_jenis":"1","lat":-6.582711000000001,"lng":110.6786933}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ded"},"id_kab":"3324","id_prov":"33","nama":"KAB. KENDAL","id_jenis":"1","lat":-7.0265442,"lng":110.1879106}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dea"},"id_kab":"3321","id_prov":"33","nama":"KAB. DEMAK","id_jenis":"1","lat":-6.9238879,"lng":110.6645683}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8def"},"id_kab":"3326","id_prov":"33","nama":"KAB. PEKALONGAN","id_jenis":"1","lat":-7.0517128,"lng":109.6163185}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dee"},"id_kab":"3325","id_prov":"33","nama":"KAB. BATANG","id_jenis":"1","lat":-7.039218300000001,"lng":109.9020509}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df0"},"id_kab":"3327","id_prov":"33","nama":"KAB. PEMALANG","id_jenis":"1","lat":-7.0599422,"lng":109.4259114}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8de8"},"id_kab":"3319","id_prov":"33","nama":"KAB. KUDUS","id_jenis":"1","lat":-6.772618599999999,"lng":110.8791343}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df3"},"id_kab":"3371","id_prov":"33","nama":"KOTA MAGELANG","id_jenis":"2","lat":-7.479734199999999,"lng":110.2176941}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df2"},"id_kab":"3329","id_prov":"33","nama":"KAB. BREBES","id_jenis":"1","lat":-6.9591793,"lng":108.902683}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df6"},"id_kab":"3374","id_prov":"33","nama":"KOTA SEMARANG","id_jenis":"2","lat":-7.0051453,"lng":110.4381254}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df4"},"id_kab":"3372","id_prov":"33","nama":"KOTA SURAKARTA","id_jenis":"2","lat":-7.575488699999999,"lng":110.8243272}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df7"},"id_kab":"3375","id_prov":"33","nama":"KOTA PEKALONGAN","id_jenis":"2","lat":-6.8898362,"lng":109.6745916}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df5"},"id_kab":"3373","id_prov":"33","nama":"KOTA SALATIGA","id_jenis":"2","lat":-7.330523400000001,"lng":110.5084366}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df8"},"id_kab":"3376","id_prov":"33","nama":"KOTA TEGAL","id_jenis":"2","lat":-6.879704100000001,"lng":109.1255917}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df1"},"id_kab":"3328","id_prov":"33","nama":"KAB. TEGAL","id_jenis":"1","lat":-6.8588473,"lng":109.1047663}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8df9"},"id_kab":"3316","id_prov":"33","nama":"KAB. BLORA","id_jenis":"1","lat":-7.012244,"lng":111.3798928}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dfd"},"id_kab":"3404","id_prov":"34","nama":"KAB. SLEMAN","id_jenis":"1","lat":-7.732521299999999,"lng":110.402376}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dfe"},"id_kab":"3471","id_prov":"34","nama":"KOTA YOGYAKARTA","id_jenis":"2","lat":-7.7955798,"lng":110.3694896}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dfc"},"id_kab":"3403","id_prov":"34","nama":"KAB. GUNUNG KIDUL","id_jenis":"1","lat":-8.0305091,"lng":110.6168921}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dff"},"id_kab":"3501","id_prov":"35","nama":"KAB. PACITAN","id_jenis":"1","lat":-8.126331,"lng":111.1414226}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e00"},"id_kab":"3502","id_prov":"35","nama":"KAB. PONOROGO","id_jenis":"1","lat":-7.8650759,"lng":111.4696322}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dfa"},"id_kab":"3401","id_prov":"34","nama":"KAB. KULON PROGO","id_jenis":"1","lat":-7.8266798,"lng":110.1640846}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e01"},"id_kab":"3503","id_prov":"35","nama":"KAB. TRENGGALEK","id_jenis":"1","lat":-8.182411199999999,"lng":111.6183755}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e03"},"id_kab":"3505","id_prov":"35","nama":"KAB. BLITAR","id_jenis":"1","lat":-8.095462699999999,"lng":112.1609056}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8dfb"},"id_kab":"3402","id_prov":"34","nama":"KAB. BANTUL","id_jenis":"1","lat":-7.919016900000001,"lng":110.3785438}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e02"},"id_kab":"3504","id_prov":"35","nama":"KAB. TULUNGAGUNG","id_jenis":"1","lat":-8.091220999999999,"lng":111.9641728}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e05"},"id_kab":"3507","id_prov":"35","nama":"KAB. MALANG","id_jenis":"1","lat":-7.9666204,"lng":112.6326321}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e06"},"id_kab":"3508","id_prov":"35","nama":"KAB. LUMAJANG","id_jenis":"1","lat":-8.0943571,"lng":113.1441558}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e08"},"id_kab":"3510","id_prov":"35","nama":"KAB. BANYUWANGI","id_jenis":"1","lat":-8.2190944,"lng":114.3691416}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e09"},"id_kab":"3511","id_prov":"35","nama":"KAB. BONDOWOSO","id_jenis":"1","lat":-7.9673906,"lng":113.9060624}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e0b"},"id_kab":"3513","id_prov":"35","nama":"KAB. PROBOLINGGO","id_jenis":"1","lat":-7.871756199999999,"lng":113.4776098}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e0a"},"id_kab":"3512","id_prov":"35","nama":"KAB. SITUBONDO","id_jenis":"1","lat":-7.7888522,"lng":114.1914951}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e07"},"id_kab":"3509","id_prov":"35","nama":"KAB. JEMBER","id_jenis":"1","lat":-8.1844859,"lng":113.6680747}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e0d"},"id_kab":"3516","id_prov":"35","nama":"KAB. MOJOKERTO","id_jenis":"1","lat":-7.469891400000001,"lng":112.4351068}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e0c"},"id_kab":"3514","id_prov":"35","nama":"KAB. PASURUAN","id_jenis":"1","lat":-7.785996099999999,"lng":112.858217}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e0e"},"id_kab":"3517","id_prov":"35","nama":"KAB. JOMBANG","id_jenis":"1","lat":-7.5740867,"lng":112.28609}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e04"},"id_kab":"3506","id_prov":"35","nama":"KAB. KEDIRI","id_jenis":"1","lat":-7.8232397,"lng":112.1907122}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e12"},"id_kab":"3521","id_prov":"35","nama":"KAB. NGAWI","id_jenis":"1","lat":-7.460986999999998,"lng":111.3321974}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e11"},"id_kab":"3520","id_prov":"35","nama":"KAB. MAGETAN","id_jenis":"1","lat":-7.6433138,"lng":111.356045}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e13"},"id_kab":"3522","id_prov":"35","nama":"KAB. BOJONEGORO","id_jenis":"1","lat":-7.317462900000001,"lng":111.7614661}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e14"},"id_kab":"3523","id_prov":"35","nama":"KAB. TUBAN","id_jenis":"1","lat":-6.8954851,"lng":112.029752}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e15"},"id_kab":"3524","id_prov":"35","nama":"KAB. LAMONGAN","id_jenis":"1","lat":-7.126926099999999,"lng":112.3337769}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e0f"},"id_kab":"3518","id_prov":"35","nama":"KAB. NGANJUK","id_jenis":"1","lat":-7.594350700000001,"lng":111.9045541}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e16"},"id_kab":"3525","id_prov":"35","nama":"KAB. GRESIK","id_jenis":"1","lat":-7.155029099999999,"lng":112.5721881}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e17"},"id_kab":"3526","id_prov":"35","nama":"KAB. BANGKALAN","id_jenis":"1","lat":-7.038374999999999,"lng":112.9136695}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e10"},"id_kab":"3519","id_prov":"35","nama":"KAB. MADIUN","id_jenis":"1","lat":-7.609330600000001,"lng":111.6183755}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e1b"},"id_kab":"3571","id_prov":"35","nama":"KOTA KEDIRI","id_jenis":"2","lat":-7.848015599999999,"lng":112.0178286}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e19"},"id_kab":"3528","id_prov":"35","nama":"KAB. PAMEKASAN","id_jenis":"1","lat":-7.1050857,"lng":113.5252319}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e18"},"id_kab":"3527","id_prov":"35","nama":"KAB. SAMPANG","id_jenis":"1","lat":-7.0402326,"lng":113.2394452}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e1a"},"id_kab":"3529","id_prov":"35","nama":"KAB. SUMENEP","id_jenis":"1","lat":-6.925399899999999,"lng":113.9060624}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e1c"},"id_kab":"3572","id_prov":"35","nama":"KOTA BLITAR","id_jenis":"2","lat":-8.095462699999999,"lng":112.1609056}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e1e"},"id_kab":"3515","id_prov":"35","nama":"KAB. SIDOARJO","id_jenis":"1","lat":-7.472613399999998,"lng":112.6675398}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e1d"},"id_kab":"3573","id_prov":"35","nama":"KOTA MALANG","id_jenis":"2","lat":-7.9666204,"lng":112.6326321}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e1f"},"id_kab":"3574","id_prov":"35","nama":"KOTA PROBOLINGGO","id_jenis":"2","lat":-7.776422600000001,"lng":113.2037131}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e20"},"id_kab":"3575","id_prov":"35","nama":"KOTA PASURUAN","id_jenis":"2","lat":-7.6469193,"lng":112.8999225}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e24"},"id_kab":"3579","id_prov":"35","nama":"KOTA BATU","id_jenis":"2","lat":-7.883064800000001,"lng":112.5334492}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e25"},"id_kab":"3601","id_prov":"36","nama":"KAB. PANDEGLANG","id_jenis":"1","lat":-6.7482706,"lng":105.6881788}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e23"},"id_kab":"3578","id_prov":"35","nama":"KOTA SURABAYA","id_jenis":"2","lat":-7.2574719,"lng":112.7520883}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e22"},"id_kab":"3577","id_prov":"35","nama":"KOTA MADIUN","id_jenis":"2","lat":-7.6310587,"lng":111.5300159}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e26"},"id_kab":"3602","id_prov":"36","nama":"KAB. LEBAK","id_jenis":"1","lat":-6.564395600000001,"lng":106.2522143}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e21"},"id_kab":"3576","id_prov":"35","nama":"KOTA MOJOKERTO","id_jenis":"2","lat":-7.4704747,"lng":112.4401329}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e28"},"id_kab":"3604","id_prov":"36","nama":"KAB. SERANG","id_jenis":"1","lat":-6.1397339,"lng":106.040506}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e27"},"id_kab":"3603","id_prov":"36","nama":"KAB. TANGERANG","id_jenis":"1","lat":-6.1872101,"lng":106.4877072}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e2a"},"id_kab":"3672","id_prov":"36","nama":"KOTA CILEGON","id_jenis":"2","lat":-6.0025343,"lng":106.0111203}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e29"},"id_kab":"3671","id_prov":"36","nama":"KOTA TANGERANG","id_jenis":"2","lat":-6.2023936,"lng":106.6527099}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e2e"},"id_kab":"5102","id_prov":"51","nama":"KAB. TABANAN","id_jenis":"1","lat":-8.459556100000002,"lng":115.0465991}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e2f"},"id_kab":"5103","id_prov":"51","nama":"KAB. BADUNG","id_jenis":"1","lat":-8.5819296,"lng":115.1770586}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e2d"},"id_kab":"5101","id_prov":"51","nama":"KAB. JEMBRANA","id_jenis":"1","lat":-8.3233438,"lng":114.6667939}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e2c"},"id_kab":"3674","id_prov":"36","nama":"KOTA TANGERANG SELATAN","id_jenis":"2","lat":-6.2835218,"lng":106.7112933}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e30"},"id_kab":"5104","id_prov":"51","nama":"KAB. GIANYAR","id_jenis":"1","lat":-8.4248244,"lng":115.2600506}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e31"},"id_kab":"5105","id_prov":"51","nama":"KAB. KLUNGKUNG","id_jenis":"1","lat":-8.727807,"lng":115.5444231}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e32"},"id_kab":"5106","id_prov":"51","nama":"KAB. BANGLI","id_jenis":"1","lat":-8.297588400000002,"lng":115.3548713}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e33"},"id_kab":"5107","id_prov":"51","nama":"KAB. KARANGASEM","id_jenis":"1","lat":-8.3465933,"lng":115.5207358}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e2b"},"id_kab":"3673","id_prov":"36","nama":"KOTA SERANG","id_jenis":"2","lat":-6.110366099999999,"lng":106.1639749}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e34"},"id_kab":"5108","id_prov":"51","nama":"KAB. BULELENG","id_jenis":"1","lat":-8.2238968,"lng":114.9516869}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e38"},"id_kab":"5203","id_prov":"52","nama":"KAB. LOMBOK TIMUR","id_jenis":"1","lat":-8.5134471,"lng":116.5609857}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e37"},"id_kab":"5202","id_prov":"52","nama":"KAB. LOMBOK TENGAH","id_jenis":"1","lat":-8.694623,"lng":116.2777073}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e39"},"id_kab":"5204","id_prov":"52","nama":"KAB. SUMBAWA","id_jenis":"1","lat":-8.6529334,"lng":117.3616476}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e3a"},"id_kab":"5205","id_prov":"52","nama":"KAB. DOMPU","id_jenis":"1","lat":-8.5363958,"lng":118.3461948}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e35"},"id_kab":"5171","id_prov":"51","nama":"KOTA DENPASAR","id_jenis":"2","lat":-8.670458199999999,"lng":115.2126293}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e3b"},"id_kab":"5206","id_prov":"52","nama":"KAB. BIMA","id_jenis":"1","lat":-8.4353962,"lng":118.626479}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e3c"},"id_kab":"5207","id_prov":"52","nama":"KAB. SUMBAWA BARAT","id_jenis":"1","lat":-8.9292907,"lng":116.8910342}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e36"},"id_kab":"5201","id_prov":"52","nama":"KAB. LOMBOK BARAT","id_jenis":"1","lat":-8.6464599,"lng":116.1123078}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e3d"},"id_kab":"5208","id_prov":"52","nama":"KAB. LOMBOK UTARA","id_jenis":"1","lat":-8.373907599999999,"lng":116.2777073}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e41"},"id_kab":"5302","id_prov":"53","nama":"KAB TIMOR TENGAH SELATAN","id_jenis":"1","lat":-9.776281599999999,"lng":124.4198243}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e3e"},"id_kab":"5271","id_prov":"52","nama":"KOTA MATARAM","id_jenis":"2","lat":-8.5769951,"lng":116.1004894}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e3f"},"id_kab":"5272","id_prov":"52","nama":"KOTA BIMA","id_jenis":"2","lat":-8.4642661,"lng":118.7449028}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e40"},"id_kab":"5301","id_prov":"53","nama":"KAB. KUPANG","id_jenis":"1","lat":-9.9906166,"lng":123.8857747}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e43"},"id_kab":"5304","id_prov":"53","nama":"KAB. BELU","id_jenis":"1","lat":-9.1538978,"lng":124.906551}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e42"},"id_kab":"5303","id_prov":"53","nama":"KAB. TIMOR TENGAH UTARA","id_jenis":"1","lat":-9.452264699999999,"lng":124.597132}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e46"},"id_kab":"5307","id_prov":"53","nama":"KAB. SIKKA","id_jenis":"1","lat":-8.676617499999999,"lng":122.1291843}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e45"},"id_kab":"5306","id_prov":"53","nama":"KAB. FLORES TIMUR","id_jenis":"1","lat":-8.3130942,"lng":122.9663018}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e44"},"id_kab":"5305","id_prov":"53","nama":"KAB. ALOR","id_jenis":"1","lat":-8.2928427,"lng":124.5528387}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e48"},"id_kab":"5309","id_prov":"53","nama":"KAB. NGADA","id_jenis":"1","lat":-8.7430424,"lng":120.9876321}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e4a"},"id_kab":"5311","id_prov":"53","nama":"KAB. SUMBA TIMUR","id_jenis":"1","lat":-9.9802103,"lng":120.3435506}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e49"},"id_kab":"5310","id_prov":"53","nama":"KAB. MANGGARAI","id_jenis":"1","lat":-8.6796987,"lng":120.3896651}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e4b"},"id_kab":"5313","id_prov":"53","nama":"KAB. LEMBATA","id_jenis":"1","lat":-8.4719075,"lng":123.4831906}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e4c"},"id_kab":"5314","id_prov":"53","nama":"KAB. ROTE NDAO","id_jenis":"1","lat":-10.7386421,"lng":123.1239049}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e47"},"id_kab":"5308","id_prov":"53","nama":"KAB. ENDE","id_jenis":"1","lat":-8.6762912,"lng":121.7195459}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e4e"},"id_kab":"5316","id_prov":"53","nama":"KAB. NAGEKEO","id_jenis":"1","lat":-8.6753545,"lng":121.3084088}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e4f"},"id_kab":"5317","id_prov":"53","nama":"KAB. SUMBA TENGAH","id_jenis":"1","lat":-9.4879226,"lng":119.6962677}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e4d"},"id_kab":"5315","id_prov":"53","nama":"KAB. MANGGARAI BARAT","id_jenis":"1","lat":-8.6688149,"lng":120.0665236}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e50"},"id_kab":"5318","id_prov":"53","nama":"KAB. SUMBA BARAT DAYA","id_jenis":"1","lat":-9.539138999999999,"lng":119.1390642}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e51"},"id_kab":"5319","id_prov":"53","nama":"KAB. MANGGARAI TIMUR","id_jenis":"1","lat":-8.6206712,"lng":120.6199895}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e52"},"id_kab":"5320","id_prov":"53","nama":"KAB. SABU RAIJUA","id_jenis":"1","lat":-10.5541116,"lng":121.8334868}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e54"},"id_kab":"5371","id_prov":"53","nama":"KOTA KUPANG","id_jenis":"2","lat":-10.1771997,"lng":123.6070329}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e53"},"id_kab":"5321","id_prov":"53","nama":"KAB. MALAKA","id_jenis":"1","lat":-9.5308587,"lng":124.906551}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e55"},"id_kab":"6101","id_prov":"61","nama":"KAB. SAMBAS","id_jenis":"1","lat":1.3625191,"lng":109.2831531}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e56"},"id_kab":"6102","id_prov":"61","nama":"KAB. MEMPAWAH","id_jenis":"1","lat":0.3897139,"lng":109.140438}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e57"},"id_kab":"6103","id_prov":"61","nama":"KAB. SANGGAU","id_jenis":"1","lat":0.1400117,"lng":110.5215459}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e59"},"id_kab":"6105","id_prov":"61","nama":"KAB. SINTANG","id_jenis":"1","lat":-0.1378068,"lng":112.8105512}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e5a"},"id_kab":"6106","id_prov":"61","nama":"KAB. KAPUAS HULU","id_jenis":"1","lat":0.8336697,"lng":113.0011989}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e5b"},"id_kab":"6107","id_prov":"61","nama":"KAB. BENGKAYANG","id_jenis":"1","lat":1.06911,"lng":109.6639309}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e58"},"id_kab":"6104","id_prov":"61","nama":"KAB. KETAPANG","id_jenis":"1","lat":-1.5697615,"lng":110.5215459}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e5c"},"id_kab":"5312","id_prov":"53","nama":"KAB. SUMBA BARAT","id_jenis":"1","lat":-9.654832599999999,"lng":119.3947135}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e5d"},"id_kab":"6108","id_prov":"61","nama":"KAB. LANDAK","id_jenis":"1","lat":0.4237287,"lng":109.7591675}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e5f"},"id_kab":"6110","id_prov":"61","nama":"KAB. MELAWI","id_jenis":"1","lat":-0.7000681,"lng":111.6660725}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e5e"},"id_kab":"6109","id_prov":"61","nama":"KAB. SEKADAU","id_jenis":"1","lat":-0.06971750000000002,"lng":110.9983515}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e60"},"id_kab":"6111","id_prov":"61","nama":"KAB. KAYONG UTARA","id_jenis":"1","lat":-0.9225877,"lng":110.0449662}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e64"},"id_kab":"6201","id_prov":"62","nama":"KAB. KOTAWARINGIN BARAT","id_jenis":"1","lat":-2.5063419,"lng":111.7614661}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e65"},"id_kab":"6202","id_prov":"62","nama":"KAB. KOTAWARINGIN TIMUR","id_jenis":"1","lat":-2.1225475,"lng":112.8105512}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e66"},"id_kab":"6203","id_prov":"62","nama":"KAB. KAPUAS","id_jenis":"1","lat":-1.8116445,"lng":114.3341432}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e62"},"id_kab":"6171","id_prov":"61","nama":"KOTA PONTIANAK","id_jenis":"2","lat":-0.0263303,"lng":109.3425039}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e61"},"id_kab":"6112","id_prov":"61","nama":"KAB. KUBU RAYA","id_jenis":"1","lat":-0.3533938,"lng":109.4735066}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e67"},"id_kab":"6204","id_prov":"62","nama":"KAB. BARITO SELATAN","id_jenis":"1","lat":-1.875943,"lng":114.8092691}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e63"},"id_kab":"6172","id_prov":"61","nama":"KOTA SINGKAWANG","id_jenis":"2","lat":0.9060204000000001,"lng":108.9872049}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e68"},"id_kab":"6206","id_prov":"62","nama":"KAB. KATINGAN","id_jenis":"1","lat":-0.9758378999999998,"lng":112.8105512}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e69"},"id_kab":"6207","id_prov":"62","nama":"KAB. SERUYAN","id_jenis":"1","lat":-3.0123467,"lng":112.4291464}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e6a"},"id_kab":"6205","id_prov":"62","nama":"KAB. BARITO UTARA","id_jenis":"1","lat":-0.9587136,"lng":115.094045}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e6e"},"id_kab":"6212","id_prov":"62","nama":"KAB. MURUNG RAYA","id_jenis":"1","lat":-0.1362171,"lng":114.3341432}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e6d"},"id_kab":"6208","id_prov":"62","nama":"KAB. SUKAMARA","id_jenis":"1","lat":-2.6267517,"lng":111.2368084}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e6b"},"id_kab":"6209","id_prov":"62","nama":"KAB. LAMANDAU","id_jenis":"1","lat":-1.8526377,"lng":111.2845025}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e6f"},"id_kab":"6213","id_prov":"62","nama":"KAB. BARITO TIMUR","id_jenis":"1","lat":-2.0123999,"lng":115.188916}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e70"},"id_kab":"6271","id_prov":"62","nama":"KOTA PALANGKARAYA","id_jenis":"2","lat":-2.2161048,"lng":113.913977}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e6c"},"id_kab":"6210","id_prov":"62","nama":"KAB. GUNUNG MAS","id_jenis":"1","lat":-1.2522464,"lng":113.5728501}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e71"},"id_kab":"6301","id_prov":"63","nama":"KAB. TANAH LAUT","id_jenis":"1","lat":-3.7694047,"lng":114.8092691}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e73"},"id_kab":"6303","id_prov":"63","nama":"KAB. BANJAR","id_jenis":"1","lat":-3.3200228,"lng":114.9991464}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e72"},"id_kab":"6302","id_prov":"63","nama":"KAB. KOTABARU","id_jenis":"1","lat":-3.0029841,"lng":115.9467997}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e77"},"id_kab":"6307","id_prov":"63","nama":"KAB. HULU SUNGAI TENGAH","id_jenis":"1","lat":-2.615316200000001,"lng":115.5207358}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e75"},"id_kab":"6305","id_prov":"63","nama":"KAB. TAPIN","id_jenis":"1","lat":-2.9160746,"lng":115.0465991}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e79"},"id_kab":"6309","id_prov":"63","nama":"KAB. TABALONG","id_jenis":"1","lat":-1.864302,"lng":115.5681084}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e78"},"id_kab":"6308","id_prov":"63","nama":"KAB. HULU SUNGAI UTARA","id_jenis":"1","lat":-2.4421225,"lng":115.188916}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e7b"},"id_kab":"6311","id_prov":"63","nama":"KAB. BALANGAN","id_jenis":"1","lat":-2.3260425,"lng":115.6154732}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e7a"},"id_kab":"6310","id_prov":"63","nama":"KAB. TANAH BUMBU","id_jenis":"1","lat":-3.4512244,"lng":115.5681084}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e76"},"id_kab":"6306","id_prov":"63","nama":"KAB. HULU SUNGAI SELATAN","id_jenis":"1","lat":-2.7662681,"lng":115.2363408}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e7c"},"id_kab":"6371","id_prov":"63","nama":"KOTA BANJARMASIN","id_jenis":"2","lat":-3.3186067,"lng":114.5943784}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e7d"},"id_kab":"6372","id_prov":"63","nama":"KOTA BANJARBARU","id_jenis":"2","lat":-3.4572422,"lng":114.8103181}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e7e"},"id_kab":"6401","id_prov":"64","nama":"KAB. PASER","id_jenis":"1","lat":-1.7175266,"lng":115.9467997}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e7f"},"id_kab":"6402","id_prov":"64","nama":"KAB. KUTAI KARTANEGARA","id_jenis":"1","lat":-0.1336655,"lng":116.6081653}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e80"},"id_kab":"6403","id_prov":"64","nama":"KAB. BERAU","id_jenis":"1","lat":2.0450883,"lng":117.3616476}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e74"},"id_kab":"6304","id_prov":"63","nama":"KAB. BARITO KUALA","id_jenis":"1","lat":-3.0714738,"lng":114.6667939}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e81"},"id_kab":"6407","id_prov":"64","nama":"KAB. KUTAI BARAT","id_jenis":"1","lat":-0.4051796,"lng":115.8521764}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e82"},"id_kab":"6408","id_prov":"64","nama":"KAB. KUTAI TIMUR","id_jenis":"1","lat":0.9433774,"lng":116.9852422}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e83"},"id_kab":"6409","id_prov":"64","nama":"KAB. PENAJAM PASER UTARA","id_jenis":"1","lat":-1.2917094,"lng":116.5137964}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e84"},"id_kab":"6411","id_prov":"64","nama":"KAB. MAHAKAM ULU","id_jenis":"1","lat":0.9616678000000001,"lng":114.7142918}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e88"},"id_kab":"6501","id_prov":"65","nama":"KAB. BULUNGAN","id_jenis":"1","lat":2.9042476,"lng":116.9852422}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e89"},"id_kab":"6502","id_prov":"65","nama":"KAB. MALINAU","id_jenis":"1","lat":3.0730929,"lng":116.0413889}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e8a"},"id_kab":"6503","id_prov":"65","nama":"KAB. NUNUKAN","id_jenis":"1","lat":4.0809649,"lng":116.6081653}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e86"},"id_kab":"6472","id_prov":"64","nama":"KOTA SAMARINDA","id_jenis":"2","lat":-0.4948232,"lng":117.1436154}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e8b"},"id_kab":"6504","id_prov":"65","nama":"KAB. TANA TIDUNG","id_jenis":"1","lat":3.551869,"lng":117.0794082}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e85"},"id_kab":"6471","id_prov":"64","nama":"KOTA BALIKPAPAN","id_jenis":"2","lat":-1.2379274,"lng":116.8528526}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e87"},"id_kab":"6474","id_prov":"64","nama":"KOTA BONTANG","id_jenis":"2","lat":0.120863,"lng":117.4800445}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e8d"},"id_kab":"7101","id_prov":"71","nama":"KAB. BOLAANG MONGONDOW","id_jenis":"1","lat":0.6870994,"lng":124.0641419}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e8c"},"id_kab":"6571","id_prov":"65","nama":"KOTA TARAKAN","id_jenis":"2","lat":3.3273599,"lng":117.5785049}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e8f"},"id_kab":"7103","id_prov":"71","nama":"KAB. KEPULAUAN SANGIHE","id_jenis":"1","lat":3.6329172,"lng":125.5000999}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e90"},"id_kab":"7104","id_prov":"71","nama":"KAB. KEPULAUAN TALAUD","id_jenis":"1","lat":4.3066741,"lng":126.8034921}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e8e"},"id_kab":"7102","id_prov":"71","nama":"KAB. MINAHASA","id_jenis":"1","lat":1.2168837,"lng":124.8182593}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e94"},"id_kab":"7108","id_prov":"71","nama":"KAB. BOLAANG MONGONDOW UTARA","id_jenis":"1","lat":0.9070359000000001,"lng":123.2657311}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e93"},"id_kab":"7107","id_prov":"71","nama":"KAB. MINAHASA TENGGARA","id_jenis":"1","lat":1.0278551,"lng":124.7298765}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e91"},"id_kab":"7105","id_prov":"71","nama":"KAB. MINAHASA SELATAN","id_jenis":"1","lat":1.0946773,"lng":124.4641848}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e97"},"id_kab":"7111","id_prov":"71","nama":"KAB. BOLAANG MONGONDOW SELATAN","id_jenis":"1","lat":0.4053215,"lng":123.8411288}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e96"},"id_kab":"7110","id_prov":"71","nama":"KAB. BOLAANG MONGONDOW TIMUR","id_jenis":"1","lat":0.7152651,"lng":124.4641848}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e98"},"id_kab":"7171","id_prov":"71","nama":"KOTA MANADO","id_jenis":"2","lat":1.4748305,"lng":124.8420794}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e99"},"id_kab":"7172","id_prov":"71","nama":"KOTA BITUNG","id_jenis":"2","lat":1.4403744,"lng":125.1216524}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e95"},"id_kab":"7109","id_prov":"71","nama":"KAB. KEP. SIAU TAGULANDANG BIARO","id_jenis":"1","lat":2.345964,"lng":125.4124355}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e9a"},"id_kab":"7173","id_prov":"71","nama":"KOTA TOMOHON","id_jenis":"2","lat":1.3229337,"lng":124.8405081}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e9b"},"id_kab":"7174","id_prov":"71","nama":"KOTA KOTAMOBAGU","id_jenis":"2","lat":0.7243733,"lng":124.3199316}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e92"},"id_kab":"7106","id_prov":"71","nama":"KAB. MINAHASA UTARA","id_jenis":"1","lat":1.5327973,"lng":124.994751}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e9c"},"id_kab":"7201","id_prov":"72","nama":"KAB. BANGGAI","id_jenis":"1","lat":-0.956178,"lng":122.6277455}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e9d"},"id_kab":"7202","id_prov":"72","nama":"KAB. POSO","id_jenis":"1","lat":-1.6468883,"lng":120.4357631}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e9f"},"id_kab":"7204","id_prov":"72","nama":"KAB. TOLI TOLI","id_jenis":"1","lat":0.8768231,"lng":120.7579834}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea1"},"id_kab":"7206","id_prov":"72","nama":"KAB. MOROWALI","id_jenis":"1","lat":-2.6987231,"lng":121.9017954}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea0"},"id_kab":"7205","id_prov":"72","nama":"KAB. BUOL","id_jenis":"1","lat":0.9695452000000001,"lng":121.3541631}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8e9e"},"id_kab":"7203","id_prov":"72","nama":"KAB. DONGGALA","id_jenis":"1","lat":-0.4233155,"lng":119.8352303}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea3"},"id_kab":"7208","id_prov":"72","nama":"KAB. PARIGI MOUTONG","id_jenis":"1","lat":0.5817607,"lng":120.8039474}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea4"},"id_kab":"7209","id_prov":"72","nama":"KAB. TOJO UNA UNA","id_jenis":"1","lat":-1.098757,"lng":121.5370003}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea2"},"id_kab":"7207","id_prov":"72","nama":"KAB. BANGGAI KEPULAUAN","id_jenis":"1","lat":-0.956178,"lng":122.6277455}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea6"},"id_kab":"7211","id_prov":"72","nama":"KAB. BANGGAI LAUT","id_jenis":"1","lat":-1.6734525,"lng":123.5504076}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea5"},"id_kab":"7210","id_prov":"72","nama":"KAB. SIGI","id_jenis":"1","lat":-1.3859904,"lng":119.8815203}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eaa"},"id_kab":"7302","id_prov":"73","nama":"KAB. BULUKUMBA","id_jenis":"1","lat":-5.432936799999999,"lng":120.2051096}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea7"},"id_kab":"7212","id_prov":"72","nama":"KAB. MOROWALI UTARA","id_jenis":"1","lat":-1.6311761,"lng":121.3541631}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eab"},"id_kab":"7303","id_prov":"73","nama":"KAB. BANTAENG","id_jenis":"1","lat":-5.516931599999999,"lng":120.0202964}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ead"},"id_kab":"7305","id_prov":"73","nama":"KAB. TAKALAR","id_jenis":"1","lat":-5.4162493,"lng":119.4875668}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eac"},"id_kab":"7304","id_prov":"73","nama":"KAB. JENEPONTO","id_jenis":"1","lat":-5.554579,"lng":119.6730939}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eae"},"id_kab":"7306","id_prov":"73","nama":"KAB. GOWA","id_jenis":"1","lat":-5.310288799999999,"lng":119.742604}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea8"},"id_kab":"7271","id_prov":"72","nama":"KOTA PALU","id_jenis":"2","lat":-0.9002914999999999,"lng":119.8779987}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eaf"},"id_kab":"7307","id_prov":"73","nama":"KAB. SINJAI","id_jenis":"1","lat":-5.2171961,"lng":120.112735}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ea9"},"id_kab":"7301","id_prov":"73","nama":"KAB. KEPULAUAN SELAYAR","id_jenis":"1","lat":-6.286978599999999,"lng":120.5048792}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb0"},"id_kab":"7308","id_prov":"73","nama":"KAB. BONE","id_jenis":"1","lat":-4.7443383,"lng":120.0665236}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb3"},"id_kab":"7311","id_prov":"73","nama":"KAB. BARRU","id_jenis":"1","lat":-4.436417,"lng":119.6499162}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb4"},"id_kab":"7312","id_prov":"73","nama":"KAB. SOPPENG","id_jenis":"1","lat":-4.3518541,"lng":119.9277947}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb2"},"id_kab":"7310","id_prov":"73","nama":"KAB. PANGKAJENE KEPULAUAN","id_jenis":"1","lat":-4.805035,"lng":119.5571677}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb5"},"id_kab":"7313","id_prov":"73","nama":"KAB. WAJO","id_jenis":"1","lat":-4.022228999999999,"lng":120.0665236}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb8"},"id_kab":"7316","id_prov":"73","nama":"KAB. ENREKANG","id_jenis":"1","lat":-3.4590744,"lng":119.8815203}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb7"},"id_kab":"7315","id_prov":"73","nama":"KAB. PINRANG","id_jenis":"1","lat":-3.6483486,"lng":119.5571677}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb6"},"id_kab":"7314","id_prov":"73","nama":"KAB. SIDENRENG RAPPANG","id_jenis":"1","lat":-3.7738981,"lng":120.0202964}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb1"},"id_kab":"7309","id_prov":"73","nama":"KAB. MAROS","id_jenis":"1","lat":-5.0549145,"lng":119.6962677}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ebb"},"id_kab":"7322","id_prov":"73","nama":"KAB. LUWU UTARA","id_jenis":"1","lat":-2.2690446,"lng":119.9740534}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eb9"},"id_kab":"7317","id_prov":"73","nama":"KAB. LUWU","id_jenis":"1","lat":-3.3052214,"lng":120.2512728}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ebc"},"id_kab":"6211","id_prov":"62","nama":"KAB. PULANG PISAU","id_jenis":"1","lat":-2.6849607,"lng":113.9536466}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ebd"},"id_kab":"7324","id_prov":"73","nama":"KAB. LUWU TIMUR","id_jenis":"1","lat":-2.5825518,"lng":121.1710389}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ebe"},"id_kab":"7326","id_prov":"73","nama":"KAB. TORAJA UTARA","id_jenis":"1","lat":-2.8621942,"lng":119.8352303}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec0"},"id_kab":"7373","id_prov":"73","nama":"KOTA PALOPO","id_jenis":"2","lat":-3.0016343,"lng":120.1985141}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ebf"},"id_kab":"7371","id_prov":"73","nama":"KOTA MAKASSAR","id_jenis":"2","lat":-5.147665099999999,"lng":119.4327314}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eba"},"id_kab":"7318","id_prov":"73","nama":"KAB. TANA TORAJA","id_jenis":"1","lat":-3.0753003,"lng":119.742604}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec2"},"id_kab":"7401","id_prov":"74","nama":"KAB. KOLAKA","id_jenis":"1","lat":-3.9946988,"lng":121.5826642}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec1"},"id_kab":"7372","id_prov":"73","nama":"KOTA PARE PARE","id_jenis":"2","lat":-4.0096221,"lng":119.6290617}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec6"},"id_kab":"7404","id_prov":"74","nama":"KAB. BUTON","id_jenis":"1","lat":-5.3096355,"lng":122.9888319}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec5"},"id_kab":"7405","id_prov":"74","nama":"KAB. KONAWE SELATAN","id_jenis":"1","lat":-4.2027915,"lng":122.4467238}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec4"},"id_kab":"7403","id_prov":"74","nama":"KAB. MUNA","id_jenis":"1","lat":-4.901629,"lng":122.6277455}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec7"},"id_kab":"7406","id_prov":"74","nama":"KAB. BOMBANA","id_jenis":"1","lat":-4.6543462,"lng":121.9017954}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec8"},"id_kab":"7407","id_prov":"74","nama":"KAB. WAKATOBI","id_jenis":"1","lat":-5.3264442,"lng":123.5951925}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec9"},"id_kab":"7408","id_prov":"74","nama":"KAB. KOLAKA UTARA","id_jenis":"1","lat":-3.1347227,"lng":121.1710389}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eca"},"id_kab":"7409","id_prov":"74","nama":"KAB. KONAWE UTARA","id_jenis":"1","lat":-3.3803291,"lng":122.0837445}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ecb"},"id_kab":"7410","id_prov":"74","nama":"KAB. BUTON UTARA","id_jenis":"1","lat":-4.702342400000001,"lng":123.0338767}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ec3"},"id_kab":"7402","id_prov":"74","nama":"KAB. KONAWE","id_jenis":"1","lat":-3.9380432,"lng":122.0837445}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ecf"},"id_kab":"7415","id_prov":"74","nama":"KAB. BUTON SELATAN","id_jenis":"1","lat":-5.3096355,"lng":122.9888319}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ecc"},"id_kab":"7411","id_prov":"74","nama":"KAB. KOLAKA TIMUR","id_jenis":"1","lat":-4.2279225,"lng":121.9017954}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed0"},"id_kab":"7414","id_prov":"74","nama":"KAB. BUTON TENGAH","id_jenis":"1","lat":-5.289140499999999,"lng":122.424074}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed1"},"id_kab":"7471","id_prov":"74","nama":"KOTA KENDARI","id_jenis":"2","lat":-3.9984597,"lng":122.5129742}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed3"},"id_kab":"7501","id_prov":"75","nama":"KAB. GORONTALO","id_jenis":"1","lat":0.5692733,"lng":122.8084496}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ece"},"id_kab":"7412","id_prov":"74","nama":"KAB. KONAWE KEPULAUAN","id_jenis":"1","lat":-4.1361465,"lng":123.1239049}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ecd"},"id_kab":"7413","id_prov":"74","nama":"KAB. MUNA BARAT","id_jenis":"1","lat":-4.901629,"lng":122.6277455}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed2"},"id_kab":"7472","id_prov":"74","nama":"KOTA BAU BAU","id_jenis":"2","lat":-5.507078,"lng":122.596901}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed4"},"id_kab":"7502","id_prov":"75","nama":"KAB. BOALEMO","id_jenis":"1","lat":0.7013419,"lng":122.2653887}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed5"},"id_kab":"7503","id_prov":"75","nama":"KAB. BONE BOLANGO","id_jenis":"1","lat":0.5657885,"lng":123.3486147}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed6"},"id_kab":"7504","id_prov":"75","nama":"KAB. PAHUWATO","id_jenis":"1","lat":0.7055277999999999,"lng":121.7195459}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed7"},"id_kab":"7571","id_prov":"75","nama":"KOTA GORONTALO","id_jenis":"2","lat":0.5435441999999999,"lng":123.0567693}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed8"},"id_kab":"7505","id_prov":"75","nama":"KAB. GORONTALO UTARA","id_jenis":"1","lat":0.9252647,"lng":122.4920088}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ed9"},"id_kab":"7602","id_prov":"76","nama":"KAB. MAMUJU","id_jenis":"1","lat":-2.4920057,"lng":119.3250347}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eda"},"id_kab":"7603","id_prov":"76","nama":"KAB. MAMASA","id_jenis":"1","lat":-2.9118209,"lng":119.3250347}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8edb"},"id_kab":"7601","id_prov":"76","nama":"KAB. MAMUJU UTARA","id_jenis":"1","lat":-1.5264542,"lng":119.5107708}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8edc"},"id_kab":"7604","id_prov":"76","nama":"KAB. POLEWALI MANDAR","id_jenis":"1","lat":-3.3419323,"lng":119.1390642}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8edd"},"id_kab":"7605","id_prov":"76","nama":"KAB. MAJENE","id_jenis":"1","lat":-3.0297251,"lng":118.9062794}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8edf"},"id_kab":"8101","id_prov":"81","nama":"KAB. MALUKU TENGAH","id_jenis":"1","lat":-3.0166501,"lng":129.4864411}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee0"},"id_kab":"8102","id_prov":"81","nama":"KAB. MALUKU TENGGARA","id_jenis":"1","lat":-5.7512455,"lng":132.7271587}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ede"},"id_kab":"7606","id_prov":"76","nama":"KAB. MAMUJU TENGAH","id_jenis":"1","lat":-1.9354109,"lng":119.5107708}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee1"},"id_kab":"8104","id_prov":"81","nama":"KAB. BURU","id_jenis":"1","lat":-3.3307379,"lng":126.6957216}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee5"},"id_kab":"8107","id_prov":"81","nama":"KAB. KEPULAUAN ARU","id_jenis":"1","lat":-6.1946502,"lng":134.5501935}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee6"},"id_kab":"8108","id_prov":"81","nama":"KAB. MALUKU BARAT DAYA","id_jenis":"1","lat":-7.7851588,"lng":126.3498097}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee4"},"id_kab":"8105","id_prov":"81","nama":"KAB. SERAM BAGIAN TIMUR","id_jenis":"1","lat":-3.4233267,"lng":130.2271243}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee3"},"id_kab":"8106","id_prov":"81","nama":"KAB. SERAM BAGIAN BARAT","id_jenis":"1","lat":-3.1271575,"lng":128.4008357}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee7"},"id_kab":"8109","id_prov":"81","nama":"KAB. BURU SELATAN","id_jenis":"1","lat":-3.7273972,"lng":126.6957216}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee9"},"id_kab":"8201","id_prov":"82","nama":"KAB. HALMAHERA BARAT","id_jenis":"1","lat":1.3589663,"lng":127.5960704}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee8"},"id_kab":"8172","id_prov":"81","nama":"KOTA TUAL","id_jenis":"2","lat":-5.626563,"lng":132.7520867}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eea"},"id_kab":"8171","id_prov":"81","nama":"KOTA AMBON","id_jenis":"2","lat":-3.6553932,"lng":128.1907723}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ee2"},"id_kab":"8103","id_prov":"81","nama":"KAB MALUKU TENGGARA BARAT","id_jenis":"1","lat":-7.5322642,"lng":131.3611121}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eeb"},"id_kab":"8202","id_prov":"82","nama":"KAB. HALMAHERA TENGAH","id_jenis":"1","lat":0.4419543,"lng":128.3587174}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eec"},"id_kab":"8203","id_prov":"82","nama":"KAB. HALMAHERA UTARA","id_jenis":"1","lat":1.5074308,"lng":127.8936663}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eed"},"id_kab":"8205","id_prov":"82","nama":"KAB. KEPULAUAN SULA","id_jenis":"1","lat":-1.8455556,"lng":125.3430556}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef0"},"id_kab":"8208","id_prov":"82","nama":"KAB. PULAU TALIABU","id_jenis":"1","lat":-1.8268344,"lng":124.7740793}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eef"},"id_kab":"8206","id_prov":"82","nama":"KAB. HALMAHERA TIMUR","id_jenis":"1","lat":1.3121235,"lng":128.4849923}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eee"},"id_kab":"8204","id_prov":"82","nama":"KAB. HALMAHERA SELATAN","id_jenis":"1","lat":-1.5109015,"lng":127.7237678}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef1"},"id_kab":"8207","id_prov":"82","nama":"KAB. PULAU MOROTAI","id_jenis":"1","lat":2.3656672,"lng":128.4008357}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef2"},"id_kab":"8272","id_prov":"82","nama":"KOTA TIDORE KEPULAUAN","id_jenis":"2","lat":0.6740044,"lng":127.4040871}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef4"},"id_kab":"9102","id_prov":"91","nama":"KAB. JAYAWIJAYA","id_jenis":"1","lat":-4.0004481,"lng":138.7995122}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef3"},"id_kab":"9101","id_prov":"91","nama":"KAB. MERAUKE","id_jenis":"1","lat":-7.783833399999999,"lng":139.041312}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef7"},"id_kab":"9104","id_prov":"91","nama":"KAB. NABIRE","id_jenis":"1","lat":-3.5095462,"lng":135.7520985}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef8"},"id_kab":"9105","id_prov":"91","nama":"KAB. KEPULAUAN YAPEN","id_jenis":"1","lat":-1.7469359,"lng":136.1709012}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8efa"},"id_kab":"9107","id_prov":"91","nama":"KAB. PUNCAK JAYA","id_jenis":"1","lat":-3.4467891,"lng":137.8427298}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef9"},"id_kab":"9106","id_prov":"91","nama":"KAB. BIAK NUMFOR","id_jenis":"1","lat":-1.0381022,"lng":135.9800848}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef6"},"id_kab":"8271","id_prov":"82","nama":"KOTA TERNATE","id_jenis":"2","lat":0.7710308,"lng":127.3695176}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8efb"},"id_kab":"9108","id_prov":"91","nama":"KAB. PANIAI","id_jenis":"1","lat":-3.7876441,"lng":136.3624686}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8efc"},"id_kab":"9110","id_prov":"91","nama":"KAB. SARMI","id_jenis":"1","lat":-2.4678144,"lng":139.2030851}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8efd"},"id_kab":"9109","id_prov":"91","nama":"KAB. MIMIKA","id_jenis":"1","lat":-4.4553223,"lng":137.1362125}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8ef5"},"id_kab":"9103","id_prov":"91","nama":"KAB. JAYAPURA","id_jenis":"1","lat":-2.987923,"lng":139.8547266}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f01"},"id_kab":"9115","id_prov":"91","nama":"KAB. WAROPEN","id_jenis":"1","lat":-2.8435717,"lng":136.670534}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f02"},"id_kab":"9114","id_prov":"91","nama":"KAB. TOLIKARA","id_jenis":"1","lat":-3.481132,"lng":138.4787258}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8efe"},"id_kab":"9111","id_prov":"91","nama":"KAB. KEEROM","id_jenis":"1","lat":-3.3449536,"lng":140.7624493}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f00"},"id_kab":"9113","id_prov":"91","nama":"KAB. YAHUKIMO","id_jenis":"1","lat":-4.493971699999999,"lng":139.5279996}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f03"},"id_kab":"9117","id_prov":"91","nama":"KAB. MAPPI","id_jenis":"1","lat":-6.7606468,"lng":139.6911374}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f04"},"id_kab":"9116","id_prov":"91","nama":"KAB. BOVEN DIGOEL","id_jenis":"1","lat":-5.7400018,"lng":140.3481835}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f05"},"id_kab":"9118","id_prov":"91","nama":"KAB. ASMAT","id_jenis":"1","lat":-5.0573958,"lng":138.3988186}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f06"},"id_kab":"9120","id_prov":"91","nama":"KAB. MAMBERAMO RAYA","id_jenis":"1","lat":-2.5331255,"lng":137.7637565}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8eff"},"id_kab":"9112","id_prov":"91","nama":"KAB PEGUNUNGAN BINTANG","id_jenis":"1","lat":-4.5589872,"lng":140.5135589}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f0a"},"id_kab":"9122","id_prov":"91","nama":"KAB. YALIMO","id_jenis":"1","lat":-3.7852847,"lng":139.4466005}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f08"},"id_kab":"9119","id_prov":"91","nama":"KAB. SUPIORI","id_jenis":"1","lat":-0.7295098999999999,"lng":135.6385125}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f07"},"id_kab":"9121","id_prov":"91","nama":"KAB. MAMBERAMO TENGAH","id_jenis":"1","lat":-2.3745692,"lng":138.3190276}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f09"},"id_kab":"9123","id_prov":"91","nama":"KAB. LANNY JAYA","id_jenis":"1","lat":-3.971033,"lng":138.3190276}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f0b"},"id_kab":"9125","id_prov":"91","nama":"KAB. PUNCAK","id_jenis":"1","lat":-3.8649098,"lng":137.6061625}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f0d"},"id_kab":"9126","id_prov":"91","nama":"KAB. DOGIYAI","id_jenis":"1","lat":-4.0454139,"lng":135.6763443}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f0c"},"id_kab":"9124","id_prov":"91","nama":"KAB. NDUGA","id_jenis":"1","lat":-4.4069496,"lng":138.2393528}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f0f"},"id_kab":"9128","id_prov":"91","nama":"KAB. DEIYAI","id_jenis":"1","lat":-4.097489299999999,"lng":136.4393054}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f0e"},"id_kab":"9127","id_prov":"91","nama":"KAB. INTAN JAYA","id_jenis":"1","lat":-3.5076422,"lng":136.7478493}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f13"},"id_kab":"9204","id_prov":"92","nama":"KAB. SORONG SELATAN","id_jenis":"1","lat":-1.7657744,"lng":132.1572702}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f11"},"id_kab":"9202","id_prov":"92","nama":"KAB. MANOKWARI","id_jenis":"1","lat":-0.9989581999999998,"lng":133.0194897}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f14"},"id_kab":"9171","id_prov":"91","nama":"KOTA JAYAPURA","id_jenis":"2","lat":-2.5916025,"lng":140.6689995}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f16"},"id_kab":"9205","id_prov":"92","nama":"KAB. RAJA AMPAT","id_jenis":"1","lat":-1.0915151,"lng":130.8778586}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f15"},"id_kab":"9206","id_prov":"92","nama":"KAB. TELUK BINTUNI","id_jenis":"1","lat":-1.9056848,"lng":133.329466}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f17"},"id_kab":"9208","id_prov":"92","nama":"KAB. KAIMANA","id_jenis":"1","lat":-3.288406,"lng":133.9436788}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f10"},"id_kab":"9201","id_prov":"92","nama":"KAB. SORONG","id_jenis":"1","lat":-1.1223204,"lng":131.4883373}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f18"},"id_kab":"9207","id_prov":"92","nama":"KAB. TELUK WONDAMA","id_jenis":"1","lat":-2.8551699,"lng":134.3236557}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f12"},"id_kab":"9203","id_prov":"92","nama":"KAB. FAK FAK","id_jenis":"1","lat":-3.097706,"lng":133.0194897}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f19"},"id_kab":"9209","id_prov":"92","nama":"KAB. TAMBRAUW","id_jenis":"1","lat":-0.781856,"lng":132.3938375}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f1a"},"id_kab":"9210","id_prov":"92","nama":"KAB. MAYBRAT","id_jenis":"1","lat":-1.2970979,"lng":132.3150993}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f1b"},"id_kab":"9212","id_prov":"92","nama":"KAB. PEGUNUNGAN ARFAK","id_jenis":"1","lat":-1.1554562,"lng":133.7142484}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f1c"},"id_kab":"9271","id_prov":"92","nama":"KOTA SORONG","id_jenis":"2","lat":-0.8761629000000001,"lng":131.255828}
+{"_id":{"$oid":"58ff0c183babe0ae3ffe8f1d"},"id_kab":"9211","id_prov":"92","nama":"KAB. MANOKWARI SELATAN","id_jenis":"1","lat":-1.5721232,"lng":133.981812}
