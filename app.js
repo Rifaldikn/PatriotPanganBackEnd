@@ -6,7 +6,9 @@ var logger = require('morgan');
 var cors = require('cors');
 var mongoose =  require('mongoose');
 
-var UsersRouter = require('./routes/Users.route');
+var Token  = require(__dirname + '/controllers/Token.controller');
+var UsersRouter = require(__dirname + '/routes/Users.route');
+var AuthRouter = require(__dirname + '/routes/Auth.route');
 
 var app = express();
 
@@ -22,6 +24,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/auth', AuthRouter);
+// Checking token
+app.use((req, res, next) => {
+	if(!req.headers.token) {
+		// Cant find token
+    res.status(200)
+      .json({
+        status: false, 
+        message: "Sorry we can't find your token, please make new request"
+      });
+	} else {
+		Token.CheckingToken(req.headers.token, res, next);
+		next();
+	}
+});
 app.use('/users', UsersRouter);
 
 // catch 404 and forward to error handler
