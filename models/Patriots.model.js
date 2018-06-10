@@ -26,6 +26,24 @@ var PatriotsSchema = mongoose.Schema({
     alamat: {
         type: String,
         required: true
+    },
+    bergabung: {
+        type: Date,
+        default: Date.now,
+        required: true
+    },
+    laporanterkirim: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    keluargayangdipantau: {
+        type: Number,
+        default: 0,
+        required: true
+    },
+    pathfoto: {
+        type: String
     }
 });
 

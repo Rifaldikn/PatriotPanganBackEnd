@@ -24,6 +24,7 @@ var Token  = require(__dirname + '/controllers/Token.controller');
 var PejabatsRouter = require(__dirname + '/routes/Pejabats.route');
 var AuthRouter = require(__dirname + '/routes/Auth.route');
 var AdminRouter = require(__dirname + '/routes/Admin.route');
+var PatriotsRouter = require(__dirname + '/routes/Patriots.route');
 
 app.use('/auth', AuthRouter);
 // Checking token
@@ -42,6 +43,7 @@ app.use((req, res, next) => {
 });
 app.use('/pejabat', PejabatsRouter);
 app.use('/admin', AdminRouter);
+app.use('/patriot', PatriotsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
