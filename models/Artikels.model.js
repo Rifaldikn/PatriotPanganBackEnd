@@ -7,7 +7,7 @@ var ArtikelsSchema = mongoose.Schema({
     },
     // Id Pejabat
     fk_pembuatid: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
     tanggalpublish: {

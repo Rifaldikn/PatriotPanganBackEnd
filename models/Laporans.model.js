@@ -50,7 +50,7 @@ var LaporansSchema = mongoose.Schema({
         required: true
     },
     fk_keluargamiskinid: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
     minggu: {

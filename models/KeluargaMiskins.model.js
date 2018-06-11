@@ -18,7 +18,7 @@ var KeluargaMiskinsSchema = mongoose.Schema({
         required: true
     },
     fk_patriotid: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true
     },
     mingguterakhirmelaporkan: {

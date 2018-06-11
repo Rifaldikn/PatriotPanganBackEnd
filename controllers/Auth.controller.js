@@ -102,7 +102,6 @@ class Auth {
                             message: "Email already exists"
                         });
                 } else {
-                    console.log('masuk sini', req.body, this.SetPassword(req.body.password));
                     var NewAdmin = new Admins({
                         email: req.body.email,
                         password: this.SetPassword(req.body.password),

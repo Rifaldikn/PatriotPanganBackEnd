@@ -17,7 +17,11 @@ var PejabatsSchema = mongoose.Schema({
     },
     fk_kecamatanid: {
         type: String,
-        require: true
+        required: true
+    },
+    pathfoto: {
+        type: String,
+        required: true
     }
 });
 
