@@ -1,6 +1,5 @@
 var bcrypt = require('bcrypt');
 var Token = require(__dirname + '/Token.controller');
-var Pejabats = require(__dirname + '/../models/Pejabats.model');
 var Patriots = require(__dirname + '/../models/Patriots.model');
 var Admins = require(__dirname + '/../models/Admins.model');
 
@@ -17,41 +16,6 @@ class Auth {
         return bcrypt.compareSync(passwordInput, passwordDB);
     }
 
-    LoginPejabat(req, res) {
-        Pejabats
-            .find({ 
-                email: req.body.email 
-            })
-            .exec()
-            .then((pejabat) => {
-                if (pejabat.length < 1) {
-                    res.status(401).json({
-                        message: "Auth failed, email wasn't register"
-                    });
-                } else {
-                    if(this.ComparePassword(req.body.password, pejabat[0].password)) {
-                        this.token = Token.SetupToken(pejabat);
-                        res.status(200)
-                            .json({
-                                message: "Auth successful",
-                                token: this.token
-                            });
-                    } else {
-                        res.status(401)
-                            .json({
-                                message: "Auth failed, password didn't match"
-                            });
-                    }
-                }
-            })
-            .catch(err => {
-                res.status(500).json({
-                    message: "Internal server error", 
-                    info: err
-                });
-            });
-    }
-
     LoginPatriot(req, res) {
         Patriots
             .find({
@@ -66,7 +30,7 @@ class Auth {
                         });
                 } else {
                     if(this.ComparePassword(req.body.password, patriots[0].password)) {
-                        this.token = Token.SetupToken(patriots);
+                        this.token = Token.SetupToken(patriots, "patriots");
                         res.status(200)
                             .json({
                                 message: "Auth successful", 
@@ -148,7 +112,7 @@ class Auth {
                         });
                 } else {
                     if(this.ComparePassword(req.body.password, admin[0].password)) {
-                        this.token = Token.SetupToken(admin);
+                        this.token = Token.SetupToken(admin, "admin");
                         res.status(200)
                             .json({
                                 message: "Auth successfull",

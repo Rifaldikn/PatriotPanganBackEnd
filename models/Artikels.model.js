@@ -5,10 +5,11 @@ var ArtikelsSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // Id Pejabat
+    // Id Admin
     fk_pembuatid: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        required: true,
+        ref: 'Admins'
     },
     tanggalpublish: {
         type: Date,

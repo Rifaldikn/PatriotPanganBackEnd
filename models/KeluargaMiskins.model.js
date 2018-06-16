@@ -7,7 +7,8 @@ var KeluargaMiskinsSchema = mongoose.Schema({
     },
     fk_desaid: {
         type: String,
-        required: true
+        required: true,
+        ref: 'Kelurahans'
     },
     alamat: {
         type: String,
@@ -19,7 +20,8 @@ var KeluargaMiskinsSchema = mongoose.Schema({
     },
     fk_patriotid: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        required: true,
+        ref: 'Patriots'
     },
     mingguterakhirmelaporkan: {
         type: String,

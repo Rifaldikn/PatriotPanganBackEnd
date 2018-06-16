@@ -14,4 +14,9 @@ router.post('/buatlaporan/:KMid', (req, res, next) => {
     Patriots.CreateLaporan(req,res);
 });
 
+//untuk cek KM sesuai patriotnya
+router.get('/getkeluargamiskinyangdipantau', (req, res, next) => { 
+    Patriots.GetKeluargaMiskinYangDipantau(req, res);
+});
+
 module.exports = router;

@@ -51,7 +51,8 @@ var LaporansSchema = mongoose.Schema({
     },
     fk_keluargamiskinid: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        required: true,
+        ref: 'KeluargaMiskins'
     },
     minggu: {
         type: String,

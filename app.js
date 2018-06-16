@@ -25,10 +25,11 @@ var PejabatsRouter = require(__dirname + '/routes/Pejabats.route');
 var AuthRouter = require(__dirname + '/routes/Auth.route');
 var AdminRouter = require(__dirname + '/routes/Admin.route');
 var PatriotsRouter = require(__dirname + '/routes/Patriots.route');
+var ArtikelsRouter = require(__dirname + '/routes/Artikel.route');
 
 app.use('/auth', AuthRouter);
-// Checking token
-app.use((req, res, next) => {
+// Checking token gajadi pake ini
+/*app.use((req, res, next) => {
 	if(!req.headers.token) {
 		// Cant find token
     res.status(200)
@@ -40,10 +41,11 @@ app.use((req, res, next) => {
 		Token.CheckingToken(req.headers.token, res, next);
 		next();
 	}
-});
+});*/
 app.use('/pejabat', PejabatsRouter);
 app.use('/admin', AdminRouter);
 app.use('/patriot', PatriotsRouter);
+app.use('/artikel', ArtikelsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
