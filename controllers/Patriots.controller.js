@@ -18,68 +18,76 @@ class Patriot {
 
     GetProfileAccount(req, res) {
         this.info = Token.DecodeToken(req.headers.token);
-        if (this.info.role == "patriots"){
-            Patriots
-                .find()
-                .where('_id').equals(this.info.token[0]._id)
-                .select('nama alamat gender email bergabung laporanterkirim pathfoto')
-                .exec()
-                .then((patriot) => {
-                    var jeniskelamin;
-                    var lamabergabung;
-                    // check jenis kelamin
-                    if(patriot[0].gender) {
-                        jeniskelamin = 'laki-laki';
-                    } else {
-                        jeniskelamin = 'perempuan';
-                    }
-                    // check lama bergabung
-                    if(moment(new Date).diff(patriot[0].bergabung, 'years') > 0) {
-                        lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'years') + ' tahun yang lalu';
-                    } else if(moment(new Date).diff(patriot[0].bergabung, 'months') > 0) {
-                        lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'months') + ' bulan yang lalu';
-                    } else if(moment(new Date).diff(patriot[0].bergabung, 'weeks') > 0) {
-                        lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'weeks') + ' minggu yang lalu';
-                    } else if(moment(new Date).diff(patriot[0].bergabung, 'days')) {
-                        lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'days') + ' hari yang lalu';
-                    } else if(moment(new Date).diff(patriot[0].bergabung, 'hours') > 0) {
-                        lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'hours') + ' jam yang lalu';
-                    } else if(moment(new Date).diff(patriot[0].bergabung, 'minutes') > 5) {
-                        lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'minutes') + ' menit yang lalu';
-                    } else {
-                        lamabergabung = 'beberapa saat yang lalu';
-                    }
-                    res.status(200)
-                        .json({
-                            message: "Berhasil mendapatkan data profile",
-                            data: {
-                                nama: patriot[0].nama,
-                                email: patriot[0].email,
-                                gender: jeniskelamin,
-                                alamat: patriot[0].alamat,
-                                pathfoto: patriot[0].pathfoto,
-                                lamabergabung: lamabergabung
-                            }
-                        });
-                })
-                .catch((err) => {
-                    res.status(500)
-                        .json({
-                            message: "Internal Server Error"
-                        })
-                });
-        } else {
+        if(!Auth.CheckingAuth(this.info.role, "patriots")) {
             res.status(401)
-                .json({
-                    message: "Auth failed, Anda bukan patriots"
-                });
+            .json({
+                message: "sorry anda tidak memiliki wewenang untuk mengakses ini",
+            });
+        } else {
+            if (this.info.role == "patriots"){
+                Patriots
+                    .find()
+                    .where('_id').equals(this.info.token[0]._id)
+                    .select('nama alamat gender email bergabung laporanterkirim pathfoto')
+                    .exec()
+                    .then((patriot) => {
+                        var jeniskelamin;
+                        var lamabergabung;
+                        // check jenis kelamin
+                        if(patriot[0].gender) {
+                            jeniskelamin = 'laki-laki';
+                        } else {
+                            jeniskelamin = 'perempuan';
+                        }
+                        // check lama bergabung
+                        if(moment(new Date).diff(patriot[0].bergabung, 'years') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'years') + ' tahun yang lalu';
+                        } else if(moment(new Date).diff(patriot[0].bergabung, 'months') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'months') + ' bulan yang lalu';
+                        } else if(moment(new Date).diff(patriot[0].bergabung, 'weeks') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'weeks') + ' minggu yang lalu';
+                        } else if(moment(new Date).diff(patriot[0].bergabung, 'days')) {
+                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'days') + ' hari yang lalu';
+                        } else if(moment(new Date).diff(patriot[0].bergabung, 'hours') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'hours') + ' jam yang lalu';
+                        } else if(moment(new Date).diff(patriot[0].bergabung, 'minutes') > 5) {
+                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'minutes') + ' menit yang lalu';
+                        } else {
+                            lamabergabung = 'beberapa saat yang lalu';
+                        }
+                        res.status(200)
+                            .json({
+                                message: "Berhasil mendapatkan data profile",
+                                data: {
+                                    nama: patriot[0].nama,
+                                    email: patriot[0].email,
+                                    gender: jeniskelamin,
+                                    alamat: patriot[0].alamat,
+                                    pathfoto: patriot[0].pathfoto,
+                                    lamabergabung: lamabergabung
+                                }
+                            });
+                    })
+                    .catch((err) => {
+                        res.status(500)
+                            .json({
+                                message: "Internal Server Error"
+                            })
+                    });
+            } else {
+                res.status(401)
+                    .json({
+                        message: "Auth failed, Anda bukan patriots"
+                    });
+            }
         }
     }
 
     AddKeluargaMiskin(req, res) {
         this.info = Token.DecodeToken(req.headers.token);
-        if (this.info.role == "patriots"){
-            this.keluargayangdipantau = this.info.keluargayangdipantau;
+        if (Auth.CheckingAuth(this.info.role, "patriots")) {
+            this.keluargayangdipantau = this.info.token[0].keluargayangdipantau;
+            this.id = this.info.token[0]._id;
             if(this.keluargayangdipantau < 10) {
                 this.storage = Upload.SetStorage('/../public/images/keluargaMiskins');
                 this.upload = Upload.SetUpload(this.storage);
@@ -157,7 +165,7 @@ class Patriot {
 
     CreateLaporan(req,res) {
         this.info = Token.DecodeToken(req.headers.token);
-        if (this.info.role == "patriots"){
+        if (Auth.CheckingAuth(this.info.role, "patriots")){
             this.storage = Upload.SetStorage('/../public/images/laporans');
             this.upload = Upload.SetUpload(this.storage);
             this.upload(req, res, (err) => {

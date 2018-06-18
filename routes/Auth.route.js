@@ -6,6 +6,10 @@ var Auth = require(__dirname + '/../controllers/Auth.controller');
 router.post('/loginpatriot', (req, res, next) => {
     Auth.LoginPatriot(req, res);
 });
+// Register Patriot
+router.post('/signuppatriot', (req, res, next) => {
+    Auth.SignUpPatriot(req, res);
+  });
 // Login Admin
 router.post('/loginadmin', (req, res, next) => {
     Auth.LoginAdmin(req, res);

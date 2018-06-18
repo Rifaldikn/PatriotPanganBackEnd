@@ -29,7 +29,8 @@ var ArtikelsRouter = require(__dirname + '/routes/Artikel.route');
 
 app.use('/auth', AuthRouter);
 // Checking token gajadi pake ini
-/*app.use((req, res, next) => {
+// Kudu make, untuk memastikan yang login punya token dari kita
+app.use((req, res, next) => {
 	if(!req.headers.token) {
 		// Cant find token
     res.status(200)
@@ -41,8 +42,7 @@ app.use('/auth', AuthRouter);
 		Token.CheckingToken(req.headers.token, res, next);
 		next();
 	}
-});*/
-app.use('/pejabat', PejabatsRouter);
+});
 app.use('/admin', AdminRouter);
 app.use('/patriot', PatriotsRouter);
 app.use('/artikel', ArtikelsRouter);
