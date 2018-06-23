@@ -1,9 +1,11 @@
 var bcrypt = require('bcrypt');
-var multer = require('multer');
+// var multer = require('multer');
 var Token = require(__dirname + '/Token.controller');
 var Upload = require(__dirname + '/Uploads.controller');
 var Patriots = require(__dirname + '/../models/Patriots.model');
-var Admins = require(__dirname + '/../models/Admins.model');
+var sequelize = require(__dirname + '/../dbconnection');
+var Admins = sequelize.import(__dirname + '/../model/Admins.model');
+var Patriots = sequelize.import(__dirname + '/../model/Patriots.model');
 
 class Auth {
     constructor() {
@@ -31,29 +33,29 @@ class Auth {
         this.upload = Upload.SetUpload(this.storage);
         this.upload(req, res ,(err) => {
             Patriots
-                .find({
-                    email: req.body.email
+                .findOne({
+                    where: {
+                        email: req.body.email
+                    }
                 })
-                .exec()
                 .then((patriot) => {
-                    if(patriot.length >= 1) {
+                    if(patriot != null) {
                         Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
                         res.status(409)
                             .json({
                                 message: "Mail Exists, please use another email"
                             });
                     } else {
-                        var NewPatriot = new Patriots({
-                            email: req.body.email,
-                            password: this.SetPassword(req.body.password),
-                            nama: req.body.nama,
-                            gender: req.body.gender,
-                            fk_desaid: req.body.fk_desaid,
-                            alamat: req.body.alamat,
-                            pathfoto: req.file.filename
-                        });
-                        NewPatriot
-                            .save()
+                        Patriots
+                            .create({
+                                email: req.body.email,
+                                password: this.SetPassword(req.body.password),
+                                nama: req.body.nama,
+                                gender: req.body.gender,
+                                fk_desaid: req.body.fk_desaid,
+                                alamat: req.body.alamat,
+                                pathfoto: req.file.filename
+                            })
                             .then((result) => {
                                 res.status(200)
                                     .json({
@@ -68,7 +70,7 @@ class Auth {
                                         message: "Tidak dapat mendaftarkan patriot baru",
                                         info: err
                                     });
-                            });
+                            })
                     }
                 })
                 .catch((err) => {
@@ -85,9 +87,10 @@ class Auth {
     LoginPatriot(req, res) {
         Patriots
             .find({
-                email: req.body.email
+                where: {
+                    email: req.body.email
+                }
             })
-            .exec()
             .then((patriots) => {
                 if(patriots.length < 1) {
                     res.status(200)
@@ -95,7 +98,7 @@ class Auth {
                             message: "Auth failed, email wasn't register",
                         });
                 } else {
-                    if(this.ComparePassword(req.body.password, patriots[0].password)) {
+                    if(this.ComparePassword(req.body.password, patriots.dataValues.password)) {
                         this.token = Token.SetupToken(patriots, "patriots");
                         res.status(200)
                             .json({
@@ -121,24 +124,19 @@ class Auth {
 
     SignUpAdmin(req, res) {
         Admins
-            .find({
-                email: req.body.email
+            .findOne({
+                where: {
+                    email: req.body.email
+                }
             })
-            .exec()
             .then((admin) => {
-                if(admin.length >= 1) {
-                    res.status(200)
-                        .json({
-                            message: "Email already exists"
-                        });
-                } else {
-                    var NewAdmin = new Admins({
-                        email: req.body.email,
-                        password: this.SetPassword(req.body.password),
-                        nama: req.body.nama
-                    });
-                    NewAdmin
-                        .save()
+                if(admin == null) {
+                    Admins
+                        .create({
+                            email: req.body.email,
+                            password: this.SetPassword(req.body.password),
+                            nama: req.body.nama 
+                        })
                         .then((result) => {
                             res.status(200)
                                 .json({
@@ -147,11 +145,16 @@ class Auth {
                                 });
                         })
                         .catch((err) => {
-                            res.status(401)
+                            res.status(500)
                                 .json({
-                                    message: "Gagal mendaftarkan admin baru",
+                                    message: "Internal server error",
                                     info: err
                                 });
+                        })
+                } else {
+                    res.status(200)
+                        .json({
+                            message: "Email already exists"
                         });
                 }
             })
@@ -166,18 +169,19 @@ class Auth {
 
     LoginAdmin(req, res) {
         Admins
-            .find({
-                email: req.body.email
+            .findOne({
+                where: {
+                    email: req.body.email
+                }
             })
-            .exec()
             .then((admin) => {
-                if(admin.length < 1) {
+                if(admin == null) {
                     res.status(200)
-                        .json({
-                            message: "Auth failed, email wasn't register"
-                        });
+                    .json({
+                        message: "Auth failed, email wasn't register"
+                    });
                 } else {
-                    if(this.ComparePassword(req.body.password, admin[0].password)) {
+                    if(this.ComparePassword(req.body.password, admin.dataValues.password)) {
                         this.token = Token.SetupToken(admin, "admin");
                         res.status(200)
                             .json({

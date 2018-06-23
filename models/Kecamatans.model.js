@@ -5,7 +5,8 @@ var KecamatansSchema = mongoose.Schema({
     id_kab:String,
     nama:String,
     lat: Number,
-    lng: Number
+    lng: Number,
+    jumlahkeluarga: Number,
 });
 
 module.exports = mongoose.model("Kecamatans", KecamatansSchema);

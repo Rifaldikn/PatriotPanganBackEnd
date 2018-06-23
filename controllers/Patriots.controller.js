@@ -1,12 +1,17 @@
-var Patriots = require(__dirname + '/../models/Patriots.model');
-var KM = require(__dirname + '/../models/KeluargaMiskins.model');
-var Laporans = require(__dirname + '/../models/Laporans.model');
+var sequelize = require(__dirname + '/../dbconnection');
+var Patriots = sequelize.import(__dirname + '/../model/Patriots.model');
+var KM = sequelize.import(__dirname + '/../model/KeluargaMiskins.model');
+var Laporans = sequelize.import(__dirname + '/../model/Laporans.model');
+var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
+var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
 var Auth = require(__dirname + '/Auth.controller');
 var Token = require(__dirname + '/Token.controller');
 var Upload = require(__dirname + '/Uploads.controller');
 var LaporanController = require(__dirname + '/Laporans.controller');
 var moment = require('moment');
 var multer = require('multer');
+
+KM.belongsTo(Desa, {foreignKey: 'fk_desaid'}); // Adds fk_desaid to Keluarga miskin
 
 class Patriot {
     constructor() {
@@ -26,32 +31,34 @@ class Patriot {
         } else {
             if (this.info.role == "patriots"){
                 Patriots
-                    .find()
-                    .where('_id').equals(this.info.token[0]._id)
-                    .select('nama alamat gender email bergabung laporanterkirim pathfoto')
-                    .exec()
+                    .findOne({
+                        where: {
+                            id: this.info.token.id
+                        },
+                        attributes: ['nama', 'alamat', 'gender', 'email', 'bergabung', 'laporanterkirim', 'pathfoto']
+                    })
                     .then((patriot) => {
                         var jeniskelamin;
                         var lamabergabung;
                         // check jenis kelamin
-                        if(patriot[0].gender) {
+                        if(patriot.dataValues.gender) {
                             jeniskelamin = 'laki-laki';
                         } else {
                             jeniskelamin = 'perempuan';
                         }
                         // check lama bergabung
-                        if(moment(new Date).diff(patriot[0].bergabung, 'years') > 0) {
-                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'years') + ' tahun yang lalu';
-                        } else if(moment(new Date).diff(patriot[0].bergabung, 'months') > 0) {
-                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'months') + ' bulan yang lalu';
-                        } else if(moment(new Date).diff(patriot[0].bergabung, 'weeks') > 0) {
-                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'weeks') + ' minggu yang lalu';
-                        } else if(moment(new Date).diff(patriot[0].bergabung, 'days')) {
-                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'days') + ' hari yang lalu';
-                        } else if(moment(new Date).diff(patriot[0].bergabung, 'hours') > 0) {
-                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'hours') + ' jam yang lalu';
-                        } else if(moment(new Date).diff(patriot[0].bergabung, 'minutes') > 5) {
-                            lamabergabung = moment(new Date).diff(patriot[0].bergabung, 'minutes') + ' menit yang lalu';
+                        if(moment(new Date).diff(patriot.dataValues.bergabung, 'years') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot.dataValues.bergabung, 'years') + ' tahun yang lalu';
+                        } else if(moment(new Date).diff(patriot.dataValues.bergabung, 'months') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot.dataValues.bergabung, 'months') + ' bulan yang lalu';
+                        } else if(moment(new Date).diff(patriot.dataValues.bergabung, 'weeks') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot.dataValues.bergabung, 'weeks') + ' minggu yang lalu';
+                        } else if(moment(new Date).diff(patriot.dataValues.bergabung, 'days')) {
+                            lamabergabung = moment(new Date).diff(patriot.dataValues.bergabung, 'days') + ' hari yang lalu';
+                        } else if(moment(new Date).diff(patriot.dataValues.bergabung, 'hours') > 0) {
+                            lamabergabung = moment(new Date).diff(patriot.dataValues.bergabung, 'hours') + ' jam yang lalu';
+                        } else if(moment(new Date).diff(patriot.dataValues.bergabung, 'minutes') > 5) {
+                            lamabergabung = moment(new Date).diff(patriot.dataValues.bergabung, 'minutes') + ' menit yang lalu';
                         } else {
                             lamabergabung = 'beberapa saat yang lalu';
                         }
@@ -59,11 +66,11 @@ class Patriot {
                             .json({
                                 message: "Berhasil mendapatkan data profile",
                                 data: {
-                                    nama: patriot[0].nama,
-                                    email: patriot[0].email,
+                                    nama: patriot.dataValues.nama,
+                                    email: patriot.dataValues.email,
                                     gender: jeniskelamin,
-                                    alamat: patriot[0].alamat,
-                                    pathfoto: patriot[0].pathfoto,
+                                    alamat: patriot.dataValues.alamat,
+                                    pathfoto: patriot.dataValues.pathfoto,
                                     lamabergabung: lamabergabung
                                 }
                             });
@@ -86,44 +93,94 @@ class Patriot {
     AddKeluargaMiskin(req, res) {
         this.info = Token.DecodeToken(req.headers.token);
         if (Auth.CheckingAuth(this.info.role, "patriots")) {
-            this.keluargayangdipantau = this.info.token[0].keluargayangdipantau;
-            this.id = this.info.token[0]._id;
+            this.keluargayangdipantau = this.info.token.keluargayangdipantau;
+            this.id = this.info.token.id;
             if(this.keluargayangdipantau < 10) {
                 this.storage = Upload.SetStorage('/../public/images/keluargaMiskins');
                 this.upload = Upload.SetUpload(this.storage);
                 this.upload(req, res, (err) => {
                     if (err == null){
-                        var NewKM = new KM({
-                            namaKeluarga: req.body.namaKeluarga,
-                            fk_desaid: req.body.desaid,
-                            alamat: req.body.alamat,
-                            pathfoto: req.file.filename,
-                            fk_patriotid: this.info.token[0]._id,
-                            mingguterakhirmelaporkan: moment().week()-1,
-                            status: "belum terdapat laporan"
-                        });
                         Patriots
-                            .find({
-                                _id: this.id
+                            .findOne({
+                                where: {
+                                    id: this.id
+                                }
                             })
                             .then((patriot) => {
-                                if(patriot[0].keluargayangdipantau >= 10) {
+                                if(patriot.dataValues.keluargayangdipantau >= 10) {
                                     Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
                                     res.status(200)
                                         .json({
                                             message: "Sudah memantau lebih dari 10 keluarga miskin"
                                         });
                                 } else {
-                                    patriot[0].keluargayangdipantau += 1;
-                                    patriot[0].save();
-                                    NewKM
-                                        .save()
+                                    patriot.dataValues.keluargayangdipantau += 1;
+                                    Patriots
+                                        .update({
+                                            keluargayangdipantau: patriot.dataValues.keluargayangdipantau
+                                        }, {
+                                            where: {
+                                                id: this.id
+                                            }
+                                        })
                                         .then((result) => {
-                                            res.status(200)
-                                                .json({
-                                                    message: "berhasil menambahkan keluarga miskin baru",
-                                                    info: result
-                                                });
+                                            Desa
+                                                .findOne({
+                                                    where: {
+                                                        number: req.body.desaid 
+                                                    }
+                                                })
+                                                .then((desa) => {
+                                                    KM
+                                                        .create({
+                                                            namaKeluarga: req.body.namaKeluarga,
+                                                            fk_desaid: desa.dataValues.id,
+                                                            alamat: req.body.alamat,
+                                                            pathfoto: req.file.filename,
+                                                            fk_patriotid: this.info.token.id,
+                                                            mingguterakhirmelaporkan: moment().week()-1,
+                                                            status: "belum terdapat laporan"
+                                                        })
+                                                        .then((result) => {
+                                                            Kecamatan
+                                                                .update({
+                                                                    jumlahkeluarga: sequelize.literal('jumlahkeluarga + 1')
+                                                                },{
+                                                                    where: {
+                                                                        id: desa.dataValues.district_id
+                                                                    }
+                                                                })
+                                                                .then((kecamatan) => {
+                                                                    res.status(200)
+                                                                        .json({
+                                                                            message: "berhasil menambahkan keluarga miskin baru",
+                                                                            info: result
+                                                                        });
+                                                                })
+                                                                .catch((err) => {
+                                                                    res.status(400)
+                                                                        .json({
+                                                                            message: "Internal Server Error"
+                                                                        });
+                                                                });
+                                                        })
+                                                        .catch((err) => {
+                                                            Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
+                                                            res.status(401)
+                                                                .json({
+                                                                    message: "Gagal menambahkan keluarga miskin beru",
+                                                                    info: err
+                                                                });
+                                                        });
+                                                })
+                                                .catch((err) => {
+                                                    Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
+                                                    res.status(401)
+                                                        .json({
+                                                            message: "Gagal menambahkan keluarga miskin beru",
+                                                            info: err
+                                                        });
+                                                })
                                         })
                                         .catch((err) => {
                                             Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
@@ -171,14 +228,16 @@ class Patriot {
             this.upload(req, res, (err) => {
                 if (err == null) {
                     Laporans
-                        .find({
-                            fk_keluargamiskinid: req.params.KMid,
-                            minggu: moment().week(),
-                            bulan: moment().month(),
-                            tahun: moment().year()
+                        .findOne({
+                            where: {
+                                fk_keluargamiskinid: req.params.KMid,
+                                minggu: moment().week(),
+                                bulan: moment().month(),
+                                tahun: moment().year()
+                            }
                         })
                         .then((laporan) => {
-                            if(laporan.length >= 1) {
+                            if(laporan != null) {
                                 Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
                                 res.status(200)
                                     .json({
@@ -186,55 +245,74 @@ class Patriot {
                                         info: laporan
                                     })
                             } else {
-                                var NewLaporan = new Laporans({
-                                    q1: req.body.q1,
-                                    q2: req.body.q2,
-                                    q3: req.body.q3,
-                                    q4: req.body.q4,
-                                    q5: req.body.q5,
-                                    q6: req.body.q6,
-                                    q7: req.body.q7,
-                                    q8: req.body.q8,
-                                    q9: req.body.q9,
-                                    q10: req.body.q10,
-                                    pathfoto: req.file.filename,
-                                    deskripsi: req.body.deskripsi,
-                                    fk_keluargamiskinid: req.params.KMid,
-                                    minggu: moment().week(),
-                                    bulan: moment().month(),
-                                    tahun: moment().year()
-                                })
-                                NewLaporan
-                                    .save()
+                                Laporans
+                                    .create({
+                                        q1: req.body.q1,
+                                        q2: req.body.q2,
+                                        q3: req.body.q3,
+                                        q4: req.body.q4,
+                                        q5: req.body.q5,
+                                        q6: req.body.q6,
+                                        q7: req.body.q7,
+                                        q8: req.body.q8,
+                                        q9: req.body.q9,
+                                        q10: req.body.q10,
+                                        pathfoto: req.file.filename,
+                                        deskripsi: req.body.deskripsi,
+                                        fk_keluargamiskinid: req.params.KMid,
+                                        minggu: moment().week(),
+                                        bulan: moment().month(),
+                                        tahun: moment().year()
+                                    })
                                     .then((result) => {
-                                        KM
-                                            .find({
-                                                _id: req.params.KMid
-                                            })
-                                            .then((km) => {
-                                                km[0].status = LaporanController.GetStatusKeluargaMiskin(req.body);
-                                                km[0].mingguterakhirmelaporkan = moment().week();
-                                                km[0].save()
-                                            });
                                         Patriots
-                                            .find({
-                                                _id: this.info.token[0]._id
+                                            .update({
+                                                laporanterkirim: sequelize.literal('laporanterkirim + 1')
+                                            }, {
+                                                where: {
+                                                    id: this.info.token.id
+                                                }
                                             })
                                             .then((patriot) => {
-                                                patriot[0].laporanterkirim += 1;
-                                                patriot[0].save();
-                                            })
-                                        res.status(200)
-                                            .json({
-                                                message: "Berhasil menambahkan laporan minggu ini",
-                                                info: result
-                                            });
+                                                KM
+                                                    .update({
+                                                        mingguterakhirmelaporkan: moment().week(),
+                                                        status: LaporanController.GetStatusKeluargaMiskin(req.body),
+                                                    },{
+                                                        where: {
+                                                            id: req.params.KMid
+                                                        }
+                                                    })
+                                                    .then((km) => {
+                                                        res.status(200)
+                                                            .json({
+                                                                message: "Berhasil menambahkan laporan minggu ini",
+                                                                info: km
+                                                            });
+                                                    })
+                                                    .catch((err) => {
+                                                        Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
+                                                        res.status(401)
+                                                            .json({
+                                                                message: "Gagal menambahkan laporan minggu ini pada keluarga miskin",
+                                                                info: err
+                                                            });
+                                                    });    
+                                                })
+                                                .catch((err) => {
+                                                    Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
+                                                    res.status(401)
+                                                        .json({
+                                                            message: "Gagal menambahkan laporan minggu ini pada update patriot",
+                                                            info: err
+                                                        });
+                                                });
                                     })
                                     .catch((err) => {
                                         Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
                                         res.status(401)
-                                            json({
-                                                message: "Gagal menambahkan laporan minggu ini",
+                                            .json({
+                                                message: "Gagal menambahkan laporan minggu ini pada menambahkan laporan",
                                                 info: err
                                             });
                                     });
@@ -266,10 +344,14 @@ class Patriot {
         this.info = Token.DecodeToken(req.headers.token);
         if (this.info.role == "patriots"){
             KM
-                .find()
-                .where('fk_patriotid').equals(this.info.token[0]._id)
-                .populate('fk_desaid', nama)
-                .exec()
+                .find({
+                    where: {
+                        fk_patriotid: this.info.token.id
+                    },
+                    include: [{
+                        model: Desa
+                    }]
+                })
                 .then((keluargaMiskin) =>{
                     res.status(200)
                         .json({
@@ -280,7 +362,8 @@ class Patriot {
                 .catch((err) => {
                     res.status(500)
                         .json({
-                            message: "Internal Sperver Error"
+                            message: "Internal Server Error",
+                            info: err
                         })
                 });
         } else {
