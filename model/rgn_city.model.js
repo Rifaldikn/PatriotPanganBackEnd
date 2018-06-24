@@ -12,6 +12,14 @@ module.exports = function(sequelize, DataType) {
                                 model: Province,
                                 key: 'id'
                         }
-                }
+                },
+                lat: {
+                        type: DataType.DOUBLE,
+                        allowNull: true
+                },
+                lng: {
+                        type: DataType.DOUBLE,
+                        allowNull: true
+                },
 	});
 }

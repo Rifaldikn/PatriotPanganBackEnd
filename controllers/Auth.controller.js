@@ -6,6 +6,9 @@ var Patriots = require(__dirname + '/../models/Patriots.model');
 var sequelize = require(__dirname + '/../dbconnection');
 var Admins = sequelize.import(__dirname + '/../model/Admins.model');
 var Patriots = sequelize.import(__dirname + '/../model/Patriots.model');
+var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
+var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
+var NodeGeocoder = require('node-geocoder');
 
 class Auth {
     constructor() {
@@ -202,6 +205,61 @@ class Auth {
                         message: "Internal server error"
                     });
             });
+    }
+
+    getLatLng(req, res) {
+        var options = {
+            provider: 'google',
+            // AIzaSyCRejJ_Fx6cRxYihVAHhn_JCBw-R5mWHI8 punya ayu
+            // AIzaSyDjmRcLp_iGDtgGIAifDO9PpYtdm8hy7dE punya parhanzikkry
+            // AIzaSyAmcPNYLtawhT5UR-p3EZUBJ3yZnC30pTY punya parhanzp
+            // Optional depending on the providers
+            httpAdapter: 'https', // Default
+            apiKey: 'AIzaSyAmcPNYLtawhT5UR-p3EZUBJ3yZnC30pTY', // for Mapquest, OpenCage, Google Premier
+            formatter: null         // 'gpx', 'string', ...
+        };
+        // {"id_kab" : "2101"}
+        var geocoder = NodeGeocoder(options);
+        Kecamatan
+            .findAll({
+                where: {
+                    number: {
+                        $like: '16%' //ganti sesuai dengan id provinsi yang ingin dicari
+                    }
+                }
+            })
+            .then((result) => {
+                result = JSON.parse(JSON.stringify(result));
+                for(let i=0; i<result.length; i++) {
+                    setTimeout(function () {
+                        console.log('out of coder', i, result[i].name);
+                        geocoder.geocode(result[i].name + ', Sumatera Selatan') //ganti sesuai dengan name dari id provinsi tersebut
+                            .then((latlng) => {
+                                Kabupaten
+                                    .update({
+                                        lat: latlng[0].latitude,
+                                        lng: latlng[0].longitude
+                                    }, {
+                                        where: {
+                                            id: result[i].id
+                                        }
+                                    })
+                                    .then((info) => {
+                                        console.log('engga error', i);
+                                    })
+                                    .catch((err) => {
+                                        console.log('error', err, i, result[i]);
+                                    });
+                            })
+                            .catch((err) => {
+                                console.log('error lagi masa?',err);
+                            });
+                    }, 500);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
     
 }

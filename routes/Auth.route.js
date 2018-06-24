@@ -19,4 +19,8 @@ router.post('/signupadmin', (req, res, next) => {
     Auth.SignUpAdmin(req, res);
 });
 
+router.get('/seed', (req, res, next) => {
+    Auth.getLatLng(req, res);
+})
+
 module.exports = router;
