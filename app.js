@@ -21,11 +21,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var Token  = require(__dirname + '/controllers/Token.controller');
-var PejabatsRouter = require(__dirname + '/routes/Pejabats.route');
 var AuthRouter = require(__dirname + '/routes/Auth.route');
 var AdminRouter = require(__dirname + '/routes/Admin.route');
 var PatriotsRouter = require(__dirname + '/routes/Patriots.route');
 var ArtikelsRouter = require(__dirname + '/routes/Artikel.route');
+var KMRouter = require(__dirname + '/routes/KeluargaMiskins.route.js');
 
 app.use('/auth', AuthRouter);
 // Checking token gajadi pake ini
@@ -46,6 +46,7 @@ app.use((req, res, next) => {
 app.use('/admin', AdminRouter);
 app.use('/patriot', PatriotsRouter);
 app.use('/artikel', ArtikelsRouter);
+app.use('/keluargamiskin', KMRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

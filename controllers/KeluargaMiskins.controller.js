@@ -1,5 +1,11 @@
-var KM = require(__dirname + '/../models/KeluargaMiskins.model');
+var sequelize = require(__dirname + '/../dbconnection');
+var KM = sequelize.import(__dirname + '/../model/KeluargaMiskins.model');
+var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
+var Patriots = sequelize.import(__dirname + '/../model/Patriots.model');
 var Token = require(__dirname + '/Token.controller');
+
+KM.belongsTo(Patriots, {foreignKey: 'fk_patriotid'}); // Adds fk_patriotid to keluarga miskin
+KM.belongsTo(Desa, {foreignKey: 'fk_desaid'}); // Adds fk_desaid to keluarga miskin
 
 class KeluargaMiskin {
 	constructor() {
@@ -8,12 +14,15 @@ class KeluargaMiskin {
 
     GetKeluargaMiskin(req, res){ //belum nested di alamat
         this.info = Token.DecodeToken(req.headers.token);
-        if (this.info.role == "admin"){
+        if (this.info.role == "admin" || this.info.role == "patriots"){
             KM
-                .find()
-                .populate('fk_desaid', nama)
-                .populate('fk_patriotid')
-                .exec()
+                .findAll({
+                    include: [{
+                        model: Desa
+                    }, {
+                        model: Patriots
+                    }]
+                })
                 .then((keluargaMiskin) =>{
                     res.status(200)
                         .json({
@@ -24,7 +33,8 @@ class KeluargaMiskin {
                 .catch((err) => {
                     res.status(500)
                         .json({
-                            message: "Internal Sperver Error"
+                            message: "Internal Sperver Error",
+                            info: err
                         })
                 });
         } else {
@@ -39,10 +49,16 @@ class KeluargaMiskin {
         this.info = Token.DecodeToken(req.headers.token);
         if (this.info != null){
             KM
-                .findById(req.params.KMid)
-                .populate('fk_desaid', nama)
-                .populate('fk_patriotid')
-                .exec()
+                .findOne({
+                    where: {
+                        id: req.params.KMid
+                    },
+                    include: [{
+                        model: Desa
+                    }, {
+                        model: Patriots
+                    }]
+                })
                 .then((keluargaMiskin) =>{
                     res.status(200)
                         .json({
@@ -53,7 +69,8 @@ class KeluargaMiskin {
                 .catch((err) => {
                     res.status(500)
                         .json({
-                            message: "Internal Sperver Error"
+                            message: "Internal Sperver Error",
+                            info: err
                         })
                 });
         } else {

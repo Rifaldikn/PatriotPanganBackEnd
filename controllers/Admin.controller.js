@@ -1,4 +1,5 @@
-var Artikels = require(__dirname + '/../models/Artikels.model');
+var sequelize = require(__dirname + '/../dbconnection');
+var Artikels = sequelize.import(__dirname + '/../model/Artikels.model');
 var Auth = require(__dirname + '/Auth.controller');
 var Token = require(__dirname + '/Token.controller');
 var Upload = require(__dirname + '/Uploads.controller');
@@ -18,31 +19,30 @@ class Admin {
             this.upload = Upload.SetUpload(this.storage);
             this.upload(req,res, (err) => {
                 if (err == null) {
-                    var NewArtikel = new Artikels({
-                        judul: req.body.judul,
-                        fk_pembuatid : this.info.token[0]._id,
-                        tanggalpublish: Date.now(),
-                        sumberartikel: req.body.sumberartikel,
-                        isi: req.body.isi,
-                        pathfoto : req.file.filename
-                    })
-                    NewArtikel
-                        .save()
-                        .then((result) =>{
+                    Artikels
+                        .create({
+                            judul: req.body.judul,
+                            fk_pembuatid : this.info.token.id,
+                            tanggalpublish: Date.now(),
+                            sumberartikel: req.body.sumberartikel,
+                            isi: req.body.isi,
+                            pathfoto : req.file.filename
+                        })
+                        .then((result) => {
                             res.status(200)
                                 .json({
                                     message: "Berhasil menambahkan artikel",
                                     info: result
-                                })
+                                });
                         })
-                        .catch((err) =>{
+                        .catch((err) => {
                             Upload.DeleteFile('/../public/images/artikels/' + req.file.filename);
                             res.status(401)
                                 .json({
                                     message: "Gagal menambahkan artikel",
                                     info: err
                                 });
-                        })
+                        });
                 } else {
                     res.status(401)
                         .json({

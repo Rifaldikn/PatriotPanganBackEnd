@@ -1,4 +1,8 @@
-var Artikels = require(__dirname + '/../models/Artikels.model');
+var sequelize = require(__dirname + '/../dbconnection');
+var Artikels = sequelize.import(__dirname + '/../model/Artikels.model');
+var Admins = sequelize.import(__dirname + '/../model/Admins.model');
+
+Artikels.belongsTo(Admins, {foreignKey: 'fk_pembuatid'}); // Adds fk_pembuatid to artikel
 
 class Artikel {
 	constructor(){
@@ -6,9 +10,11 @@ class Artikel {
 
 	GetArtikel(req, res){
 		Artikels
-			.find()
-			.populate('fk_pembuatid', 'nama')
-			.exec()
+			.findAll({
+				include: [{
+					model: Admins
+				}]
+			})
 			.then((artikel) =>{
 				res.status(200)
 					.json({
@@ -26,9 +32,14 @@ class Artikel {
 
 	GetDetailArtikel(req, res) {
 		Artikels
-			.findById(req.params.artikelId)
-			.populate('fk_pembuatid', 'nama')
-			.exec()
+			.findOne({
+				where: {
+					id: req.params.artikelId
+				},
+				include: [{
+					model: Admins
+				}]
+			})
 			.then((artikel) => {
 				res.status(200)
 					.json({
