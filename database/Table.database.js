@@ -11,6 +11,7 @@ var Patriots = sequelize.import(__dirname + '/../model/Patriots.model');
 var Penghargaan = sequelize.import(__dirname + '/../model/Penghargaan.model');
 var PenghargaanTercapai = sequelize.import(__dirname + '/../model/PenghargaanTercapai.model');
 var Laporans = sequelize.import(__dirname + '/../model/Laporans.model');
+var Summary = sequelize.import(__dirname + '/../model/Summaries.model');
 
 Country
     .sync()
@@ -24,6 +25,8 @@ Country
                         District
                             .sync()
                             .then(() => {
+                                Summary
+                                    .sync()
                                 Subdistrict
                                     .sync()
                                     .then(() => {

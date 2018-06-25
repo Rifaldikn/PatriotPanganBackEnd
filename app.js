@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var mongoose =  require('mongoose');
+// var mongoose =  require('mongoose');
+var CronJob = require('cron').CronJob;
 
 var app = express();
 
@@ -12,13 +13,66 @@ var app = express();
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
-mongoose.connect('mongodb://localhost/PatriotPangan');
+// mongoose.connect('mongodb://localhost/PatriotPangan');
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var sequelize = require(__dirname + '/dbconnection');
+var Kecamatan = sequelize.import(__dirname + '/model/rgn_district.model');
+var Summary = sequelize.import(__dirname + '/model/Summaries.model');
+var moment = require('moment');
+
+var job1 = new CronJob({
+	cronTime: '00 00 00 1 * *',
+	onTick: () => {
+    Kecamatan
+      .findAll({
+        limit: 3500
+      })
+      .then((kecamatan) => {
+        kecamatan = JSON.parse(JSON.stringify(kecamatan));
+        for(var i=0; i<kecamatan.length; i++) {
+          Summary
+            .create({
+              fk_kecamatanid: kecamatan[i].id,
+              bulan: moment().month(),
+              tahun: moment().year()
+            });
+        }
+      });
+	},
+	start: false,
+	timeZone: 'Asia/Jakarta'
+});
+var job2 = new CronJob({
+	cronTime: '00 05 00 1 * *',
+	onTick: () => {
+    Kecamatan
+      .findAll({
+        offset: 3500
+      })
+      .then((kecamatan) => {
+        kecamatan = JSON.parse(JSON.stringify(kecamatan));
+        for(var i=0; i<kecamatan.length; i++) {
+          Summary
+            .create({
+              fk_kecamatanid: kecamatan[i].id,
+              bulan: moment().month(),
+              tahun: moment().year()
+            });
+        }
+      });
+	},
+	start: false,
+	timeZone: 'Asia/Jakarta'
+});
+
+job1.start();
+job2.start();
 
 var Token  = require(__dirname + '/controllers/Token.controller');
 var AuthRouter = require(__dirname + '/routes/Auth.route');
