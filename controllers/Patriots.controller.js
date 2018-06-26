@@ -35,7 +35,7 @@ class Patriot {
                         where: {
                             id: this.info.token.id
                         },
-                        attributes: ['nama', 'alamat', 'gender', 'email', 'bergabung', 'laporanterkirim', 'pathfoto']
+                        attributes: ['id', 'nama', 'alamat', 'gender', 'email', 'bergabung', 'laporanterkirim', 'pathfoto']
                     })
                     .then((patriot) => {
                         var jeniskelamin;
@@ -70,7 +70,7 @@ class Patriot {
                                     email: patriot.dataValues.email,
                                     gender: jeniskelamin,
                                     alamat: patriot.dataValues.alamat,
-                                    pathfoto: patriot.dataValues.pathfoto,
+                                    pathfoto: '/pulbic/images/profilePatriots/' + patriot.dataValues.pathfoto,
                                     lamabergabung: lamabergabung
                                 }
                             });
@@ -87,6 +87,114 @@ class Patriot {
                         message: "Auth failed, Anda bukan patriots"
                     });
             }
+        }
+    }
+
+    UpdateProfileAccount(req, res) {
+        this.info = Token.DecodeToken(req.headers.token);
+        if(!Auth.CheckingAuth(this.info.role, "patriots")) {
+            res.status(401)
+            .json({
+                message: "sorry anda tidak memiliki wewenang untuk mengakses ini",
+            });
+        } else {
+            Patriots
+                .update({
+                    nama: req.body.nama,
+                    gender: req.body.gender,
+                    password: req.body.password,
+                }, {
+                    where: {
+                        id: this.info.token.id
+                    }
+                })
+                .then((result) => {
+                    Patriots
+                        .findOne({
+                            where: {
+                                id: this.info.token.id
+                            }
+                        })
+                        .then((updated) => {
+                            res.status(200)
+                                .json({
+                                    message: "berhasil memperbarui profile",
+                                    info: result,
+                                    token: Token.SetupToken(updated, "patriots")
+                                });
+                        })
+                        .catch((err) => {
+                            res.status(500)
+                                .json({
+                                    message: "Internal Server Error, saat update biodatas",
+                                    info: err
+                                });        
+                        })
+                })
+                .catch((err) => {
+                    res.status(500)
+                        .json({
+                            message: "Internal Server Error",
+                            info: err
+                        });
+                });
+        }
+    }
+
+    UpdatePhotoProfileAccount(req, res) {
+        this.info = Token.DecodeToken(req.headers.token);
+        if(!Auth.CheckingAuth(this.info.role, "patriots")) {
+            res.status(401)
+            .json({
+                message: "sorry anda tidak memiliki wewenang untuk mengakses ini",
+            });
+        } else {
+            this.storage = Upload.SetStorage('/../public/images/profilePatriots');
+            this.upload = Upload.setUpload(this.storage);
+            this.upload(req, res, (err) => {
+                Patriots
+                    .update({
+                        pathfoto: req.file.filename
+                    }, {
+                        where: {
+                            id: this.info.token.id
+                        }
+                    })
+                    .then((result) => {
+                        Patriots
+                            .findOne({
+                                where: {
+                                    id: this.info.token.id
+                                }
+                            })
+                            .then((updated) => {
+                                Upload.DeleteFile('/../public/images/profilePatriots/' + this.info.token.pathfoto);
+                                updated = JSON.parse(JSON.stringify(updated));
+                                res.status(200)
+                                    .json({
+                                        message: "Berhasil memperbarui photo profile",
+                                        info: result,
+                                        token: Token.SetupToken(updated, "patriots")
+                                    });
+                            })
+                            .catch((err) => {
+                                Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
+                                res.status(500)
+                                    .json({
+                                        message: "Internal Server Error, saat get data pada ganti Photo Profile",
+                                        info: err
+                                    }) ;
+                            });
+                    })
+                    .catch((err) => {
+                        Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
+                        res.status(500)
+                            .json({
+                                message: "Internal Server Error, saat mengganti photo profile",
+                                info: err
+                            });
+                    });
+            });
         }
     }
 
