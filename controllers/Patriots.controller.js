@@ -65,8 +65,8 @@ class Patriot {
                         } else {
                             lamabergabung = 'beberapa saat yang lalu';
                         }
-                        res.status(200)
-                            .json({
+                        res.json({
+                                status: true,
                                 message: "Berhasil mendapatkan data profile",
                                 data: {
                                     nama: patriot.dataValues.nama,
@@ -79,14 +79,15 @@ class Patriot {
                             });
                     })
                     .catch((err) => {
-                        res.status(500)
-                            .json({
-                                message: "Internal Server Error"
+                        res.json({
+                                status: false,
+                                message: "Internal Server Error, mencari patriot",
+                                info: err
                             })
                     });
             } else {
-                res.status(401)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Auth failed, Anda bukan patriots"
                     });
             }
@@ -96,8 +97,8 @@ class Patriot {
     UpdateProfileAccount(req, res) {
         this.info = Token.DecodeToken(req.headers.token);
         if(!Auth.CheckingAuth(this.info.role, "patriots")) {
-            res.status(401)
-            .json({
+            res.json({
+                status: false,
                 message: "sorry anda tidak memiliki wewenang untuk mengakses ini",
             });
         } else {
@@ -119,25 +120,25 @@ class Patriot {
                             }
                         })
                         .then((updated) => {
-                            res.status(200)
-                                .json({
+                            res.json({
+                                    status: true,
                                     message: "berhasil memperbarui profile",
                                     info: result,
                                     token: Token.SetupToken(updated, "patriots")
                                 });
                         })
                         .catch((err) => {
-                            res.status(500)
-                                .json({
-                                    message: "Internal Server Error, saat update biodatas",
+                            res.json({
+                                    status: false,
+                                    message: "Internal Server Error, saat mendapatkan biodata baru",
                                     info: err
                                 });        
                         })
                 })
                 .catch((err) => {
-                    res.status(500)
-                        .json({
-                            message: "Internal Server Error",
+                    res.json({
+                            status: false,
+                            message: "Internal Server Error, saat mendapatkan biodata",
                             info: err
                         });
                 });
@@ -147,14 +148,13 @@ class Patriot {
     UpdatePhotoProfileAccount(req, res) {
         this.info = Token.DecodeToken(req.headers.token);
         if(!Auth.CheckingAuth(this.info.role, "patriots")) {
-            res.status(401)
-            .json({
+            res.json({
+                status: false,
                 message: "sorry anda tidak memiliki wewenang untuk mengakses ini",
             });
         } else {
             this.storage = Upload.SetStorage('/../public/images/profilePatriots');
-            this.upload = Upload.SetUpload(this.storage)
-            console.log(this.info, req.body, req.file, this.storage);
+            this.upload = Upload.SetUpload(this.storage);
             this.upload(req, res, (err) => {
                 Patriots
                     .update({
@@ -174,8 +174,8 @@ class Patriot {
                             .then((updated) => {
                                 Upload.DeleteFile('/../public/images/profilePatriots/' + this.info.token.pathfoto);
                                 updated = JSON.parse(JSON.stringify(updated));
-                                res.status(200)
-                                    .json({
+                                res.json({
+                                        status: true,
                                         message: "Berhasil memperbarui photo profile",
                                         info: result,
                                         token: Token.SetupToken(updated, "patriots")
@@ -183,8 +183,8 @@ class Patriot {
                             })
                             .catch((err) => {
                                 Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
-                                res.status(500)
-                                    .json({
+                                res.json({
+                                        status: false,
                                         message: "Internal Server Error, saat get data pada ganti Photo Profile",
                                         info: err
                                     }) ;
@@ -192,8 +192,8 @@ class Patriot {
                     })
                     .catch((err) => {
                         Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
-                        res.status(500)
-                            .json({
+                        res.json({
+                                status: false,
                                 message: "Internal Server Error, saat mengganti photo profile",
                                 info: err
                             });
@@ -221,8 +221,8 @@ class Patriot {
                             .then((patriot) => {
                                 if(patriot.dataValues.keluargayangdipantau >= 10) {
                                     Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
-                                    res.status(200)
-                                        .json({
+                                    res.json({
+                                            status: false,
                                             message: "Sudah memantau lebih dari 10 keluarga miskin"
                                         });
                                 } else {
@@ -263,23 +263,23 @@ class Patriot {
                                                                     }
                                                                 })
                                                                 .then((kecamatan) => {
-                                                                    res.status(200)
-                                                                        .json({
+                                                                    res.json({
+                                                                            status: true,
                                                                             message: "berhasil menambahkan keluarga miskin baru",
                                                                             info: result
                                                                         });
                                                                 })
                                                                 .catch((err) => {
-                                                                    res.status(400)
-                                                                        .json({
-                                                                            message: "Internal Server Error"
+                                                                    res.json({
+                                                                            status: false,
+                                                                            message: "Internal Server Error, update jumlah keluarga di kecamatan"
                                                                         });
                                                                 });
                                                         })
                                                         .catch((err) => {
                                                             Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
-                                                            res.status(401)
-                                                                .json({
+                                                            res.json({
+                                                                    status: false,
                                                                     message: "Gagal menambahkan keluarga miskin beru",
                                                                     info: err
                                                                 });
@@ -287,46 +287,46 @@ class Patriot {
                                                 })
                                                 .catch((err) => {
                                                     Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
-                                                    res.status(401)
-                                                        .json({
-                                                            message: "Gagal menambahkan keluarga miskin beru",
+                                                    res.json({
+                                                            status: false,
+                                                            message: "Gagal menambahkan keluarga miskin baru, pada mendapatkan desaid",
                                                             info: err
                                                         });
                                                 })
                                         })
                                         .catch((err) => {
                                             Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
-                                            res.status(401)
-                                                .json({
-                                                    message: "Gagal menambahkan keluarga miskin beru",
+                                            res.json({
+                                                    status: false,
+                                                    message: "Gagal menambahkan keluarga miskin baru",
                                                     info: err
                                                 });
                                         });
                                 }
                             })
                             .catch((err) => {
-                                res.status(401)
-                                    .json({
-                                        message: "Internal Server Error",
+                                res.json({
+                                        status: false,
+                                        message: "Internal Server Error, medapatkan patriot",
                                         info: err
                                     });
                             });
                     } else {
-                        res.status(401)
-                            .json({
+                        res.json({
+                                status: false,
                                 message: "Upload gagal"
                             });
                     }
                 });
             } else {
-                res.status(200)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Sudah 10 keluarga yang dipantau, tidak dapat menambahkan keluarga baru",
                     });
             }
         } else {
-            res.status(401)
-                .json({
+            res.json({
+                    status: false,
                     message: "Auth failed, Anda bukan patriots"
                 });
         }
@@ -423,16 +423,16 @@ class Patriot {
                                                                         }
                                                                     })
                                                                     .then((summary) =>{
-                                                                        res.status(200)
-                                                                            .json({
+                                                                        res.json({
+                                                                                status: true,
                                                                                 message: "Berhasil menambahkan laporan minggu ini",
                                                                                 info: km
                                                                             });
                                                                     })
                                                                     .catch((err) =>{
                                                                         Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                                                                        res.status(401)
-                                                                            .json({
+                                                                        res.json({
+                                                                                status: false,
                                                                                 message: "Gagal menambahkan laporan minggu ini pada update summary",
                                                                                 info: err
                                                                             });
@@ -440,8 +440,8 @@ class Patriot {
                                                             })
                                                             .catch((err) => {
                                                                 Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                                                                res.status(401)
-                                                                    .json({
+                                                                res.json({
+                                                                        status: false,
                                                                         message: "Gagal menambahkan laporan minggu ini pada get kecamatan id",
                                                                         info: err
                                                                     });
@@ -449,8 +449,8 @@ class Patriot {
                                                     })
                                                     .catch((err) => {
                                                         Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                                                        res.status(401)
-                                                            .json({
+                                                        res.json({
+                                                                status: false,
                                                                 message: "Gagal menambahkan laporan minggu ini pada keluarga miskin",
                                                                 info: err
                                                             });
@@ -458,8 +458,8 @@ class Patriot {
                                             })
                                             .catch((err) => {
                                                 Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                                                res.status(401)
-                                                    .json({
+                                                res.json({
+                                                        status: false,
                                                         message: "Gagal menambahkan laporan minggu ini pada update patriot",
                                                         info: err
                                                     });
@@ -467,8 +467,8 @@ class Patriot {
                                     })
                                     .catch((err) => {
                                         Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                                        res.status(401)
-                                            .json({
+                                        res.json({
+                                                status: false,
                                                 message: "Gagal menambahkan laporan minggu ini pada menambahkan laporan",
                                                 info: err
                                             });
@@ -477,21 +477,21 @@ class Patriot {
                         })
                         .catch((err) => {
                             Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                            res.status(500)
-                                .json({
-                                    message: "Internal Server Error"
+                            res.json({
+                                    status: false,
+                                    message: "Internal Server Error, saat mencari laporan"
                                 });
                         });
                 } else {
-                    res.status(401)
-                        .json({
+                    res.json({
+                            status: false,
                             message: "Upload gagal"
                         });
                 }
             });
         } else {
-             res.status(401)
-                .json({
+             res.json({
+                    status: false,
                     message: "Auth failed, Anda bukan patriots"
                 });
         }
@@ -510,22 +510,22 @@ class Patriot {
                     }]
                 })
                 .then((keluargaMiskin) =>{
-                    res.status(200)
-                        .json({
+                    res.json({
+                            status: true,
                             message : "Berhasil mendapatkan keluarga miskin",
                             data: keluargaMiskin
                         })
                 })
                 .catch((err) => {
-                    res.status(500)
-                        .json({
-                            message: "Internal Server Error",
+                    res.json({
+                            status: false,
+                            message: "Internal Server Error, saat mendapatkan data keluarga yang saya pantau",
                             info: err
                         })
                 });
         } else {
-            res.status(401)
-                .json({
+            res.json({
+                    status: false,
                     message: "Auth failed, Anda bukan patriot"
                 });
         }

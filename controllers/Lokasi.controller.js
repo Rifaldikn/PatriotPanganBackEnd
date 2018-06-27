@@ -14,15 +14,15 @@ class Lokasi {
             .findAll()
             .then((provinsi) => {
                 provinsi = JSON.parse(JSON.stringify(provinsi));
-                res.status(200)
-                    .json({
+                res.json({
+                        status: true,
                         message: "berhasil mendapatkan data provinsi",
                         data: provinsi
                     });
             })
             .catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Internal Server Error, saat mendapatkan data provinsi",
                         info: err
                     });
@@ -38,15 +38,15 @@ class Lokasi {
             })
             .then((kabupaten) => {
                 kabupaten = JSON.parse(JSON.stringify(kabupaten));
-                res.status(200)
-                    .json({
+                res.json({
+                        status: true,
                         message: "berhasil mendapatkan data kabupaten",
                         data: kabupaten
                     });
             })
             .catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Internal Server Error, saat mendapatkan data kabupaten",
                         info: err
                     });
@@ -62,15 +62,15 @@ class Lokasi {
             })
             .then((kecamatan) => {
                 kecamatan = JSON.parse(JSON.stringify(kecamatan));
-                res.status(200)
-                    .json({
+                res.json({
+                        status: true,
                         message: "berhasil mendpatkan data kecamatan",
                         data: kecamatan
                     });
             })
             .catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Internal Server Error, saat mendapatkan data kecamatan",
                         info: err
                     });
@@ -86,15 +86,15 @@ class Lokasi {
             })
             .then((kelurahan) => {
                 kelurahan = JSON.parse(JSON.stringify(kelurahan));
-                res.status(200)
-                    .json({
+                res.json({
+                        status: true,
                         message: "Berhasil mendapatkan data kelurahan",
                         data: kelurahan
                     });
             })
             .catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Internal Server Error, saat mendapatkan data kelurahan",
                         info: err
                     });

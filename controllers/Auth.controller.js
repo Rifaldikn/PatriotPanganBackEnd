@@ -44,8 +44,8 @@ class Auth {
                 .then((patriot) => {
                     if(patriot != null) {
                         Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
-                        res.status(409)
-                            .json({
+                        res.json({
+                                status: false,
                                 message: "Mail Exists, please use another email"
                             });
                     } else {
@@ -60,16 +60,16 @@ class Auth {
                                 pathfoto: req.file.filename
                             })
                             .then((result) => {
-                                res.status(200)
-                                    .json({
+                                res.json({
+                                        status: true,
                                         message: "Berhasil mendaftarkan patriot baru",
                                         info: result
                                     })
                             })
                             .catch((err) => {
                                 Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
-                                res.status(401)
-                                    .json({
+                                res.json({
+                                        status: false,
                                         message: "Tidak dapat mendaftarkan patriot baru",
                                         info: err
                                     });
@@ -78,8 +78,8 @@ class Auth {
                 })
                 .catch((err) => {
                     Upload.DeleteFile('/../public/images/profilePatriots/' + req.file.filename);
-                    res.status(500)
-                        .json({
+                    res.json({
+                            status: false,
                             message: "Internal server error",
                             info: err
                         });
@@ -96,29 +96,29 @@ class Auth {
             })
             .then((patriots) => {
                 if(patriots.length < 1) {
-                    res.status(200)
-                        .json({
+                    res.json({
+                            status: false,
                             message: "Auth failed, email wasn't register",
                         });
                 } else {
                     if(this.ComparePassword(req.body.password, patriots.dataValues.password)) {
                         this.token = Token.SetupToken(patriots, "patriots");
-                        res.status(200)
-                            .json({
+                        res.json({
+                                status: true,
                                 message: "Auth successful", 
                                 token: this.token
                             });
                     } else {
-                        res.status(401)
-                            .json({
+                        res.json({
+                                status: false,
                                 message: "Auth failed, password didn't match"
                             });
                     }
                 }
             })
             .catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Internal server error",
                         info: err
                     })
@@ -141,29 +141,29 @@ class Auth {
                             nama: req.body.nama 
                         })
                         .then((result) => {
-                            res.status(200)
-                                .json({
+                            res.json({
+                                    status: true,
                                     message: "Berhasil mendaftarkan admin baru",
                                     info: result
                                 });
                         })
                         .catch((err) => {
-                            res.status(500)
-                                .json({
+                            res.json({
+                                    status: false,
                                     message: "Internal server error",
                                     info: err
                                 });
                         })
                 } else {
-                    res.status(200)
-                        .json({
+                    res.json({
+                            status: false,
                             message: "Email already exists"
                         });
                 }
             })
             .catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+                        status: false,
                         message: "Internal server error",
                         info: err
                     });
@@ -179,29 +179,29 @@ class Auth {
             })
             .then((admin) => {
                 if(admin == null) {
-                    res.status(200)
-                    .json({
+                    res.json({
+                        status: false,
                         message: "Auth failed, email wasn't register"
                     });
                 } else {
                     if(this.ComparePassword(req.body.password, admin.dataValues.password)) {
                         this.token = Token.SetupToken(admin, "admin");
-                        res.status(200)
-                            .json({
+                        res.json({
+                                status: true,
                                 message: "Auth successfull",
                                 token: this.token
                             });
                     } else {
-                        res.status(401)
-                            .json({
+                        res.json({
+                                status: false,
                                 message: "Auth failed, Password didn't match"
                             });
                     }
                 }
             })
             .catch((err) => {
-                res.status(500)
-                    json({
+                res.json({
+                        status: false,
                         message: "Internal server error"
                     });
             });

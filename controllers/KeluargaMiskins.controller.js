@@ -44,22 +44,22 @@ class KeluargaMiskin {
                     }]
                 })
                 .then((keluargaMiskin) =>{
-                    res.status(200)
-                        .json({
+                    res.json({
+                            status: true,
                             message : "Berhasil mendapatkan keluarga miskin",
                             data: keluargaMiskin
                         })
                 })
                 .catch((err) => {
-                    res.status(500)
-                        .json({
-                            message: "Internal Sperver Error",
+                    res.json({
+                            status: false,
+                            message: "Internal Server Error, saat mendapatkan semua keluarga",
                             info: err
                         })
                 });
         } else {
-            res.status(401)
-                .json({
+            res.json({
+                    status: false,
                     message: "Auth failed, Anda bukan admin"
                 });
         }
@@ -92,22 +92,22 @@ class KeluargaMiskin {
                     }]
                 })
                 .then((keluargaMiskin) =>{
-                    res.status(200)
-                        .json({
+                    res.json({
+                            status: true,
                             message : "Berhasil mendapatkan detail keluarga miskin",
                             data: keluargaMiskin
                         })
                 })
                 .catch((err) => {
-                    res.status(500)
-                        .json({
-                            message: "Internal Sperver Error",
+                    res.json({
+                            status: false,
+                            message: "Internal Server Error, saat mendapatkan detail keluarga",
                             info: err
                         })
                 });
         } else {
-            res.status(401)
-                .json({
+            res.json({
+                    status: false,
                     message: "Auth failed, Anda tidak memiliki token"
                 });
         }

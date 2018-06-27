@@ -16,16 +16,16 @@ class Artikel {
 				}]
 			})
 			.then((artikel) =>{
-				res.status(200)
-					.json({
+				res.json({
+						status: true,
 						message : "Berhasil mendapatkan artikel",
 						data: artikel
 					})
 			})
 			.catch((err) => {
-                res.status(500)
-                    .json({
-                        message: "Internal Server Error"
+                res.json({
+						status: false,
+                        message: "Internal Server Error, saat mendapatkan artikel"
                     })
             });
 	}
@@ -41,15 +41,15 @@ class Artikel {
 				}]
 			})
 			.then((artikel) => {
-				res.status(200)
-					.json({
+				res.json({
+						status: true,
 						message : "Berhasil mendapatkan detail artikel",
 						data: artikel
 					})
 			})
 			.catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+						status: false,
                         message: "Internal Server Error"
                     })
             });

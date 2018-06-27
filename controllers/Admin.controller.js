@@ -29,30 +29,30 @@ class Admin {
                             pathfoto : req.file.filename
                         })
                         .then((result) => {
-                            res.status(200)
-                                .json({
+                            res.json({
+                                    status: true,
                                     message: "Berhasil menambahkan artikel",
                                     info: result
                                 });
                         })
                         .catch((err) => {
                             Upload.DeleteFile('/../public/images/artikels/' + req.file.filename);
-                            res.status(401)
-                                .json({
+                            res.json({
+                                    status: false,
                                     message: "Gagal menambahkan artikel",
                                     info: err
                                 });
                         });
                 } else {
-                    res.status(401)
-                        .json({
+                    res.json({
+                            status: false,
                             message: "Upload gagal"
                         });
                 }
             })
         } else {
-            res.status(401)
-                .json({
+            res.json({
+                    status: false,
                     message: "Auth failed, Anda bukan admin"
                 });
         }

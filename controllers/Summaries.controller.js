@@ -71,8 +71,8 @@ class Summarie {
                         }
                     })
     				.then((jumSummary) => {
-    					res.status(200)
-    						.json({
+    					res.json({
+								status: true,
     							message : "Berhasil mendapatkan jumlah Kecamatan berdasarkan Taraf",
 								data : {
 									jumlahTaraf : jumSummary,
@@ -81,16 +81,16 @@ class Summarie {
     						})
     				})
     				.catch((err)=>{
-    					res.status(500)
-    						.json({
+    					res.json({
+								status: false,
     							message: "Jumlah summary tidak didapatkan",
     							info: err
     						})
     				})
     		})
     		.catch((err) => {
-    			res.status(500)
-    				.json({
+    			res.json({
+						status: false,
     					message: "Internal Server Error",
     					info: err
     				})
@@ -108,15 +108,15 @@ class Summarie {
                 }
             })
             .then((summary) => {
-                res.status(200)
-                    .json({
+                res.json({
+						status: true,
                         message: "Berhasil mendapatkan summary pada bulan tertentu",
                         data: summary
                     })
             })
             .catch((err) => {
-                res.status(500)
-                    .json({
+                res.json({
+						status: false,
                         message: "Internal Server Error",
                         info: err
                     })
