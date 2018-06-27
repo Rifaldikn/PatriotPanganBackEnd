@@ -3,9 +3,17 @@ var KM = sequelize.import(__dirname + '/../model/KeluargaMiskins.model');
 var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
 var Patriots = sequelize.import(__dirname + '/../model/Patriots.model');
 var Token = require(__dirname + '/Token.controller');
+var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
+var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
+var Provinsi = sequelize.import(__dirname + '/../model/rgn_province.model');
+var Negara = sequelize.import(__dirname + '/../model/rgn_country.model');
 
 KM.belongsTo(Patriots, {foreignKey: 'fk_patriotid'}); // Adds fk_patriotid to keluarga miskin
 KM.belongsTo(Desa, {foreignKey: 'fk_desaid'}); // Adds fk_desaid to keluarga miskin
+Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
+Kecamatan.belongsTo(Kabupaten, {foreignKey: 'city_id'});
+Kabupaten.belongsTo(Provinsi, {foreignKey: 'province_id'});
+Provinsi.belongsTo(Negara, {foreignKey: 'country_id'});
 
 class KeluargaMiskin {
 	constructor() {
@@ -18,7 +26,19 @@ class KeluargaMiskin {
             KM
                 .findAll({
                     include: [{
-                        model: Desa
+                        model: Desa,
+                        include: [{
+                            model: Kecamatan,
+                            include : [{
+                                model: Kabupaten,
+                                include : [{
+                                    model : Provinsi,
+                                    include : [{
+                                        model : Negara
+                                    }]
+                                }]
+                            }]
+                        }]
                     }, {
                         model: Patriots
                     }]
@@ -54,7 +74,19 @@ class KeluargaMiskin {
                         id: req.params.KMid
                     },
                     include: [{
-                        model: Desa
+                        model: Desa,
+                        include: [{
+                            model: Kecamatan,
+                            include : [{
+                                model: Kabupaten,
+                                include : [{
+                                    model : Provinsi,
+                                    include : [{
+                                        model : Negara
+                                    }]
+                                }]
+                            }]
+                        }]
                     }, {
                         model: Patriots
                     }]
