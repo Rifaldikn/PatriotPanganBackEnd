@@ -70,7 +70,7 @@ class Patriot {
                                     email: patriot.dataValues.email,
                                     gender: jeniskelamin,
                                     alamat: patriot.dataValues.alamat,
-                                    pathfoto: '/pulbic/images/profilePatriots/' + patriot.dataValues.pathfoto,
+                                    pathfoto: '/public/images/profilePatriots/' + patriot.dataValues.pathfoto,
                                     lamabergabung: lamabergabung
                                 }
                             });
@@ -150,7 +150,8 @@ class Patriot {
             });
         } else {
             this.storage = Upload.SetStorage('/../public/images/profilePatriots');
-            this.upload = Upload.setUpload(this.storage);
+            this.upload = Upload.SetUpload(this.storage)
+            console.log(this.info, req.body, req.file, this.storage);
             this.upload(req, res, (err) => {
                 Patriots
                     .update({
@@ -241,7 +242,7 @@ class Patriot {
                                                 .then((desa) => {
                                                     KM
                                                         .create({
-                                                            namaKeluarga: req.body.namaKeluarga,
+                                                            namakeluarga: req.body.namaKeluarga,
                                                             fk_desaid: desa.dataValues.id,
                                                             alamat: req.body.alamat,
                                                             pathfoto: req.file.filename,
@@ -452,7 +453,7 @@ class Patriot {
         this.info = Token.DecodeToken(req.headers.token);
         if (this.info.role == "patriots"){
             KM
-                .find({
+                .findAll({
                     where: {
                         fk_patriotid: this.info.token.id
                     },

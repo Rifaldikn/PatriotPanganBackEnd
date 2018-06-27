@@ -1,5 +1,5 @@
 var sequelize = require(__dirname + '/../dbconnection');
-var Provinsi = sequelize.import(__dirname + '/../model/rgn_province');
+var Provinsi = sequelize.import(__dirname + '/../model/rgn_province.model');
 var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
 var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
 var Kelurahan = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');

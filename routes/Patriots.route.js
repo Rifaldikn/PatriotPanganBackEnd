@@ -6,11 +6,11 @@ router.get('/profileku', (req, res, next) => {
     Patriots.GetProfileAccount(req, res);
 });
 
-router.get('/updatebiodata', (req, res, next) => {
+router.post('/updatebiodata', (req, res, next) => {
     Patriots.UpdateProfileAccount(req, res);
 });
 
-router.get('/updatephoto', (req, res, next) => {
+router.post('/updatephoto', (req, res, next) => {
     Patriots.UpdatePhotoProfileAccount(req, res);
 });
 
