@@ -27,35 +27,15 @@ var Kecamatan = sequelize.import(__dirname + '/model/rgn_district.model');
 var Summary = sequelize.import(__dirname + '/model/Summaries.model');
 var moment = require('moment');
 
-var job1 = new CronJob({
+Summary.belongsTo(Kecamatan, {foreignKey: 'fk_kecamatanid'});
+
+var LaporanController = require(__dirname + '/controllers/Laporans.controller');
+
+var createsummary = new CronJob({
 	cronTime: '00 00 00 1 * *',
 	onTick: () => {
     Kecamatan
-      .findAll({
-        limit: 3500
-      })
-      .then((kecamatan) => {
-        kecamatan = JSON.parse(JSON.stringify(kecamatan));
-        for(var i=0; i<kecamatan.length; i++) {
-          Summary
-            .create({
-              fk_kecamatanid: kecamatan[i].id,
-              bulan: moment().month(),
-              tahun: moment().year()
-            });
-        }
-      });
-	},
-	start: false,
-	timeZone: 'Asia/Jakarta'
-});
-var job2 = new CronJob({
-	cronTime: '00 05 00 1 * *',
-	onTick: () => {
-    Kecamatan
-      .findAll({
-        offset: 3500
-      })
+      .findAll()
       .then((kecamatan) => {
         kecamatan = JSON.parse(JSON.stringify(kecamatan));
         for(var i=0; i<kecamatan.length; i++) {
@@ -72,8 +52,50 @@ var job2 = new CronJob({
 	timeZone: 'Asia/Jakarta'
 });
 
-job1.start();
-job2.start();
+var updatesummary = new CronJob({
+  cronTime: '00 10 00 1 * *',
+	onTick: () => {
+    var bulan;
+    var tahun;
+    if(moment().month() == 0) {
+      bulan = 11;
+      tahun = moment().year() - 1;
+    } else {
+      bulan = moment().month();
+      tahun = moment().year();
+    }
+    Summary
+      .findAll({
+        where: {
+          bulan: bulan,
+          tahun: tahun
+        },
+        include: [{
+          model: Kecamatan
+        }]
+      })
+      .then((result) => {
+        result = JSON.parse(JSON.stringify(result));
+        for(let i=0; i<result.length; i++) {
+          Summary
+            .update({
+              kondisi: LaporanController.GetStatusKeluargaMiskinAngka(result[i])
+            }, {
+              where: {
+                bulan: bulan,
+                tahun: tahun,
+                fk_kecamatanid: result[i].fk_kecamatanid
+              }
+            });
+        }
+      })
+	},
+	start: false,
+	timeZone: 'Asia/Jakarta'
+});
+
+createsummary.start();
+updatesummary.start();
 
 var Token  = require(__dirname + '/controllers/Token.controller');
 var AuthRouter = require(__dirname + '/routes/Auth.route');

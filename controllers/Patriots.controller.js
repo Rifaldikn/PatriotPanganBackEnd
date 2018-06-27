@@ -4,6 +4,7 @@ var KM = sequelize.import(__dirname + '/../model/KeluargaMiskins.model');
 var Laporans = sequelize.import(__dirname + '/../model/Laporans.model');
 var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
 var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
+var Summary = sequelize.import(__dirname + '/../model/Summaries.model');
 var Auth = require(__dirname + '/Auth.controller');
 var Token = require(__dirname + '/Token.controller');
 var Upload = require(__dirname + '/Uploads.controller');
@@ -12,6 +13,8 @@ var moment = require('moment');
 var multer = require('multer');
 
 KM.belongsTo(Desa, {foreignKey: 'fk_desaid'}); // Adds fk_desaid to Keluarga miskin
+Laporans.belongsTo(KM, {foreignKey: 'fk_keluargamiskinid'});
+Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
 
 class Patriot {
     constructor() {
@@ -102,7 +105,7 @@ class Patriot {
                 .update({
                     nama: req.body.nama,
                     gender: req.body.gender,
-                    password: req.body.password,
+                    password: Auth.SetPassword(req.body.password),
                 }, {
                     where: {
                         id: this.info.token.id
@@ -393,11 +396,56 @@ class Patriot {
                                                         }
                                                     })
                                                     .then((km) => {
-                                                        res.status(200)
-                                                            .json({
-                                                                message: "Berhasil menambahkan laporan minggu ini",
-                                                                info: km
-                                                            });
+                                                        // dapetin kecamatan id
+                                                        Desa
+                                                            .findOne({
+                                                                where: {
+                                                                    id: this.info.token.fk_desaid
+                                                                }
+                                                            })
+                                                            .then((desa) => {
+                                                                // update rangkuman laporan
+                                                                desa = JSON.parse(JSON.stringify(desa));
+                                                                Summary
+                                                                    .update({
+                                                                        q1: sequelize.literal('q1 + ' + req.body.q1),
+                                                                        q2: sequelize.literal('q2 + ' + req.body.q2),
+                                                                        q3: sequelize.literal('q3 + ' + req.body.q3),
+                                                                        q4: sequelize.literal('q4 + ' + req.body.q4),
+                                                                        q5: sequelize.literal('q5 + ' + req.body.q5),
+                                                                        q6: sequelize.literal('q6 + ' + req.body.q6),
+                                                                        q7: sequelize.literal('q7 + ' + req.body.q7)
+                                                                    }, {
+                                                                        where: {
+                                                                            bulan : moment().month(),
+                                                                            tahun : moment().year(),
+                                                                            fk_kecamatanid : desa.district_id
+                                                                        }
+                                                                    })
+                                                                    .then((summary) =>{
+                                                                        res.status(200)
+                                                                            .json({
+                                                                                message: "Berhasil menambahkan laporan minggu ini",
+                                                                                info: km
+                                                                            });
+                                                                    })
+                                                                    .catch((err) =>{
+                                                                        Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
+                                                                        res.status(401)
+                                                                            .json({
+                                                                                message: "Gagal menambahkan laporan minggu ini pada update summary",
+                                                                                info: err
+                                                                            });
+                                                                    });
+                                                            })
+                                                            .catch((err) => {
+                                                                Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
+                                                                res.status(401)
+                                                                    .json({
+                                                                        message: "Gagal menambahkan laporan minggu ini pada get kecamatan id",
+                                                                        info: err
+                                                                    });
+                                                            })
                                                     })
                                                     .catch((err) => {
                                                         Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
@@ -407,15 +455,15 @@ class Patriot {
                                                                 info: err
                                                             });
                                                     });    
-                                                })
-                                                .catch((err) => {
-                                                    Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                                                    res.status(401)
-                                                        .json({
-                                                            message: "Gagal menambahkan laporan minggu ini pada update patriot",
-                                                            info: err
-                                                        });
-                                                });
+                                            })
+                                            .catch((err) => {
+                                                Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
+                                                res.status(401)
+                                                    .json({
+                                                        message: "Gagal menambahkan laporan minggu ini pada update patriot",
+                                                        info: err
+                                                    });
+                                            });
                                     })
                                     .catch((err) => {
                                         Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);

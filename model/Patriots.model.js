@@ -13,7 +13,10 @@ module.exports = function(sequelize, DataType) {
         },
         alamat: DataType.STRING,
         bergabung: DataType.DATE,
-        laporanterkirim: DataType.INTEGER,
+        laporanterkirim: {
+            type: DataType.INTEGER,
+            defaultValue: 0
+        },
         keluargayangdipantau: DataType.INTEGER,
         pathfoto: DataType.STRING
 	});
