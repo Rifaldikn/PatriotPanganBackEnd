@@ -82,6 +82,7 @@ var PatriotsRouter = require(__dirname + '/routes/Patriots.route');
 var ArtikelsRouter = require(__dirname + '/routes/Artikel.route');
 var KMRouter = require(__dirname + '/routes/KeluargaMiskins.route');
 var LokasiRouter = require(__dirname + '/routes/Lokasi.route');
+var SummariesRouter = require(__dirname + '/routes/Summaries.route');
 
 app.use('/auth', AuthRouter);
 app.use('/lokasi', LokasiRouter);

@@ -215,7 +215,7 @@ class Auth {
             // AIzaSyAmcPNYLtawhT5UR-p3EZUBJ3yZnC30pTY punya parhanzp
             // Optional depending on the providers
             httpAdapter: 'https', // Default
-            apiKey: 'AIzaSyAmcPNYLtawhT5UR-p3EZUBJ3yZnC30pTY', // for Mapquest, OpenCage, Google Premier
+            apiKey: 'AIzaSyCRejJ_Fx6cRxYihVAHhn_JCBw-R5mWHI8', // for Mapquest, OpenCage, Google Premier
             formatter: null         // 'gpx', 'string', ...
         };
         // {"id_kab" : "2101"}
