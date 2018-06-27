@@ -89,13 +89,13 @@ class Auth {
 
     LoginPatriot(req, res) {
         Patriots
-            .find({
+            .findOne({
                 where: {
                     email: req.body.email
                 }
             })
             .then((patriots) => {
-                if(patriots.length < 1) {
+                if(patriots == null) {
                     res.json({
                             status: false,
                             message: "Auth failed, email wasn't register",

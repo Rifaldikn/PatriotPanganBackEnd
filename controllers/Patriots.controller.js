@@ -219,47 +219,49 @@ class Patriot {
                                 }
                             })
                             .then((patriot) => {
-                                if(patriot.dataValues.keluargayangdipantau >= 10) {
+                                patriot = JSON.parse(JSON.stringify(patriot))
+                                if(patriot.keluargayangdipantau >= 10) {
                                     Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
                                     res.json({
                                             status: false,
                                             message: "Sudah memantau lebih dari 10 keluarga miskin"
                                         });
                                 } else {
-                                    patriot.dataValues.keluargayangdipantau += 1;
+                                    patriot.keluargayangdipantau += 1;
                                     Patriots
                                         .update({
-                                            keluargayangdipantau: patriot.dataValues.keluargayangdipantau
+                                            keluargayangdipantau: patriot.keluargayangdipantau
                                         }, {
                                             where: {
                                                 id: this.id
                                             }
                                         })
                                         .then((result) => {
-                                            Desa
-                                                .findOne({
-                                                    where: {
-                                                        number: req.body.desaid 
-                                                    }
+                                            KM
+                                                .create({
+                                                    namakeluarga: req.body.namakeluarga,
+                                                    fk_desaid: this.info.token.fk_desaid,
+                                                    alamat: req.body.alamat,
+                                                    pathfoto: req.file.filename,
+                                                    fk_patriotid: this.info.token.id,
+                                                    mingguterakhirmelaporkan: moment().week()-1,
+                                                    status: "belum terdapat laporan"
                                                 })
-                                                .then((desa) => {
-                                                    KM
-                                                        .create({
-                                                            namakeluarga: req.body.namaKeluarga,
-                                                            fk_desaid: desa.dataValues.id,
-                                                            alamat: req.body.alamat,
-                                                            pathfoto: req.file.filename,
-                                                            fk_patriotid: this.info.token.id,
-                                                            mingguterakhirmelaporkan: moment().week()-1,
-                                                            status: "belum terdapat laporan"
+                                                .then((result) => {
+                                                    Desa
+                                                        .findOne({
+                                                            where: {
+                                                                id: this.info.token.fk_desaid
+                                                            }
                                                         })
-                                                        .then((result) => {
+                                                        .then((desa) => {
+                                                            desa = JSON.parse(JSON.stringify(desa));
                                                             Kecamatan
                                                                 .update({
                                                                     jumlahkeluarga: sequelize.literal('jumlahkeluarga + 1')
                                                                 },{
                                                                     where: {
-                                                                        id: desa.dataValues.district_id
+                                                                        id: desa.district_id
                                                                     }
                                                                 })
                                                                 .then((kecamatan) => {
@@ -276,29 +278,21 @@ class Patriot {
                                                                         });
                                                                 });
                                                         })
-                                                        .catch((err) => {
-                                                            Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
-                                                            res.json({
-                                                                    status: false,
-                                                                    message: "Gagal menambahkan keluarga miskin beru",
-                                                                    info: err
-                                                                });
-                                                        });
                                                 })
                                                 .catch((err) => {
                                                     Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
                                                     res.json({
                                                             status: false,
-                                                            message: "Gagal menambahkan keluarga miskin baru, pada mendapatkan desaid",
+                                                            message: "Gagal membuat keluarga miskin baru",
                                                             info: err
                                                         });
-                                                })
+                                                });
                                         })
                                         .catch((err) => {
                                             Upload.DeleteFile('/../public/images/keluargaMiskins/' + req.file.filename);
                                             res.json({
                                                     status: false,
-                                                    message: "Gagal menambahkan keluarga miskin baru",
+                                                    message: "Gagal update jumlah keluarga yang dipantau patriot",
                                                     info: err
                                                 });
                                         });
