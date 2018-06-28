@@ -3,6 +3,7 @@ var Token = require(__dirname + '/Token.controller');
 var Summaries = sequelize.import(__dirname + '/../model/Summaries.model');
 var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
 var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
+var moment = require('moment');
 
 Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
 
@@ -121,6 +122,32 @@ class Summarie {
                         info: err
                     })
             });
+    }
+
+    GetTotalKecRawanPangan(req, res){
+        Summaries.
+            count({
+                where : {
+                    kondisi : {
+                        [Op.not] : 0
+                    },
+                    bulan: moment().month(),
+                    tahun: moment().year()
+                }
+            })
+            .then((jumlahKecRawanPangan) => {
+                res.json({
+                    status: true,
+                    message: "Berhasil jumlah kecamatan rawan pangan",
+                    data: jumlahKecRawanPangan
+                })
+            })
+            .catch((err) => {
+                res.json({
+                    status : false,
+                    message: "Internal Server Error"
+                })
+            })
     }
 }
 

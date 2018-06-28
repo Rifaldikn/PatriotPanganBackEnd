@@ -27,4 +27,12 @@ router.get('/getkeluargamiskinyangdipantau', (req, res, next) => {
     Patriots.GetKeluargaMiskinYangDipantau(req, res);
 });
 
+router.get('/getjumlahpatriots', (req, res, next) =>{
+	Patriots.GetJumlahPatriots(req,res);
+});
+
+router.get('/getjumlahpatriotsbytahun', (req, res, next) =>{
+	Patriots.GetJumlahPatriotsByTahun(req,res);
+});
+
 module.exports = router;

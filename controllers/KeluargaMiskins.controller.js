@@ -20,7 +20,7 @@ class KeluargaMiskin {
         this.info;
     }
 
-    GetKeluargaMiskin(req, res){ //belum nested di alamat
+    GetKeluargaMiskin(req, res){ 
         this.info = Token.DecodeToken(req.headers.token);
         if (this.info.role == "admin" || this.info.role == "patriots"){
             KM
@@ -65,7 +65,7 @@ class KeluargaMiskin {
         }
     }
 
-    GetDetailKeluargaMiskin(req, res){ //belum nested di alamat
+    GetDetailKeluargaMiskin(req, res){ 
         this.info = Token.DecodeToken(req.headers.token);
         if (this.info != null){
             KM

@@ -11,10 +11,16 @@ var Upload = require(__dirname + '/Uploads.controller');
 var LaporanController = require(__dirname + '/Laporans.controller');
 var moment = require('moment');
 var multer = require('multer');
+var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
+var Provinsi = sequelize.import(__dirname + '/../model/rgn_province.model');
+var Negara = sequelize.import(__dirname + '/../model/rgn_country.model');
 
 KM.belongsTo(Desa, {foreignKey: 'fk_desaid'}); // Adds fk_desaid to Keluarga miskin
 Laporans.belongsTo(KM, {foreignKey: 'fk_keluargamiskinid'});
 Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
+Kecamatan.belongsTo(Kabupaten, {foreignKey: 'city_id'});
+Kabupaten.belongsTo(Provinsi, {foreignKey: 'province_id'});
+Provinsi.belongsTo(Negara, {foreignKey: 'country_id'});
 
 class Patriot {
     constructor() {
@@ -491,7 +497,7 @@ class Patriot {
         }
     }
 
-    GetKeluargaMiskinYangDipantau(req, res){ //belum nested di alamat
+    GetKeluargaMiskinYangDipantau(req, res){ 
         this.info = Token.DecodeToken(req.headers.token);
         if (this.info.role == "patriots"){
             KM
@@ -500,7 +506,19 @@ class Patriot {
                         fk_patriotid: this.info.token.id
                     },
                     include: [{
-                        model: Desa
+                        model: Desa,
+                        include: [{
+                            model: Kecamatan,
+                            include : [{
+                                model: Kabupaten,
+                                include : [{
+                                    model : Provinsi,
+                                    include : [{
+                                        model : Negara
+                                    }]
+                                }]
+                            }]
+                        }]
                     }]
                 })
                 .then((keluargaMiskin) =>{
@@ -523,6 +541,49 @@ class Patriot {
                     message: "Auth failed, Anda bukan patriot"
                 });
         }
+    }
+
+    GetJumlahPatriots(req,res){
+        Patriots
+            .count()
+            .then((jumlahPatriot) =>{
+                res.json({
+                    status: true,
+                    message: "Berhasil jumlah patriot",
+                    data: jumlahPatriot
+                })
+            })
+            .catch((err) => {
+                res.json({
+                    status : false,
+                    message: "Internal Server Error"
+                })
+            })
+    }
+
+    GetJumlahPatriotsByTahun(req,res){
+        Patriots
+            .count({
+                where : {
+                    bergabung : {
+                        [Op.gte] : new Date(req.body.year, 0, 1), //year pake int, yang paling kanan tanggal
+                        [Op.lt] : new Date(req.body.year + 1, 0, 1), //month pake int
+                    }
+                }
+            })
+            .then((jumlahPatriot) =>{
+                res.json({
+                    status: true,
+                    message: "Berhasil jumlah patriot by tahun",
+                    data: jumlahPatriot
+                })
+            })
+            .catch((err) => {
+                res.json({
+                    status : false,
+                    message: "Internal Server Error"
+                })
+            })
     }
 }
 
