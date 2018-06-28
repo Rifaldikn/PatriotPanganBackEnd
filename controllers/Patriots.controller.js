@@ -568,8 +568,8 @@ class Patriot {
             .count({
                 where : {
                     bergabung : {
-                        [Op.gte] : new Date(req.body.year, 0, 1), //year pake int, yang paling kanan tanggal
-                        [Op.lt] : new Date(req.body.year + 1, 0, 1), //month pake int
+                        [Op.gte] : new Date(req.params.year, 0, 1), //year pake int, yang paling kanan tanggal
+                        [Op.lt] : new Date(req.params.year + 1, 0, 1), //month pake int
                     }
                 }
             })

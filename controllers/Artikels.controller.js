@@ -37,8 +37,8 @@ class Artikel {
 			.findAll({
 				where : {
 					tanggalpublish : {
-						[Op.gte] : new Date(req.body.year, req.body.month, 1), //year pake int, yang paling kanan tanggal
-						[Op.lt] : new Date(req.body.year, req.body.month + 1, 1), //month pake int
+						[Op.gte] : new Date(req.params.year, req.params.month, 1), //year pake int, yang paling kanan tanggal
+						[Op.lt] : new Date(req.params.year, req.params.month + 1, 1), //month pake int
 					}
 				},
 				include: [{
@@ -65,8 +65,8 @@ class Artikel {
 			.findAll({
 				where: {
 					tanggalpublish : {
-						[Op.gte] : new Date(req.body.year, 0, 1), //year pake int, yang paling kanan tanggal
-						[Op.lt] : new Date(req.body.year + 1, 0, 1), //month pake int
+						[Op.gte] : new Date(req.params.year, 0, 1), //year pake int, yang paling kanan tanggal
+						[Op.lt] : new Date(req.params.year + 1, 0, 1), //month pake int
 					}
 				},
 				include: [{
@@ -136,8 +136,8 @@ class Artikel {
 			.count({
 				where : {
 					tanggalpublish : {
-						[Op.gte] : new Date(req.body.year, req.body.month, 1), //year pake int, yang paling kanan tanggal
-						[Op.lt] : new Date(req.body.year, req.body.month + 1, 1), //month pake int
+						[Op.gte] : new Date(req.params.year, req.params.month, 1), //year pake int, yang paling kanan tanggal
+						[Op.lt] : new Date(req.params.year, req.params.month + 1, 1), //month pake int
 					}
 				}
 			})
@@ -161,8 +161,8 @@ class Artikel {
 			.count({
 				where : {
 					tanggalpublish : {
-						[Op.gte] : new Date(req.body.year, 0, 1), //year pake int, yang paling kanan tanggal
-						[Op.lt] : new Date(req.body.year + 1, 0, 1), //month pake int
+						[Op.gte] : new Date(req.params.year, 0, 1), //year pake int, yang paling kanan tanggal
+						[Op.lt] : new Date(req.params.year + 1, 0, 1), //month pake int
 					}
 				}
 			})
