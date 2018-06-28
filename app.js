@@ -107,6 +107,7 @@ var SummariesRouter = require(__dirname + '/routes/Summaries.route');
 
 app.use('/auth', AuthRouter);
 app.use('/lokasi', LokasiRouter);
+app.use('/summary', SummariesRouter);
 // Checking token gajadi pake ini
 // Kudu make, untuk memastikan yang login punya token dari kita
 app.use((req, res, next) => {

@@ -15,6 +15,8 @@ var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
 var Provinsi = sequelize.import(__dirname + '/../model/rgn_province.model');
 var Negara = sequelize.import(__dirname + '/../model/rgn_country.model');
 
+const Op = sequelize.Op;
+
 KM.belongsTo(Desa, {foreignKey: 'fk_desaid'}); // Adds fk_desaid to Keluarga miskin
 Laporans.belongsTo(KM, {foreignKey: 'fk_keluargamiskinid'});
 Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
@@ -250,7 +252,7 @@ class Patriot {
                                                     alamat: req.body.alamat,
                                                     pathfoto: req.file.filename,
                                                     fk_patriotid: this.info.token.id,
-                                                    mingguterakhirmelaporkan: moment().week()-1,
+                                                    bulanterakhirmelaporkan: moment().month()-1,
                                                     status: "belum terdapat laporan"
                                                 })
                                                 .then((result) => {
@@ -388,7 +390,7 @@ class Patriot {
                                             .then((patriot) => {
                                                 KM
                                                     .update({
-                                                        mingguterakhirmelaporkan: moment().week(),
+                                                        bulanterakhirmelaporkan: moment().month(),
                                                         status: LaporanController.GetStatusKeluargaMiskin(req.body),
                                                     },{
                                                         where: {

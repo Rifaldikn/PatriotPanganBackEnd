@@ -6,7 +6,7 @@ router.get('/getjumlahtaraf', (req, res, next) => {
     Summaries.GetJumlahTarafKec(req, res);
 });
 
-router.get('/getsummaries', (req, res, next) => { //bisa dapetin jumlah laporan perbulan berdasarkan question
+router.get('/getsummaries/:bulan/:tahun', (req, res, next) => { //bisa dapetin jumlah laporan perbulan berdasarkan question
     Summaries.GetSummaries(req, res);
 });
 

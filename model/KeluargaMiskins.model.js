@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataType) {
                                 key: 'id'
                         }
                 },
-                mingguterakhirmelaporkan: {
+                bulanterakhirmelaporkan: {
                         type: DataType.INTEGER,
                         allowNull: true
                 },

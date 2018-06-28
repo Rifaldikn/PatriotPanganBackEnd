@@ -6,6 +6,7 @@ var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
 var moment = require('moment');
 
 Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
+Summaries.belongsTo(Kecamatan, {foreignKey: 'fk_kecamatanid'});
 
 const Op = sequelize.Op;
 
@@ -62,7 +63,8 @@ class Summarie {
     		.then((jumlah) =>{
     			Summaries
     				.count({
-    					group: 'kondisi'
+						group: 'kondisi',
+						attributes: ['kondisi']
     				},{
                         where: {
                             [Op.and]: [
@@ -100,13 +102,17 @@ class Summarie {
 
     GetSummaries(req, res){
     	Summaries
-            .findOne({
+            .sum({
                 where: {
                     [Op.and]: [
-                        {bulan : req.body.bulan},
-                        {tahun : req.body.tahun}
+                        {bulan : req.params.bulan},
+                        {tahun : req.params.tahun}
                     ]
-                }
+				},
+				attributes: [[sequelize.fn('COUNT', sequelize.col('q1')), 'q1']],
+				include: [{
+					model: Kecamatan
+				}]
             })
             .then((summary) => {
                 res.json({
