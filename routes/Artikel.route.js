@@ -26,7 +26,7 @@ router.get('/getjumlahartikelbybulan/:year/:month', (req, res, next) => {
     Artikel.GetJumlahArtikelByBulan(req, res);
 });
 
-router.get('/getjumlahartikelbytahun/:year/:month', (req, res, next) => { 
+router.get('/getjumlahartikelbytahun/:year', (req, res, next) => { 
     Artikel.GetJumlahArtikelByTahun(req, res);
 });
 
