@@ -104,10 +104,12 @@ var ArtikelsRouter = require(__dirname + '/routes/Artikel.route');
 var KMRouter = require(__dirname + '/routes/KeluargaMiskins.route');
 var LokasiRouter = require(__dirname + '/routes/Lokasi.route');
 var SummariesRouter = require(__dirname + '/routes/Summaries.route');
+var WebsiteRouter = require(__dirname + '/routes/Website.route.js');
 
 app.use('/auth', AuthRouter);
 app.use('/lokasi', LokasiRouter);
 app.use('/summary', SummariesRouter);
+app.use('/webapi', WebsiteRouter);
 // Checking token gajadi pake ini
 // Kudu make, untuk memastikan yang login punya token dari kita
 app.use((req, res, next) => {

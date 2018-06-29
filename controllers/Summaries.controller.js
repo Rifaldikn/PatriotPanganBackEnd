@@ -217,11 +217,14 @@ class Summarie {
 								var data = {}
 								var kondisi = [0,0,0,0,0,0];
 								var listkecamatan = [];
-								data.nama = kabupaten.name.toLowerCase();
+								data.kabupaten = {
+									nama: kabupaten.name.toLowerCase(),
+									lat: kabupaten.lat, 
+									lng: kabupaten.lng
+								}
 								data.bulan = moment(bulan, 'MM').format('MMMM');
-								data.center = {lat: kabupaten.lat, lng: kabupaten.lng};
 								for(let i=0; i<result.length; i++) {
-									kondisi[result[i].kondisi];
+									kondisi[result[i].kondisi]++;
 									var kecamatan = {};
 									kecamatan.nama = result[i].rgn_district.name;
 									kecamatan.kondisi = result[i].kondisi;
@@ -231,6 +234,7 @@ class Summarie {
 								}
 								data.kondisi = kondisi;
 								data.listkecamatan = listkecamatan;
+								data.totalkecamatan = result.length;
 								res.json({
 									status: true,
 									message: "Berhasil mendapatkan hasil rangkuman dari laporan untuk bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
