@@ -1,8 +1,10 @@
 var sequelize = require(__dirname + '/../dbconnection');
 var Token = require(__dirname + '/Token.controller');
+var Laporan = require(__dirname + '/Laporans.controller');
 var Summaries = sequelize.import(__dirname + '/../model/Summaries.model');
 var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
 var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
+var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
 var moment = require('moment');
 
 Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
@@ -102,17 +104,23 @@ class Summarie {
 
     GetSummaries(req, res){
     	Summaries
-            .sum({
+            .findAll({
                 where: {
                     [Op.and]: [
                         {bulan : req.params.bulan},
                         {tahun : req.params.tahun}
                     ]
 				},
-				attributes: [[sequelize.fn('COUNT', sequelize.col('q1')), 'q1']],
-				include: [{
-					model: Kecamatan
-				}]
+				attributes: [
+					[sequelize.fn('SUM', sequelize.col('q1')), 'q1'],
+					[sequelize.fn('SUM', sequelize.col('q2')), 'q2'],
+					[sequelize.fn('SUM', sequelize.col('q3')), 'q3'],
+					[sequelize.fn('SUM', sequelize.col('q4')), 'q4'],
+					[sequelize.fn('SUM', sequelize.col('q5')), 'q5'],
+					[sequelize.fn('SUM', sequelize.col('q6')), 'q6'],
+					[sequelize.fn('SUM', sequelize.col('q7')), 'q7'],
+					'bulan', 'tahun'
+				]
             })
             .then((summary) => {
                 res.json({
@@ -154,7 +162,245 @@ class Summarie {
                     message: "Internal Server Error"
                 })
             })
-    }
+	}
+	
+	// untuk peta di mobile
+	GetKondisiRawanByLokasi(req, res) {
+		this.info = Token.DecodeToken(req.headers.token);
+		var bulan;
+		var tahun;
+		if(moment().month() == 0) {
+			bulan = 11;
+			tahun = moment().year() - 1;
+		} else {
+			bulan = moment().month() - 1;
+			tahun = moment().year();
+		}
+		Desa
+			.findOne({
+				where: {
+					id: this.info.token.fk_desaid
+				}
+			})
+			.then((iddesa) => {
+				iddesa = JSON.parse(JSON.stringify(iddesa));
+				Kabupaten
+					.findOne({
+						where: {
+							number: {
+								$like: iddesa.number.slice(0,4) + '%'
+							}
+						},
+						attributes: ['lat', 'lng']
+					})
+					.then((latlng) => {
+						latlng = JSON.parse(JSON.stringify(latlng));
+						Summaries
+							.findAll({
+								where: {
+									// kondisi : {
+									// 	[Op.not] : 0
+									// },
+									bulan: bulan+1,
+									tahun: tahun,
+								},
+								attributes: ['kondisi'],
+								include: [{
+									model: Kecamatan,
+									where: {
+										number: {
+											$like: iddesa.number.slice(0,4) + '%'
+										}
+									},
+									attributes: ['name', 'lat', 'lng']
+								}]
+							})
+							.then((result) => {
+								result = JSON.parse(JSON.stringify(result));
+								res.json({
+									status: true,
+									message: "Berhasil mendapatkan hasil rangkuman dari laporan untuk bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
+									data: result,
+									latlng: latlng
+								});
+							})
+							.catch((err) => {
+								res.json({
+									status: false,
+									message: "Gagal untuk mendapatkan laporan untuk bulan bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu"
+								});
+							});
+					})
+					.catch((err) => {
+						res.json({
+							status: false,
+							message: "Gagal mendapatkan latlng suatu kabupaten"
+						});
+					})
+			})
+			.catch((err) => {
+				res.json({
+					status: false,
+					message: "gagal mendapatkan id desa yang diinginkan"
+				});
+			});
+	}
+
+	// untuk piechart di mobile
+	GetTotalKerawananByLokasi(req, res) {
+		this.info = Token.DecodeToken(req.headers.token);
+		var bulan;
+		var tahun;
+		if(moment().month() == 0) {
+			bulan = 11;
+			tahun = moment().year() - 1;
+		} else {
+			bulan = moment().month()-1;
+			tahun = moment().year();
+		}
+		Desa
+			.findOne({
+				where: {
+					id: this.info.token.fk_desaid
+				}
+			})
+			.then((desa) => {
+				desa = JSON.parse(JSON.stringify(desa));
+				Kabupaten
+				Kecamatan
+					.findAll({
+						where: {
+							number: {
+								$like: desa.number.slice(0,4) + '%'
+							}
+						}
+					})
+					.then((totalkecamatan) => {
+						var idkecamatan = [];
+						totalkecamatan = JSON.parse(JSON.stringify(totalkecamatan));
+						for(let i=0; i<totalkecamatan.length; i++) {
+							idkecamatan.push({fk_kecamatanid: totalkecamatan[i].id});
+						}
+						Summaries
+							.findAll({
+								group: 'kondisi',
+								where: {
+									// kondisi : {
+									// 	[Op.not] : 0
+									// },
+									$or: idkecamatan,
+									bulan: bulan+1,
+									tahun: tahun,
+								},
+								attributes: [
+									'kondisi',
+									[sequelize.fn('COUNT', sequelize.col('kondisi')), 'total'],
+								]
+							})
+							.then((result) => {
+								result = JSON.parse(JSON.stringify(result));
+								res.json({
+									status: true,
+									message: "Berhasil mendapatkan hasil rangkuman dari laporan untuk bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
+									data: result,
+									totalkecamatan: totalkecamatan.length
+								});
+							})
+							.catch((err) => {
+								res.json({
+									status: false,
+									message: "Gagal untuk mendapatkan laporan untuk bulan bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
+									info: err
+								});
+							});
+					})
+					.catch((err) => {
+						res.json({
+							status: false, 
+							message: "Gagal untuk mendapatkan total keluarga di kabupaten tertentu",
+							info: err
+						})
+					})
+			})
+			.catch((err) => {
+				res.json({
+					status: false,
+					message: "gagal mendapatkan id desa yang diinginkan",
+					info: err
+				});
+			});
+	}
+
+	GetKerawananAllProv(req, res) {
+		this.info = Token.DecodeToken(req.headers.token);
+		var bulan;
+		var tahun;
+		if(moment().month() == 0) {
+			bulan = 11;
+			tahun = moment().year() - 1;
+		} else {
+			bulan = moment().month()-1;
+			tahun = moment().year();
+		}
+		Summaries
+			.findAll({
+				where: {
+					bulan: bulan+1,
+					tahun: tahun
+				},
+				order: [
+					['fk_kecamatanid']
+				],
+				include: [{
+					model: Kecamatan,
+					attributes: ['number', 'name', 'jumlahkeluarga']
+				}]
+			})
+			.then((summary) => {
+				summary = JSON.parse(JSON.stringify(summary));
+				var result = [];
+				var temp = {};
+				var tempid = summary[0].rgn_district.number.slice(0,2);
+				temp.q1 = 0;
+				temp.q2 = 0;
+				temp.q3 = 0;
+				temp.q4 = 0;
+				temp.q5 = 0;
+				temp.q6 = 0;
+				temp.q7 = 0;
+				temp.jumlahkeluarga = 0;
+				for(let i=0; i<summary.length; i++) {
+					if(tempid != summary[i].rgn_district.number.slice(0,2)) {
+						temp.id = tempid;
+						temp.kondisi = Laporan.GetStatusKeluargaMiskinAngka1Jenis(temp);
+						result.push(temp);
+						temp = {};
+						tempid = summary[i].rgn_district.number.slice(0,2);
+						temp.q1 = 0;
+						temp.q2 = 0;
+						temp.q3 = 0;
+						temp.q4 = 0;
+						temp.q5 = 0;
+						temp.q6 = 0;
+						temp.q7 = 0;
+						temp.jumlahkeluarga = 0;
+					}
+					temp.q1 += summary[i].q1;
+					temp.q2 += summary[i].q2;
+					temp.q3 += summary[i].q3;
+					temp.q4 += summary[i].q4;
+					temp.q5 += summary[i].q5;
+					temp.q6 += summary[i].q6;
+					temp.q7 += summary[i].q7;
+					temp.jumlahkeluarga += summary[i].rgn_district.jumlahkeluarga;
+				}
+				res.json({
+					status: true,
+					message: "Berhasil mendapatkan data kerawanan semua provinsi",
+					data: result
+				})
+			})
+	}
 }
 
 module.exports = new Summarie;

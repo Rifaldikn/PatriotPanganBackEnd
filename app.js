@@ -60,7 +60,7 @@ var updatesummary = new CronJob({
       bulan = 11;
       tahun = moment().year() - 1;
     } else {
-      bulan = moment().month();
+      bulan = moment().month()-1;
       tahun = moment().year();
     }
     Summary

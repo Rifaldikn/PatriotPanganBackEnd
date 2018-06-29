@@ -253,7 +253,7 @@ class Patriot {
                                                     pathfoto: req.file.filename,
                                                     fk_patriotid: this.info.token.id,
                                                     bulanterakhirmelaporkan: moment().month()-1,
-                                                    status: "belum terdapat laporan"
+                                                    status: 0
                                                 })
                                                 .then((result) => {
                                                     Desa
