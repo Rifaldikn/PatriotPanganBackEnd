@@ -18,10 +18,6 @@ router.get('/getkondisirawanbylokasi', (req, res, next) => {
     Summaries.GetKondisiRawanByLokasi(req, res);
 });
 
-router.get('/gettotalkerawananbylokasi', (req, res, next) => {
-    Summaries.GetTotalKerawananByLokasi(req, res);
-});
-
 router.get('/getkerawananallprov', (req, res, next) => {
     Summaries.GetKerawananAllProv(req, res);
 });

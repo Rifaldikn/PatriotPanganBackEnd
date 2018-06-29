@@ -164,7 +164,7 @@ class Summarie {
             })
 	}
 	
-	// untuk peta di mobile
+	// untuk peta dan piechart di mobile
 	GetKondisiRawanByLokasi(req, res) {
 		this.info = Token.DecodeToken(req.headers.token);
 		var bulan;
@@ -191,16 +191,13 @@ class Summarie {
 								$like: iddesa.number.slice(0,4) + '%'
 							}
 						},
-						attributes: ['lat', 'lng']
+						attributes: ['lat', 'lng', 'name']
 					})
-					.then((latlng) => {
-						latlng = JSON.parse(JSON.stringify(latlng));
+					.then((kabupaten) => {
+						kabupaten = JSON.parse(JSON.stringify(kabupaten));
 						Summaries
 							.findAll({
 								where: {
-									// kondisi : {
-									// 	[Op.not] : 0
-									// },
 									bulan: bulan+1,
 									tahun: tahun,
 								},
@@ -217,17 +214,34 @@ class Summarie {
 							})
 							.then((result) => {
 								result = JSON.parse(JSON.stringify(result));
+								var data = {}
+								var kondisi = [0,0,0,0,0,0];
+								var listkecamatan = [];
+								data.nama = kabupaten.name.toLowerCase();
+								data.bulan = moment(bulan, 'MM').format('MMMM');
+								data.center = {lat: kabupaten.lat, lng: kabupaten.lng};
+								for(let i=0; i<result.length; i++) {
+									kondisi[result[i].kondisi];
+									var kecamatan = {};
+									kecamatan.nama = result[i].rgn_district.name;
+									kecamatan.kondisi = result[i].kondisi;
+									kecamatan.lat = result[i].rgn_district.lat;
+									kecamatan.lng = result[i].rgn_district.lng;
+									listkecamatan.push(kecamatan);
+								}
+								data.kondisi = kondisi;
+								data.listkecamatan = listkecamatan;
 								res.json({
 									status: true,
 									message: "Berhasil mendapatkan hasil rangkuman dari laporan untuk bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
-									data: result,
-									latlng: latlng
+									data: data
 								});
 							})
 							.catch((err) => {
 								res.json({
 									status: false,
-									message: "Gagal untuk mendapatkan laporan untuk bulan bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu"
+									message: "Gagal untuk mendapatkan laporan untuk bulan bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
+									info: err
 								});
 							});
 					})
@@ -242,91 +256,6 @@ class Summarie {
 				res.json({
 					status: false,
 					message: "gagal mendapatkan id desa yang diinginkan"
-				});
-			});
-	}
-
-	// untuk piechart di mobile
-	GetTotalKerawananByLokasi(req, res) {
-		this.info = Token.DecodeToken(req.headers.token);
-		var bulan;
-		var tahun;
-		if(moment().month() == 0) {
-			bulan = 11;
-			tahun = moment().year() - 1;
-		} else {
-			bulan = moment().month()-1;
-			tahun = moment().year();
-		}
-		Desa
-			.findOne({
-				where: {
-					id: this.info.token.fk_desaid
-				}
-			})
-			.then((desa) => {
-				desa = JSON.parse(JSON.stringify(desa));
-				Kabupaten
-				Kecamatan
-					.findAll({
-						where: {
-							number: {
-								$like: desa.number.slice(0,4) + '%'
-							}
-						}
-					})
-					.then((totalkecamatan) => {
-						var idkecamatan = [];
-						totalkecamatan = JSON.parse(JSON.stringify(totalkecamatan));
-						for(let i=0; i<totalkecamatan.length; i++) {
-							idkecamatan.push({fk_kecamatanid: totalkecamatan[i].id});
-						}
-						Summaries
-							.findAll({
-								group: 'kondisi',
-								where: {
-									// kondisi : {
-									// 	[Op.not] : 0
-									// },
-									$or: idkecamatan,
-									bulan: bulan+1,
-									tahun: tahun,
-								},
-								attributes: [
-									'kondisi',
-									[sequelize.fn('COUNT', sequelize.col('kondisi')), 'total'],
-								]
-							})
-							.then((result) => {
-								result = JSON.parse(JSON.stringify(result));
-								res.json({
-									status: true,
-									message: "Berhasil mendapatkan hasil rangkuman dari laporan untuk bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
-									data: result,
-									totalkecamatan: totalkecamatan.length
-								});
-							})
-							.catch((err) => {
-								res.json({
-									status: false,
-									message: "Gagal untuk mendapatkan laporan untuk bulan bulan " + (bulan+1) + " tahun " + tahun + " untuk kabupaten tertentu",
-									info: err
-								});
-							});
-					})
-					.catch((err) => {
-						res.json({
-							status: false, 
-							message: "Gagal untuk mendapatkan total keluarga di kabupaten tertentu",
-							info: err
-						})
-					})
-			})
-			.catch((err) => {
-				res.json({
-					status: false,
-					message: "gagal mendapatkan id desa yang diinginkan",
-					info: err
 				});
 			});
 	}
