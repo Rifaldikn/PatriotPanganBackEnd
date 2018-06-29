@@ -31,7 +31,7 @@ router.get('/getjumlahpatriots', (req, res, next) =>{
 	Patriots.GetJumlahPatriots(req,res);
 });
 
-router.get('/getjumlahpatriotsbytahun', (req, res, next) =>{
+router.get('/getjumlahpatriotsbytahun/:year', (req, res, next) =>{
 	Patriots.GetJumlahPatriotsByTahun(req,res);
 });
 
