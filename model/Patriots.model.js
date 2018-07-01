@@ -12,12 +12,18 @@ module.exports = function(sequelize, DataType) {
             type: DataType.STRING,
         },
         alamat: DataType.STRING,
-        bergabung: DataType.DATE,
+        bergabung: {
+            type: DataType.DATE,
+            defaultValue: new Date
+        },
         laporanterkirim: {
             type: DataType.INTEGER,
             defaultValue: 0
         },
-        keluargayangdipantau: DataType.INTEGER,
+        keluargayangdipantau: {
+            type: DataType.INTEGER,
+            defaultValue: 0
+        },
         pathfoto: DataType.STRING
 	});
 }
