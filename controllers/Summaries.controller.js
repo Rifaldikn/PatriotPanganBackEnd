@@ -198,7 +198,7 @@ class Summarie {
 						Summaries
 							.findAll({
 								where: {
-									bulan: bulan+1,
+									bulan: bulan,
 									tahun: tahun,
 								},
 								attributes: ['kondisi'],
@@ -259,7 +259,8 @@ class Summarie {
 			.catch((err) => {
 				res.json({
 					status: false,
-					message: "gagal mendapatkan id desa yang diinginkan"
+					message: "gagal mendapatkan id desa yang diinginkan",
+					info: err
 				});
 			});
 	}
@@ -278,7 +279,7 @@ class Summarie {
 		Summaries
 			.findAll({
 				where: {
-					bulan: bulan+1,
+					bulan: bulan,
 					tahun: tahun
 				},
 				order: [

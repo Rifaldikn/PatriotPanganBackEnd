@@ -95,13 +95,14 @@ class Auth {
                 }
             })
             .then((patriots) => {
+                patriots = JSON.parse(JSON.stringify(patriots));
                 if(patriots == null) {
                     res.json({
                             status: false,
                             message: "Auth failed, email wasn't register",
                         });
                 } else {
-                    if(this.ComparePassword(req.body.password, patriots.dataValues.password)) {
+                    if(this.ComparePassword(req.body.password, patriots.password)) {
                         this.token = Token.SetupToken(patriots, "patriots");
                         res.json({
                                 status: true,
@@ -220,7 +221,7 @@ class Auth {
         };
         // {"id_kab" : "2101"}
         var geocoder = NodeGeocoder(options);
-        Kecamatan
+        Kabupaten
             .findAll({
                 where: {
                     number: {
@@ -235,7 +236,7 @@ class Auth {
                         console.log('out of coder', i, result[i].name);
                         geocoder.geocode(result[i].name + ', Papua') //ganti sesuai dengan name dari id provinsi tersebut
                             .then((latlng) => {
-                                Kecamatan
+                                Kabupaten
                                     .update({
                                         lat: latlng[0].latitude,
                                         lng: latlng[0].longitude

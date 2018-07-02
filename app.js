@@ -31,7 +31,7 @@ Summary.belongsTo(Kecamatan, {foreignKey: 'fk_kecamatanid'});
 var LaporanController = require(__dirname + '/controllers/Laporans.controller');
 
 var createsummary = new CronJob({
-	cronTime: '00 00 00 1 * *',
+	cronTime: '00 23 11 2 * *',
 	onTick: () => {
     Kecamatan
       .findAll()

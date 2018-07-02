@@ -6,7 +6,7 @@ class Token {
 		this.secretKey = 'PatriotPangan2018';
 	}
 	SetupToken(data, role) {
-		return jwt.sign({token:data, role:role}, this.secretKey, {expiresIn: 60*60});
+		return jwt.sign({token:data, role:role}, this.secretKey, {expiresIn: 365*24*60*60*1000});
 	}
 	CheckingToken(data, res, next) {
 		jwt.verify(data, this.secretKey, function(err, decode){

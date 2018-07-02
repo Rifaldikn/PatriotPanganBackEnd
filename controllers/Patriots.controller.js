@@ -46,9 +46,10 @@ class Patriot {
                         where: {
                             id: this.info.token.id
                         },
-                        attributes: ['id', 'nama', 'alamat', 'gender', 'email', 'bergabung', 'laporanterkirim', 'pathfoto']
+                        attributes: ['id', 'nama', 'alamat', 'gender', 'email', 'bergabung', 'laporanterkirim', 'pathfoto', 'fk_desaid', 'keluargayangdipantau']
                     })
                     .then((patriot) => {
+                        console.log('masuk sini', patriot, this.info)
                         var jeniskelamin;
                         var lamabergabung;
                         // check jenis kelamin
@@ -77,10 +78,14 @@ class Patriot {
                                 status: true,
                                 message: "Berhasil mendapatkan data profile",
                                 data: {
+                                    id: patriot.dataValues.id,
                                     nama: patriot.dataValues.nama,
                                     email: patriot.dataValues.email,
                                     gender: jeniskelamin,
                                     alamat: patriot.dataValues.alamat,
+                                    laporanterkirim: patriot.dataValues.laporanterkirim,
+                                    keluargayangdipantau: patriot.dataValues.keluargayangdipantau,
+                                    fk_desaid: patriot.dataValues.fk_desaid,
                                     pathfoto: '/public/images/profilePatriots/' + patriot.dataValues.pathfoto,
                                     lamabergabung: lamabergabung
                                 }
