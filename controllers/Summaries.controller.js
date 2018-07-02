@@ -70,8 +70,8 @@ class Summarie {
     				},{
                         where: {
                             [Op.and]: [
-                                {bulan : req.body.bulan},
-                                {tahun : req.body.tahun}
+                                {bulan : req.params.bulan},
+                                {tahun : req.params.tahun}
                             ]
                         }
                     })
@@ -335,6 +335,40 @@ class Summarie {
 				})
 			})
 	}
+
+    GetTotalQuestionPerTahun(req, res){
+        Summaries
+            .findAll({
+                where : {
+                    tahun : req.params.tahun
+                },
+                attributes: [
+                    [sequelize.fn('SUM', sequelize.col('q1')), 'q1'],
+                    [sequelize.fn('SUM', sequelize.col('q2')), 'q2'],
+                    [sequelize.fn('SUM', sequelize.col('q3')), 'q3'],
+                    [sequelize.fn('SUM', sequelize.col('q4')), 'q4'],
+                    [sequelize.fn('SUM', sequelize.col('q5')), 'q5'],
+                    [sequelize.fn('SUM', sequelize.col('q6')), 'q6'],
+                    [sequelize.fn('SUM', sequelize.col('q7')), 'q7'],
+                    , 'tahun'
+                ]
+
+            })
+            .then((summary) => {
+                res.json({
+                        status: true,
+                        message: "Berhasil mendapatkan total Q berdasarkan tahun",
+                        data: summary
+                    })
+            })
+            .catch((err) => {
+                res.json({
+                        status: false,
+                        message: "Internal Server Error",
+                        info: err
+                    })
+            });
+    }
 }
 
 module.exports = new Summarie;
