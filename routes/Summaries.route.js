@@ -38,4 +38,9 @@ router.get('/getkecamatanbytarafandprovid/:tipe_kondisi/:id_provinsi', (req, res
     Summaries.GetKecamatanByTarafAndProvId(req, res);
 });
 
+router.get('/getmaxtarafhistorypertahun/:tahun/:id_provinsi', (req, res, next) => {
+    Summaries.GetMaxTarafHistoryPerTahun(req, res);
+});
+
+
 module.exports = router;

@@ -6,6 +6,7 @@ var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
 var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
 var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
 var moment = require('moment');
+var _ = require('underscore');
 
 Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
 Summaries.belongsTo(Kecamatan, {foreignKey: 'fk_kecamatanid'});
@@ -558,6 +559,67 @@ class Summarie {
                         info: err
                     })
             });
+    }
+
+    async GetMaxTarafHistoryPerTahun(req,res){
+        try{
+            var summary = await Summaries
+                    .count({
+                        where : {
+                            [Op.and]: [
+                                {tahun : req.params.tahun},
+                                {'$rgn_district.number$' : {
+                                        $like: req.params.id_provinsi+'%'
+                                    }
+                                }
+                            ]
+                        },
+                        group: [
+                            'bulan',
+                            'kondisi'
+                        ],
+                        attributes: [
+                            'kondisi',
+                            'bulan'
+                        ],
+                        include: [{
+                            model: Kecamatan
+                        }]
+                    })
+
+            var jumlahTarafPerBulan = await {};
+            var historyTarafPerbulan = await {};
+
+            for (var i = 0; i<summary.length ; i++){
+                if(jumlahTarafPerBulan[summary[i].bulan] == undefined){
+                    jumlahTarafPerBulan[summary[i].bulan] = await {}
+                }
+                if(jumlahTarafPerBulan[summary[i].bulan][summary[i].kondisi] == undefined){
+                    jumlahTarafPerBulan[summary[i].bulan][summary[i].kondisi] = await summary[i].count;
+                }else {
+                    jumlahTarafPerBulan[summary[i].bulan][summary[i].kondisi] += await summary[i].count;
+                }
+            }
+
+            for(var key in jumlahTarafPerBulan){
+                historyTarafPerbulan[key] = await _.max(Object.keys(jumlahTarafPerBulan[key]), function(o){
+                    return jumlahTarafPerBulan[key][o];
+                })
+            }
+
+            res.json({
+                status: true,
+                message: "Berhasil mendapatkan history taraf berdasarkan prov id",
+                data: historyTarafPerbulan
+            })
+        }        
+        catch(err){
+            res.json({
+                status: false,
+                message: "Internal Server Error",
+                info: err
+            })   
+        }
     }
 
 }
