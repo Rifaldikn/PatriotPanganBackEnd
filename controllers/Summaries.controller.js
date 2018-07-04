@@ -59,47 +59,159 @@ class Summarie {
 			})
     }
 
-    GetJumlahTarafKec(req, res) {
-    	Kecamatan
-    		.count()
-    		.then((jumlah) =>{
-    			Summaries
-    				.count({
-						group: 'kondisi',
-						attributes: ['kondisi']
-    				},{
-                        where: {
-                            [Op.and]: [
-                                {bulan : req.params.bulan},
-                                {tahun : req.params.tahun}
-                            ]
-                        }
+    async GetJumlahTarafAllProv(req, res) {
+        try{
+    	   var jumlahKec = await Kecamatan.count()
+
+           try{
+               var jumSummary = await Summaries.count({
+                                        where: {
+                                            [Op.and]: [
+                                                {bulan : req.params.bulan},
+                                                {tahun : req.params.tahun}
+                                            ]
+                                        },
+                                        group: 'kondisi',
+                                        attributes: ['kondisi']    
+                                    })
+
+                var jumlahTaraf = await new Array(6).fill(0);
+
+                for (var i = 0; i<jumSummary.length ; i++){
+                    jumlahTaraf[jumSummary[i].kondisi] = await jumSummary[i].count;
+                }
+
+                res.json({
+                        status: true,
+                        message : "Berhasil mendapatkan jumlah Kecamatan pada seluruh Provinsi berdasarkan Taraf",
+                        data : {
+                            Aman: {
+                                tipe_kondisi : 0,
+                                count : jumlahTaraf[0]
+                            },
+                            Rawan1: {
+                                tipe_kondisi : 1,
+                                count :jumlahTaraf[1]
+                            },
+                            Rawan2: {
+                                tipe_kondisi : 2,
+                                count :jumlahTaraf[2]
+                            }, 
+                            Rawan3: {
+                                tipe_kondisi : 3,
+                                count :jumlahTaraf[3]
+                            },
+                            Rawan4: {
+                                tipe_kondisi : 4,
+                                count :jumlahTaraf[4]
+                            },
+                            Rawan5: {
+                                tipe_kondisi : 5,
+                                count :jumlahTaraf[5]
+                            },
+                            jumlahKecamatan : jumlahKec
+                        }                           
                     })
-    				.then((jumSummary) => {
-    					res.json({
-								status: true,
-    							message : "Berhasil mendapatkan jumlah Kecamatan berdasarkan Taraf",
-								data : {
-									jumlahTaraf : jumSummary,
-									jumlahKecamatan : jumlah 
-								}    						
-    						})
-    				})
-    				.catch((err)=>{
-    					res.json({
-								status: false,
-    							message: "Jumlah summary tidak didapatkan",
-    							info: err
-    						})
-    				})
-    		})
-    		.catch((err) => {
-    			res.json({
-						status: false,
-    					message: "Internal Server Error",
-    					info: err
-    				})
-    		})
+            }
+            catch(err) {
+                res.json({
+                    status: false,
+                    message: "Jumlah summary tidak didapatkan",
+                    info: err
+                })
+            }
+        }
+        catch(err) {
+            res.json({
+                status: false,
+                message: "Internal Server Error",
+                info: err
+            })
+        }	
+    }
+
+    async GetJumlahTarafByProvId(req, res) {
+        try{
+           var jumlahKec = await Kecamatan.count({
+                                where: {
+                                    number : {
+                                        $like : req.params.id_provinsi+'%'
+                                    }
+                                }
+                           })
+
+           try{ 
+                var jumSummary = await Summaries.count({
+                                        where: {
+                                            [Op.and]: [
+                                                {bulan : req.params.bulan},
+                                                {tahun : req.params.tahun},
+                                                {'$rgn_district.number$' : {
+                                                        $like: req.params.id_provinsi+'%'
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        group: 'kondisi',
+                                        attributes: ['kondisi'],
+                                        include: [{
+                                                model: Kecamatan
+                                            }]
+                                    })
+
+                var jumlahTaraf = await new Array(6).fill(0);
+
+                for (var i = 0; i<jumSummary.length ; i++){
+                    jumlahTaraf[jumSummary[i].kondisi] = await jumSummary[i].count;
+                }
+
+                res.json({
+                        status: true,
+                        message : "Berhasil mendapatkan jumlah Kecamatan pada provinsi tertentu berdasarkan Taraf",
+                        data : {
+                            Aman: {
+                                tipe_kondisi : 0,
+                                count : jumlahTaraf[0]
+                            },
+                            Rawan1: {
+                                tipe_kondisi : 1,
+                                count :jumlahTaraf[1]
+                            },
+                            Rawan2: {
+                                tipe_kondisi : 2,
+                                count :jumlahTaraf[2]
+                            }, 
+                            Rawan3: {
+                                tipe_kondisi : 3,
+                                count :jumlahTaraf[3]
+                            },
+                            Rawan4: {
+                                tipe_kondisi : 4,
+                                count :jumlahTaraf[4]
+                            },
+                            Rawan5: {
+                                tipe_kondisi : 5,
+                                count :jumlahTaraf[5]
+                            },
+                            jumlahKecamatan : jumlahKec
+                        }                           
+                    })
+            }
+            catch(err) {
+                res.json({
+                    status: false,
+                    message: "Jumlah summary tidak didapatkan",
+                    info: err
+                })
+            }
+        }
+        catch(err) {
+            res.json({
+                status: false,
+                message: "Internal Server Error",
+                info: err
+            })
+        }   
     }
 
     GetSummaries(req, res){
@@ -350,7 +462,7 @@ class Summarie {
                     [sequelize.fn('SUM', sequelize.col('q5')), 'q5'],
                     [sequelize.fn('SUM', sequelize.col('q6')), 'q6'],
                     [sequelize.fn('SUM', sequelize.col('q7')), 'q7'],
-                    , 'tahun'
+                    'tahun'
                 ]
 
             })
@@ -369,6 +481,85 @@ class Summarie {
                     })
             });
     }
+
+    GetTotalQuestionPerTahunByProvId(req, res){
+        Summaries
+            .findAll({
+                where : {
+                    [Op.and]: [
+                        {tahun : req.params.tahun},
+                        {'$rgn_district.number$' : {
+                                $like: req.params.id_provinsi+'%'
+                            }
+                        }
+                    ]
+                },
+                attributes: [
+                    [sequelize.fn('SUM', sequelize.col('q1')), 'q1'],
+                    [sequelize.fn('SUM', sequelize.col('q2')), 'q2'],
+                    [sequelize.fn('SUM', sequelize.col('q3')), 'q3'],
+                    [sequelize.fn('SUM', sequelize.col('q4')), 'q4'],
+                    [sequelize.fn('SUM', sequelize.col('q5')), 'q5'],
+                    [sequelize.fn('SUM', sequelize.col('q6')), 'q6'],
+                    [sequelize.fn('SUM', sequelize.col('q7')), 'q7'],
+                    'tahun'
+                ],
+                include: [{
+                    model: Kecamatan
+                }]
+
+            })
+            .then((summary) => {
+                res.json({
+                        status: true,
+                        message: "Berhasil mendapatkan total Q berdasarkan tahun by prov id",
+                        data: summary
+                    })
+            })
+            .catch((err) => {
+                res.json({
+                        status: false,
+                        message: "Internal Server Error",
+                        info: err
+                    })
+            });
+    }
+
+    GetKecamatanByTarafAndProvId(req,res){
+        Summaries.
+            findAll({
+                where : {
+                    [Op.and]: [
+                        { kondisi : req.params.tipe_kondisi},
+                        {'$rgn_district.number$' : {
+                                $like: req.params.id_provinsi+'%'
+                            }
+                        }
+                    ]  
+                },
+                include: [{
+                    model : Kecamatan
+                }],
+                attributes: [
+                    'rgn_district.name'
+                ]
+            })
+            .then((summary) => {
+                res.json({
+                        status: true,
+                        message: "Berhasil mendapatkan nama kecamatan berdasarkan taraf dan prov id",
+                        data: summary
+                    })
+            })
+            .catch((err) => {
+                res.json({
+                        status: false,
+                        message: "Internal Server Error",
+                        info: err
+                    })
+            });
+    }
+
 }
 
 module.exports = new Summarie;
