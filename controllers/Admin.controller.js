@@ -46,7 +46,8 @@ class Admin {
                 } else {
                     res.json({
                             status: false,
-                            message: "Upload gagal"
+                            message: "Upload gagal",
+                            info: err
                         });
                 }
             })
@@ -57,6 +58,105 @@ class Admin {
                 });
         }
 
+    }
+
+    EditArtikel(req, res) {
+        this.info = Token.DecodeToken(req.headers.token)
+        if(this.info.role != "admin") {
+            res.json({
+                status: false,
+                message: "Auth failed, Anda bukan admin"
+            });
+        } else {
+            Artikels
+                .update({
+                    judul: req.body.judul,
+                    tanggalpublish: Date.now(),
+                    sumberartikel: req.body.sumberartikel,
+                    isi: req.body.isi,
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                .then((updated) => {
+                    res.
+                        json({
+                            status: true, 
+                            message: "Berhasil memperbarui artikel dengan judul " + req.body.judul,
+                            info: updated
+                        });
+                })
+                .catch((err) => {
+                    res
+                        .json({
+                            status: false,
+                            message: "Gagal memperbarui artikel dengan judul " + req.body.judul,
+                            info: err
+                        });
+                });
+        }
+    }
+
+    EditPhotoArtikel(req, res) {
+        console.log('masuk sini kah?');
+        this.info = Token.DecodeToken(req.headers.token)
+        if (this.info.role != "admin") {
+            res.json({
+                status: false,
+                message: "Auth failed, Anda bukan admin"
+            });
+        } else {
+            this.storage = Upload.SetStorage('/../public/images/artikels');
+            this.upload = Upload.SetUpload(this.storage);
+            this.upload(req, res, (err) => {
+                Artikels
+                    .findOne({
+                        where: {
+                            id: req.params.id
+                        }
+                    })
+                    .then((artikel) => {
+                        artikel = JSON.parse(JSON.stringify(artikel));
+                        Artikels
+                            .update({
+                                pathfoto : req.file.filename
+                            }, {
+                                where: {
+                                    id: req.params.id
+                                }
+                            })
+                            .then((updated) => {
+                                // hapus file photo yang lama
+                                Upload.DeleteFile('/../public/images/artikels/' + artikel.pathfoto);
+                                res.
+                                    json({
+                                        status: true, 
+                                        message: "Berhasil memperbarui artikel dengan judul " + artikel.judul,
+                                        info: updated
+                                    });
+                            })
+                            .catch((err) => {
+                                Upload.DeleteFile('/../public/images/artikels/' + req.file.filename);
+                                res
+                                    .json({
+                                        status: false,
+                                        message: "Gagal memperbarui artikel dengan judul " + artikel.judul,
+                                        info: err
+                                    });
+                            })
+                    })
+                    .catch((err) => {
+                        Upload.DeleteFile('/../public/images/artikels/' + req.file.filename);
+                        res
+                            .json({
+                                status: false,
+                                message: "Gagal mendapatkan data artikel",
+                                info: err
+                            });
+                    })
+            })
+        }
     }
 }
 

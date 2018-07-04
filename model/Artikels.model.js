@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataType) {
                     }
                 },
                 tanggalpublish: DataType.DATE,
-                sumberarktikel: DataType.STRING,
+                sumberartikel: DataType.STRING,
                 isi: DataType.STRING,
                 pathfoto: DataType.STRING
 	});
