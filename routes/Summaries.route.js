@@ -34,12 +34,16 @@ router.get('/gettotalquestionpertahunbyprovid/:tahun/:id_provinsi', (req, res, n
     Summaries.GetTotalQuestionPerTahunByProvId(req, res);
 });
 
-router.get('/getkecamatanbytarafandprovid/:tipe_kondisi/:id_provinsi', (req, res, next) => {
+router.get('/getkecamatanbytarafandprovid/:tahun/:tipe_kondisi/:id_provinsi', (req, res, next) => {
     Summaries.GetKecamatanByTarafAndProvId(req, res);
 });
 
 router.get('/getmaxtarafhistorypertahun/:tahun/:id_provinsi', (req, res, next) => {
     Summaries.GetMaxTarafHistoryPerTahun(req, res);
+});
+
+router.get('/gettarafhistorypertahunbykecid/:tahun/:id_kecamatan', (req, res, next) => {
+    Summaries.GetTarafHistoryPerTahunByKecId(req, res);
 });
 
 

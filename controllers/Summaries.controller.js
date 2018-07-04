@@ -5,11 +5,16 @@ var Summaries = sequelize.import(__dirname + '/../model/Summaries.model');
 var Desa = sequelize.import(__dirname + '/../model/rgn_subdistrict.model');
 var Kecamatan = sequelize.import(__dirname + '/../model/rgn_district.model');
 var Kabupaten = sequelize.import(__dirname + '/../model/rgn_city.model');
+var KeluargaMiskin = sequelize.import(__dirname + '/../model/KeluargaMiskins.model');
+var LaporanModel = sequelize.import(__dirname + '/../model/Laporans.model');
 var moment = require('moment');
 var _ = require('underscore');
 
 Desa.belongsTo(Kecamatan, {foreignKey: 'district_id'});
 Summaries.belongsTo(Kecamatan, {foreignKey: 'fk_kecamatanid'});
+Kecamatan.belongsTo(Kabupaten, {foreignKey: 'city_id'});
+KeluargaMiskin.belongsTo(Desa, {foreignKey: 'fk_desaid'});
+LaporanModel.belongsTo(KeluargaMiskin, {foreignKey: 'fk_keluargamiskinid'});
 
 const Op = sequelize.Op;
 
@@ -526,39 +531,113 @@ class Summarie {
             });
     }
 
-    GetKecamatanByTarafAndProvId(req,res){
-        Summaries.
-            findAll({
-                where : {
-                    [Op.and]: [
-                        { kondisi : req.params.tipe_kondisi},
-                        {'$rgn_district.number$' : {
-                                $like: req.params.id_provinsi+'%'
-                            }
+    async GetKecamatanByTarafAndProvId(req,res){
+        try{
+            var summary = await 
+                Summaries
+                    .findAll({
+                        where : {
+                            [Op.and]: [
+                                {tahun : req.params.tahun},
+                                { kondisi : req.params.tipe_kondisi},
+                                {'$rgn_district.number$' : {
+                                        $like: req.params.id_provinsi+'%'
+                                    }
+                                }
+                            ]  
+                        },
+                        include: [{
+                            model : Kecamatan,
+                            include: [{
+                                model : Kabupaten
+                            }]
+                        }],
+                        order: [
+                            ['bulan', 'ASC']
+                        ],
+                        attributes: [
+                            'bulan',
+                            [sequelize.literal(`${sequelize.col('q1').col} +
+                             ${sequelize.col('q2').col} +
+                             ${sequelize.col('q3').col} +
+                             ${sequelize.col('q4').col} +
+                             ${sequelize.col('q5').col} +
+                             ${sequelize.col('q6').col} +
+                             ${sequelize.col('q7').col}
+                             `), 'jumlahpertanyaanyes']
+                        ]
+                    })
+
+            var tempBulan = await summary[0].bulan
+            var objKab = await {}
+
+            for(var i = 0; i<summary.length;i++){
+                if(summary[i].bulan == tempBulan){
+                    try{
+                        var laporan = await //belum bisa handle rekomendasi
+                            LaporanModel
+                                .count({
+                                    where :{
+                                        [Op.and]: [
+                                            {tahun : req.params.tahun},
+                                            {'$keluargamiskin.rgn_subdistrict.number$': {
+                                                $like: summary[i].rgn_district.number+'%'
+                                            }}
+                                        ]
+                                    },
+                                    include: [{
+                                        model: KeluargaMiskin,
+                                        include: [{
+                                            model: Desa
+                                        }]
+                                    }]
+                                }) 
+
+                        if(objKab[summary[i].rgn_district.rgn_city.name] == undefined){
+                            objKab[summary[i].rgn_district.rgn_city.name] = await {} 
+                        } 
+                        if(objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'] == undefined){
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'] = await {}    
                         }
-                    ]  
-                },
-                include: [{
-                    model : Kecamatan
-                }],
-                attributes: [
-                    'rgn_district.name'
-                ]
+                        if(objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number] == undefined){
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number] = await {}    
+                        }
+                        if(objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number] != undefined)
+                        {
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['nama'] = await summary[i].rgn_district.name
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['jumlahpertanyaan'] = await laporan*7
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['jumlahpertanyaanyes'] = await 0
+                        } 
+                    
+                    }catch(err){
+                        res.json({
+                            status: false,
+                            message: "Gagal get Laporan",
+                            info: err
+                        })
+                    }
+                }
+
+                //lakuin perhitungan total jumlah pertanyaan yes setiap bulan
+                objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['jumlahpertanyaanyes'] += await summary[i].dataValues.jumlahpertanyaanyes
+
+            }
+
+            res.json({
+                status: true,
+                message: "Berhasil mendapatkan nama kecamatan berdasarkan taraf dan prov id",
+                data: objKab
             })
-            .then((summary) => {
-                res.json({
-                        status: true,
-                        message: "Berhasil mendapatkan nama kecamatan berdasarkan taraf dan prov id",
-                        data: summary
-                    })
+
+
+        } catch(err) {
+            res.json({
+                status: false,
+                message: "Internal Server Error",
+                info: err
             })
-            .catch((err) => {
-                res.json({
-                        status: false,
-                        message: "Internal Server Error",
-                        info: err
-                    })
-            });
+        }
+        
     }
 
     async GetMaxTarafHistoryPerTahun(req,res){
@@ -632,6 +711,59 @@ class Summarie {
                 message: "Internal Server Error",
                 info: err
             })   
+        }
+    }
+
+    async GetTarafHistoryPerTahunByKecId(req, res){
+        try{
+            var summary = await Summaries
+                                    .findAll({
+                                        where : {
+                                            [Op.and]: [
+                                                {tahun : req.params.tahun},
+                                                {'$rgn_district.number$' : req.params.id_kecamatan}
+                                            ]
+                                        },
+                                        attributes: [
+                                            'kondisi',
+                                            'bulan'
+                                        ],
+                                        include: [{
+                                            model: Kecamatan
+                                        }]
+                                    })
+
+            var historyTarafPerbulan = await {
+                0 : null,
+                1 : null,
+                2 : null,
+                3 : null,
+                4 : null,
+                5 : null,
+                6 : null,
+                7 : null,
+                8 : null,
+                9 : null,
+                10 : null,
+                11 : null
+            };
+
+            for (var i = 0; i<summary.length ; i++){
+                historyTarafPerbulan[summary[i].bulan] = summary[i].kondisi
+            }
+
+            res.json({
+                status: true,
+                message: "Berhasil mendapatkan history taraf berdasarkan kec id",
+                data: historyTarafPerbulan
+            })
+        }
+        catch(err){
+            res.json({
+                status: false,
+                message: "Internal Server Error",
+                info: err
+            })
         }
     }
 
