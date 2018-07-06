@@ -574,9 +574,9 @@ class Summarie {
             for(var i = 0; i<summary.length;i++){
                 if(summary[i].bulan == tempBulan){
                     try{
-                        var laporan = await //belum bisa handle rekomendasi
+                        var laporan = await 
                             LaporanModel
-                                .count({
+                                .findAndCountAll({
                                     where :{
                                         [Op.and]: [
                                             {tahun : req.params.tahun},
@@ -585,13 +585,57 @@ class Summarie {
                                             }}
                                         ]
                                     },
+                                    attributes: [
+                                        [sequelize.fn('MAX', sequelize.col('q8')), 'q8'],
+                                        [sequelize.fn('MAX', sequelize.col('q9')), 'q9'],
+                                        [sequelize.fn('MAX', sequelize.col('q10')), 'q10']
+                                    ],
                                     include: [{
                                         model: KeluargaMiskin,
                                         include: [{
                                             model: Desa
                                         }]
                                     }]
-                                }) 
+                                })    
+
+                        var cuaca;
+                        var ketersediaanPangan;
+                        var hargaPangan;
+                        
+
+                        if(laporan.rows[0] != undefined){
+                            if(laporan.rows[0].q8.toLowerCase() == "kemarau" || laporan.rows[0].q8.toLowerCase() == "banjir"){
+                                cuaca = await ["Penyediaan air bersih.", "Lumbung pangan masyarakat."]
+                            }else {
+                                cuaca = await ["Tidak ada rekomendasi"]
+                            }
+
+                            if(laporan.rows[0].q9){
+                                ketersediaanPangan = await [
+                                    "Pemanfaatan pekarangan (Kawasan Rumah Pangan Lestari).",
+                                    "Desa atau kawasan mandiri pangan.",
+                                    "Pengembangan Usaha Pangan Masyarakat (PUPM)",
+                                    "Pengembangan pangan pokok lokal.",
+                                    "Lumbung pangan masyarakat."
+                                ]    
+                            }else {
+                                ketersediaanPangan = await ["Tidak ada rekomendasi"]
+                            }
+
+                            if(laporan.rows[0].q10){
+                                hargaPangan = await [
+                                    "Program padat karya.",
+                                    "Toko Tani Indonesia (TTI).",
+                                    "Operasi pasar murah."
+                                ]
+                            }else {
+                                hargaPangan = await ["Tidak ada rekomendasi"]
+                            }
+                        }else {
+                            cuaca = await ["Tidak ada rekomendasi"]
+                            ketersediaanPangan = await ["Tidak ada rekomendasi"]
+                            hargaPangan = await ["Tidak ada rekomendasi"]
+                        }
 
                         if(objKab[summary[i].rgn_district.rgn_city.name] == undefined){
                             objKab[summary[i].rgn_district.rgn_city.name] = await {} 
@@ -605,8 +649,11 @@ class Summarie {
                         if(objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number] != undefined)
                         {
                             objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['nama'] = await summary[i].rgn_district.name
-                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['jumlahpertanyaan'] = await laporan*7
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['jumlahpertanyaan'] = await laporan.count*7
                             objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['jumlahpertanyaanyes'] = await 0
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['cuaca'] = await cuaca
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['ketersediaanpangan'] = await ketersediaanPangan
+                            objKab[summary[i].rgn_district.rgn_city.name]['kecamatan'][summary[i].rgn_district.number]['hargapangan'] = await hargaPangan
                         } 
                     
                     }catch(err){

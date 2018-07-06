@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataType) {
         q7: DataType.BOOLEAN,
         q8: DataType.STRING,
         q9: DataType.BOOLEAN,
-        q10: DataType.STRING,
+        q10: DataType.BOOLEAN,
         pathfoto: DataType.STRING,
         deskripsi: DataType.STRING,
         fk_keluargamiskinid: {
