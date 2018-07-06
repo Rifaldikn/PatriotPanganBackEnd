@@ -408,39 +408,104 @@ class Patriot {
                                                             .findOne({
                                                                 where: {
                                                                     id: this.info.token.fk_desaid
-                                                                }
+                                                                },
+                                                                include: [{
+                                                                    model: Kecamatan
+                                                                }]
                                                             })
                                                             .then((desa) => {
                                                                 // update rangkuman laporan
                                                                 desa = JSON.parse(JSON.stringify(desa));
-                                                                Summary
-                                                                    .update({
-                                                                        q1: sequelize.literal('q1 + ' + req.body.q1),
-                                                                        q2: sequelize.literal('q2 + ' + req.body.q2),
-                                                                        q3: sequelize.literal('q3 + ' + req.body.q3),
-                                                                        q4: sequelize.literal('q4 + ' + req.body.q4),
-                                                                        q5: sequelize.literal('q5 + ' + req.body.q5),
-                                                                        q6: sequelize.literal('q6 + ' + req.body.q6),
-                                                                        q7: sequelize.literal('q7 + ' + req.body.q7)
-                                                                    }, {
+                                                                // get laporan bulan sebelumnya
+                                                                var bulan;
+                                                                var tahun;
+                                                                if(moment().month() == 0) {
+                                                                    bulan = 11;
+                                                                    tahun = moment().year()-1;
+                                                                } else {desa
+                                                                    bulan = moment().month() -1;
+                                                                    tahun = moment().year();
+                                                                }
+                                                                Laporans
+                                                                    .findOne({
                                                                         where: {
-                                                                            bulan : moment().month(),
-                                                                            tahun : moment().year(),
-                                                                            fk_kecamatanid : desa.district_id
+                                                                            fk_keluargamiskinid: req.params.KMid,
+                                                                            // minggu: moment().week(),
+                                                                            bulan: bulan,
+                                                                            tahun: tahun,
                                                                         }
                                                                     })
-                                                                    .then((summary) =>{
-                                                                        res.json({
-                                                                                status: true,
-                                                                                message: "Berhasil menambahkan laporan minggu ini",
-                                                                                info: km
+                                                                    .then((laporan) => {
+                                                                        laporan = JSON.parse(JSON.stringify(laporan));
+                                                                        Summary
+                                                                            .findOne({
+                                                                                where: {
+                                                                                    bulan: moment().month(),
+                                                                                    tahun: moment().year(),
+                                                                                    fk_kecamatanid: desa.district_id
+                                                                                }
+                                                                            })
+                                                                            .then((findsummary) => {
+                                                                                findsummary = JSON.parse(JSON.stringify(findsummary));
+                                                                                var data = {};
+                                                                                for(let i=1; i<=7; i++) {
+                                                                                    if(laporan['q'+i]) {
+                                                                                        data['q'+i] = findsummary['q'+i] - 1 + parseInt(req.body['q'+i]);
+                                                                                    } else {
+                                                                                        data['q'+i] = findsummary['q'+i] + parseInt(req.body['q'+i]);
+                                                                                    }
+                                                                                }
+                                                                                data.rgn_district = {}
+                                                                                data.rgn_district.jumlahkeluarga = desa.rgn_district.jumlahkeluarga;
+                                                                                Summary
+                                                                                    .update({
+                                                                                        q1: data.q1, // kurangin dengan data q laporan sebelum
+                                                                                        q2: data.q2,
+                                                                                        q3: data.q3,
+                                                                                        q4: data.q4,
+                                                                                        q5: data.q5,
+                                                                                        q6: data.q6,
+                                                                                        q7: data.q7,
+                                                                                        //update kondisi
+                                                                                        kondisi: LaporanController.GetStatusKeluargaMiskinAngka(data)
+                                                                                    }, {
+                                                                                        where: {
+                                                                                            bulan : moment().month(),
+                                                                                            tahun : moment().year(),
+                                                                                            fk_kecamatanid : desa.district_id
+                                                                                        }
+                                                                                    })
+                                                                                    .then((summary) =>{
+                                                                                        res.json({
+                                                                                                status: true,
+                                                                                                message: "Berhasil menambahkan laporan minggu ini",
+                                                                                                info: km
+                                                                                            });
+                                                                                    })
+                                                                                    .catch((err) =>{
+                                                                                        Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
+                                                                                        res.json({
+                                                                                                status: false,
+                                                                                                message: "Gagal menambahkan laporan minggu ini pada update summary",
+                                                                                                info: err
+                                                                                            });
+                                                                                    });
+                                                                            })
+                                                                            .catch((err) => {
+                                                                                Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
+                                                                                res.json({
+                                                                                    status: false,
+                                                                                    message: "Gagal mendapatkan rangkuman bulan ini",
+                                                                                    info: err
+                                                                                });
                                                                             });
                                                                     })
-                                                                    .catch((err) =>{
+                                                                    .catch((err) => {
                                                                         Upload.DeleteFile('/../public/images/laporans/' + req.file.filename);
-                                                                        res.json({
+                                                                        res
+                                                                            .json({
                                                                                 status: false,
-                                                                                message: "Gagal menambahkan laporan minggu ini pada update summary",
+                                                                                message: "Gagal mendapatkan laporan sebelumnya",
                                                                                 info: err
                                                                             });
                                                                     });
