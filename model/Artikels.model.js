@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataType) {
                 },
                 tanggalpublish: DataType.DATE,
                 sumberartikel: DataType.STRING,
-                isi: DataType.STRING,
+                isi: DataType.TEXT,
                 pathfoto: DataType.STRING
 	});
 }

@@ -24,7 +24,7 @@ class Admin {
                             judul: req.body.judul,
                             fk_pembuatid : this.info.token.id,
                             tanggalpublish: Date.now(),
-                            sumberartikel: req.body.sumberartikel,
+                            sumberarktikel: req.body.sumberartikel,
                             isi: req.body.isi,
                             pathfoto : req.file.filename
                         })
@@ -72,7 +72,7 @@ class Admin {
                 .update({
                     judul: req.body.judul,
                     tanggalpublish: Date.now(),
-                    sumberartikel: req.body.sumberartikel,
+                    sumberarktikel: req.body.sumberartikel,
                     isi: req.body.isi,
                 }, {
                     where: {

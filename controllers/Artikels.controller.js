@@ -27,7 +27,8 @@ class Artikel {
 			.catch((err) => {
                 res.json({
 						status: false,
-                        message: "Internal Server Error, saat mendapatkan artikel"
+						message: "Internal Server Error, saat mendapatkan artikel",
+						info: err
                     })
             });
 	}

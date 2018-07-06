@@ -31,18 +31,40 @@ Summary.belongsTo(Kecamatan, {foreignKey: 'fk_kecamatanid'});
 var LaporanController = require(__dirname + '/controllers/Laporans.controller');
 
 var createsummary = new CronJob({
-	cronTime: '00 23 11 2 * *',
+	cronTime: '00 39 18 6 * *',
 	onTick: () => {
-    Kecamatan
-      .findAll()
-      .then((kecamatan) => {
-        kecamatan = JSON.parse(JSON.stringify(kecamatan));
-        for(var i=0; i<kecamatan.length; i++) {
+    var bulan;
+    var tahun;
+    if(moment().month() == 0) {
+      bulan = 11;
+      tahun = moment().year() - 1;
+    } else {
+      bulan = moment().month()-1;
+      tahun = moment().year();
+    }
+    Summary
+      .findAll({
+        where: {
+          bulan: bulan,
+          tahun: tahun,
+        }
+      })
+      .then((summarysebelumnya) => {
+        summarysebelumnya = JSON.parse(JSON.stringify(summarysebelumnya));
+        for(var i=0; i<summarysebelumnya.length; i++) {
           Summary
             .create({
-              fk_kecamatanid: kecamatan[i].id,
+              fk_kecamatanid: summarysebelumnya[i].fk_kecamatanid,
               bulan: moment().month(),
-              tahun: moment().year()
+              tahun: moment().year(),
+              q1: summarysebelumnya[i].q1,
+              q2: summarysebelumnya[i].q2,
+              q3: summarysebelumnya[i].q3,
+              q4: summarysebelumnya[i].q4,
+              q5: summarysebelumnya[i].q5,
+              q6: summarysebelumnya[i].q6,
+              q7: summarysebelumnya[i].q7,
+              kondisi: summarysebelumnya[i].kondisi,
             });
         }
       });
@@ -94,7 +116,7 @@ var updatesummary = new CronJob({
 });
 
 createsummary.start();
-updatesummary.start();
+// updatesummary.start();
 
 var Token  = require(__dirname + '/controllers/Token.controller');
 var AuthRouter = require(__dirname + '/routes/Auth.route');
@@ -110,6 +132,7 @@ app.use('/auth', AuthRouter);
 app.use('/lokasi', LokasiRouter);
 app.use('/summary', SummariesRouter);
 app.use('/webapi', WebsiteRouter);
+app.use('/artikel', ArtikelsRouter);
 // Checking token gajadi pake ini
 // Kudu make, untuk memastikan yang login punya token dari kita
 app.use((req, res, next) => {
@@ -127,7 +150,7 @@ app.use((req, res, next) => {
 });
 app.use('/admin', AdminRouter);
 app.use('/patriot', PatriotsRouter);
-app.use('/artikel', ArtikelsRouter);
+// app.use('/artikel', ArtikelsRouter);
 app.use('/keluargamiskin', KMRouter);
 
 // catch 404 and forward to error handler
